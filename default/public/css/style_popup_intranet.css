@@ -1,0 +1,53 @@
+
+#bienvenida 
+{
+
+
+	position: absolute;
+	left: 85px;
+	top: 5px;
+	
+}
+#ingresar 
+{
+
+	position: absolute;
+	left: 100px;
+	top: 50px;
+	
+}
+
+#botones 
+{
+
+	position: absolute;
+	left: 105px;
+	top: 150px;
+	
+}
+
+
+.flota{
+	z-index:1000;
+	background:#FFFFFF;
+	width:50px;
+	height:50px;
+	border: 5px solid #3D5E64;
+	margin:0px 0px 0px 0px;			
+	transition: all 0s ;
+	
+	position:absolute;
+	
+	-webkit-border-radius: 20px 20px 20px 20px;
+	-moz-border-radius: 20px 20px 20px 20px;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.flota2{
+
+	display:none;
+
+	margin-left:-130px;
+	margin-top:-10px;
+
+}

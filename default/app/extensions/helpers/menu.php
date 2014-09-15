@@ -70,6 +70,26 @@ class Menu {
     }
 
     /**
+     * Crea los menus para la app.
+     * 
+     * @param  int $id_user 
+     * @param  int $entorno 
+     * @return string          
+     */
+    public static function render2($entorno = self::APP) {
+        $rL = new Menus();
+        $registros = $rL->obtener_menu_por_usuario2( $entorno);
+        $html = '';
+        if ($registros) {
+            $html .= '<ul class="nav">' . PHP_EOL;
+            foreach ($registros as $e) {
+                $html .= self::generarItems($e, $entorno);
+            }
+            $html .= '</ul>' . PHP_EOL;
+        }
+        return $html;
+    }
+    /**
      * Genera los items del menu.
      * 
      * @param  Model $objeto_menu 

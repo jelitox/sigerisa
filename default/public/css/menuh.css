@@ -1,0 +1,150 @@
+#menus{	
+	color:#FBFBFB;
+	width: 980px;
+	height:41px;
+	background-repeat: no-repeat;
+	background-size:980px 30px;
+	position: absolute;
+	left: 0px;
+	top: 115px;
+}
+
+#menus, #menus ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+}
+
+#menus {
+	width: 980px;
+	margin: 60px auto;
+	background: #3D5E64;
+	/* gradient */
+	background: -webkit-gradient(linear, left top, left bottom, from(#b9b9b9), to(#6a6a6a));
+	background: -moz-linear-gradient(top,  #b9b9b9,  #6a6a6a);
+	background: linear-gradient(-90deg, #53838C, #3D6167);/*color degradado del menu */
+	/* rounded corner */
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+
+#menus:before,
+#menus:after {
+	content: "";
+	display: table;
+}
+
+#menus:after {
+	clear: both;
+}
+
+#menus {
+	zoom:1;
+}
+
+#menus li {
+	float: left;
+	border-right9: 1px solid #222;
+	box-shadow: 1px 0 0 #444;
+	position: relative;
+}
+
+#menus a {
+	float: left;
+	padding: 12px 25px;
+	color: #FFFFFF;
+	font: bold 14px Arial, Helvetica;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+}
+
+#menus ul {
+	width: 140px;
+	margin: 200px 0 0 0;
+	_margin: 0; /*IE6 only*/
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 38px;
+	left: 0px;
+	z-index: 1;    
+	background: #3D5E64;
+	box-shadow: 0 -1px 0 rgba(255,255,255,.3);	
+	border-radius: 3px;
+	transition: all .2s ease-in-out;  
+}
+
+
+#menus li:hover > ul {
+	opacity: 1;
+	visibility: visible;
+	margin: 0;
+}
+
+/* menu delado */
+#menus ul ul {
+	top: 0;
+	left: 145px;
+	margin: 0 0 0 20px;
+	_margin: 0; /*IE6 only*/
+	box-shadow: -1px 0 0 rgba(255,255,255,.3);		
+}
+
+#menus ul li {
+	float: none;
+	display: block;
+	border: 0px;
+	_line-height: 0; /*IE6 only*/
+	box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+}
+
+#menus ul li:last-child {   
+	box-shadow: none;    
+}
+
+#menus ul a {    
+	padding: 10px;
+	width: 140px;
+	_height: 10px; /*IE6 only*/
+	display: block;
+	white-space: nowrap;
+	float: none;
+	text-transform: none;
+}
+
+#menus ul a:hover {
+	color: white;
+	background: #3C830C;
+	/* gradient */
+	background: -webkit-gradient(linear, left top, left bottom, from(#cdcdcd), to(#797979));
+	background: -moz-linear-gradient(top,  #cdcdcd,  #797979);
+	background: linear-gradient(-90deg, #07547C, #2BBCC8); /*color degradado de seleccion de menu*/
+}
+
+#menus ul li:first-child > a {
+	border-radius: 3px 3px 0 0;
+}
+
+#menus ul li:first-child > a:after {
+	content: '';
+	position: absolute;
+	left: 40px;
+	top: -6px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #444;
+}
+
+#menus ul ul li:first-child a:after {
+	left: -6px;
+	top: 50%;
+	margin-top: -6px;
+	border-left: 0;	
+	border-bottom: 6px solid transparent;
+	border-top: 6px solid transparent;
+	border-right: 6px solid #3b3b3b;
+}
+

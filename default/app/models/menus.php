@@ -71,6 +71,25 @@ class Menus extends ActiveRecord {
     }
 
     /**
+     * Devuelve el menu para un usuario no autenticado.
+     * 
+     * @param  int $id_user 
+     * @param  int $entorno 
+     * @return array          
+     */
+    public function obtener_menu_por_usuario2($entorno) {
+        $select = 'm.*';
+        $from = 'menus as m';
+        //$joins = "INNER JOIN roles_recursos1 AS rr ON m.recursos_id = rr.recursos_id ";
+        //$joins .= 'INNER JOIN recursos AS re ON re.activo = 1 AND re.id = rr.recursos_id ';
+        //$joins .= 'INNER JOIN roles_usuarios AS ru ON ru.usuarios_id = \'' . $id_user . "' AND rr.roles_id = ru.roles_id";
+        //$condiciones = " m.menus_id is NULL AND m.activo = 1 ";
+        $condiciones = "visible_en ='1' ";
+        $orden = 'm.posicion';
+        return $this->find_all_by_sql("SELECT $select FROM $from  WHERE $condiciones  ORDER BY $orden");
+    }
+
+    /**
      * Obtiene los items asociados a un item padre.
      * 
      * @param  int $id_user 

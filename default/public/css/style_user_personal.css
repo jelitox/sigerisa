@@ -1,0 +1,228 @@
+
+
+	/*control personal*/		
+#cedula 
+{
+	overflow:scroll;
+	overflow-x:auto;overflow-y:auto;
+	width: 210px;
+	height:60px;
+
+	position: absolute;
+	left: 120px;
+	top: 60px;
+}
+		
+#ced
+{
+	overflow:scroll;
+	overflow-x:auto;overflow-y:auto;
+	width: 80px;
+	height:60px;
+text-align: right;
+	position: absolute;
+	left: 0px;
+	top: 62px;
+}
+	
+#nom
+{
+	width: 100px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: -5px;
+	top: 110px;
+}
+#nom2
+{
+	width: 208px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 120px;
+	top: 110px;
+}
+#ape
+{
+
+	width: 100px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 350px;
+	top: 110px;
+}
+#ape2
+{
+	width: 208px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 460px;
+	top: 110px;
+}
+
+#sexo
+{
+
+	width: 100px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: -36px;
+	top: 150px;
+}
+#sexo2
+{
+	width: 208px;
+	height:20px;
+	text-align: right;
+	position: absolute;
+	left: 70px;
+	top: 158px;
+}
+
+#sexo2 input[type='radio']
+{
+	width: 15px;
+	height:15px;
+	float:left;
+	margin: -16px 10px 0px 10px;	
+}
+
+#fech
+{	
+	width: 180px;
+	height:30px;
+	text-align: left;
+	
+	position: absolute;
+	left: 0px;
+	top: 200px;
+}
+#fech2 input[type='text']{width: 130px;}
+
+#fech2
+{
+	width: 208px;
+	height:20px;
+	text-align: right;
+	position: absolute;
+	left: 180px;
+	top: 200px;
+}
+
+#fech3
+{
+	width: 208px;
+	height:20px;
+	text-align: right;
+	position: absolute;
+	left: 135px;
+	top: 200px;
+}
+
+#tel
+{
+	width: 108px;
+	height:30px;
+	position: absolute;
+	left: -13px;
+	top: 258px;
+	text-align: right;
+}
+
+#telcel
+{
+	width: 108px;
+	height:30px;
+	position: absolute;
+	left: 80px;
+	top: 260px;
+	text-align: right;
+}
+#telcel2
+{
+	width: 150px;
+	height:30px;
+	position: absolute;
+	left: 197px;
+	top: 260px;
+	text-align: right;
+}
+
+#telfij
+{
+	width: 108px;
+	height:30px;
+	position: absolute;
+	left: 300px;
+	top: 260px;
+	text-align: right;
+}
+#telfij2
+{
+	width: 150px;
+	height:30px;
+	position: absolute;
+	left: 415px;
+	top: 260px;
+	text-align: right;
+}
+
+#corre
+{
+	width: 108px;
+	height:30px;
+	position: absolute;
+	left: -30px;
+	top: 306px;
+	
+	text-align: right;
+}
+#correo2
+{
+	width: 240px;
+	height:30px;
+	position: absolute;
+	left: 120px;
+	top: 306px;
+	text-align: right;
+}
+
+#direc
+{
+	width: 100px;
+	height:30px;
+	position: absolute;
+	left: -03px;
+	top: 354px;
+	text-align: right;
+}
+#direc2
+{
+	width: 550px;
+	height:30px;
+	position: absolute;
+	left: 120px;
+	top: 354px;
+	
+	text-align: right;
+}
+#bt_nuevo
+{
+	width: 580px;
+	height:30px;
+	position: absolute;
+	left: 180px;
+	top: 425px;
+	text-align: center;	
+}
+
+/*control ciudad */

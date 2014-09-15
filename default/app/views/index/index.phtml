@@ -1,45 +1,30 @@
-<h1 style="margin-bottom: 20px;">Bienvenido al KumbiaPHP Backend</h1>
-
+<!-- Carousel
+    ================================================== -->
+<div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+						<a href=""><?php echo Html::img('banner/cielo.png', 'cielo'); ?></a>
+						<a href=""><?php echo Html::img('banner/relax.png', 'relax'); ?></a>
+                        <a href=""><?php echo Html::img('banner/verde.png', 'verde'); ?></a>
+					</div>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="span8"><div id="content">.col-md-8</div></div>
+        <div class="span4">
+            <div class="widget">
+                <h4 class="widgettitulo">Denuncias</h4>
+                <ul>
+                    <li><a href="">Desechos Sólidos</a></li>
+                    <li><a href="">Contaminación Ambiental </a></li>
+                    <li><a href="">Contaminación Del Agua </a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
 <?php View::content() ?>
-<a class="thumbnail span3 pull-right" style="margin: 0 20px 20px;"><?php echo Html::img('backend/Admin1.png', 'Backend'); ?></a>
-<p>
-    EL backend es el módulo de administración y configuración de una aplicación,
-    a traves de el podremos gestionar las diferentes partes de la misma, desde el control
-    de los usuarios de sistemas y sus privilegios, hasta llevar auditorias sobre
-    las acciones que realizan los mismos dentro de la aplicación.
-</p>
-<br/>
-<!--<br/>
-<br/>
-<br/>
-<br/>
-<br/>-->
-<h4 style="margin-bottom: 20px;">Entre las principales caracteristicas del backend podemos mencionar:</h4>
-<ul class="bienvenida">
-    <li>
-        <?php echo Html::img('backend/usuarios.gif', 'usuarios') ?>
-        Gestión de Usuarios
-    </li>
-    <li>
-        <?php echo Html::img('backend/perfil_profesional.jpg', 'perfiles') ?>
-        Gestión de Roles (Perfiles de Usuario)
-    </li>
-    <li>
-        <?php echo Html::img('backend/recursos.png', 'recursos') ?>
-        Gestión de Recursos (Módulos de la Aplicación)
-    </li>
-    <li>
-        <?php echo Html::img('backend/permisos.jpg', 'permisos') ?>
-        Gestión de Privilegios (Permisos de los usuarios a los diferentes Modulos de la Aplicación)
-    </li>
-    <li>
-        <?php echo Html::img('backend/auditorias.jpg', 'auditorias') ?>
-        Módulo de Auditorias (Revisión de las acciones realizadas por los usuarios en la Aplicación)
-    </li>
-    <li>
-        <?php echo Html::img('backend/config.jpg', 'Configuración') ?>
-        Configuración general de la Aplicación.
-    </li>
-</ul>
-
-<div style="clear: both;"></div>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>

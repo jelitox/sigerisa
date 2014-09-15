@@ -21,7 +21,8 @@ body{
     padding-bottom: 0px;
 }
 
-.nav{
+.navbar-inner{
+    background: linear-gradient(-90deg, #53838c, #3d6167) repeat scroll 0 0 rgba(0, 0, 0, 0);
     /*    float: none !important;*/
 }
 /*

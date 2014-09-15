@@ -18,6 +18,8 @@ class View extends KumbiaView {
     public static function renderMenu($entorno) {
         if (MyAuth::es_valido()) {
             echo Menu::render(Auth::get('id'), $entorno);
+        }else{
+            echo Menu::render2($entorno);
         }
     }
 

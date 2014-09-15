@@ -7,15 +7,16 @@
                 <span class="icon-bar"></span>
             </a>
             <a class="brand">Modulo de Administracion</a>
-            <div class="nav-collapse">
-                <?php View::renderMenu(Menu::BACKEND) ?>
+            <div class="nav-collapse"><b>
+                <?php View::renderMenu(Menu::BACKEND) ?></b>
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="text-transform: capitalize;">
-                            <?php eh(Auth::get('nombres')) ?>
+                            <b><?php eh(Auth::get('nombres')) ?></b>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><?php echo Html::link('admin/index', 'Mi Perfil') ?></li>
                             <li><?php echo Html::link('admin/index/logout', 'Salir') ?></li>
                         </ul>
                     </li>

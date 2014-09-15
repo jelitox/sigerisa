@@ -5,8 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo Config::get('config.application.name') ?></title>
         <?php
+        Tag::css('backend/base-admin-2');
+        Tag::css('backend/base-admin-2-responsive');
         Tag::css('backend/bootstrap.min');
         Tag::css('backend/bootstrap-responsive.min');
+        Tag::css('backend/pages/dashboard');  
         Tag::css('backend/estilos');
         echo Html::includeCss();
         echo Tag::js('jquery/jquery.min');

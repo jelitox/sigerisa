@@ -1,0 +1,223 @@
+         
+/* el cuerpo */
+body{
+	width: 1000px;
+	height:600px;
+    background: #303E0D url(../imagenes/a.jpg) fixed repeat-y top center;
+	
+	background-repeat: no-repeat;
+	background-position: center center;
+    background-attachment: fixed;
+	margin: 0 auto;
+	text-align:center;
+
+}
+			
+			
+.uno a{
+	text-decoration:none;
+	color:DCDCDC;
+}
+.uno a:hover{
+	text-decoration:none;
+	color:FFFFE0;
+}
+	
+	/* este es el contenedor central */     
+#contenedor{
+	text-align:justify;
+	width: 980px;
+	height:830px;
+	background-color:off;
+	position: relative;
+	
+
+
+}
+#contenedor2{
+	width: 982px;
+	height:802px;
+	background-color:off;
+	position: relative;
+	top: 5px;
+	border: solid 1px #CAC7E2;
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 5px 5px 10px #2464DC;
+
+
+}
+
+
+
+#menbrete{
+	width: 980px;
+	height:55px;
+	background-color:#0ff;
+	background: url("../imagenes/baner/membrete.jpg") #222;
+	background-repeat: no-repeat;
+	background-size: 980px 55px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 15px 15px 0px 0px;
+}
+#baner{
+	width: 980px;
+	height:120px;
+	
+	background: url("../imagenes/baner/sco.jpg") ;
+	background-repeat: no-repeat;
+	background-size:985px 120px;
+	position: absolute;
+	left: 0px;
+	top: 55px;
+
+}
+
+
+	/*cuadro informacion*/		
+#informacion 
+{
+	overflow:scroll;
+	overflow-x:auto;overflow-y:auto;
+	width: 980px;
+	height:585px;
+	background: url("../imagenes/fond.jpg");
+	background-size:985px 600px;
+	position: absolute;
+	left: 0px;
+	top: 215px;
+	border-radius: 0px 0px 15px 15px;
+}
+		
+#hora_y_fecha{
+
+	width: 350px;
+	height:30px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 600px;
+	top: 13px;
+}	
+#R_persona{
+
+	width: 190px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 380px;
+	top: 90px;
+}	
+#R_personal{
+
+	width: 190px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 80px;
+	top: 200px;
+}	
+#R_personal_tallas{
+
+	width: 290px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 330px;
+	top: 200px;
+}
+#R_personal_servicio{
+
+	width: 290px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 600px;
+	top: 200px;
+}
+
+
+#R_servicio{
+
+	width: 190px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 80px;
+	top: 310px;
+}	
+
+#R_jerarqia{
+
+	width: 190px;
+	height:70px;
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 280px;
+	top: 310px;
+}	
+
+#R_orden{
+
+	width: 290px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 440px;
+	top: 310px;
+}		
+
+#R_permisos{
+
+	width: 290px;
+	height:70px;
+
+	background-size: 190px 170px;
+	position: absolute;
+	font-size: 16px;
+	left: 640px;
+	top: 310px;
+}		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

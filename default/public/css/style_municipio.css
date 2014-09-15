@@ -1,0 +1,57 @@
+#nom3
+{
+	position: absolute;
+	left: 350px;
+	top: 110px;
+}
+
+#nom
+{
+	width: 100px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 50px;
+	top: 110px;
+}
+#nom2
+{
+	width: 208px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 160px;
+	top: 110px;
+}
+
+#estad{
+	width: 100px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 37px;
+	top: 150px;
+}
+
+#estad2{
+	width: 208px;
+	height:30px;
+	text-align: right;
+
+	position: absolute;
+	left: 160px;
+	top: 160px;
+}
+
+#bt_nuevo
+{
+	width: 580px;
+	height:30px;
+	position: absolute;
+	left: 180px;
+	top: 250px;
+	text-align: center;	
+}
