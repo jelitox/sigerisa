@@ -73,7 +73,7 @@ class Paginator
     {
         $params = Util::getParams(func_get_args());
         $page_number = isset($params['page']) ? (int) $params['page'] : 1;
-        $per_page = isset($params['per_page']) ? (int) $params['per_page'] : 10;
+        $per_page = isset($params['per_page']) ? (int) $params['per_page'] : 30;
         //Si la página o por página es menor de 1 (0 o negativo)
         if ($page_number < 1 && $per_page < 1) {
             throw new KumbiaException("La página $page_number no existe en el páginador");

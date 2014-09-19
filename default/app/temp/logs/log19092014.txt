@@ -1,0 +1,17 @@
+[Fri, 19 Sep 14 02:38:32 -0430][CRITICAL] exception 'KumbiaException' with message 'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-30' at line 1 al ejecutar <em>"SELECT parroquia.id,parroquia.nombre,parroquia.municipio_id,m.nombre as parroq FROM parroquia INNER JOIN municipio as m ON m.id = municipio_id  LIMIT 30 OFFSET -30"</em>' in /var/www/sigerisa/core/libs/db/adapters/mysqli.php:161
+Stack trace:
+#0 /var/www/sigerisa/core/libs/db/db_base.php(89): DbMySQLi->query('SELECT parroqui...')
+#1 /var/www/sigerisa/core/libs/kumbia_active_record/kumbia_active_record.php(852): DbBase->in_query('SELECT parroqui...')
+#2 [internal function]: KumbiaActiveRecord->find('columns: parroq...', 'join: INNER JOI...', 'offset: -30', 'limit: 30')
+#3 /var/www/sigerisa/core/libs/kumbia_active_record/behaviors/paginate.php(136): call_user_func_array(Array, Array)
+#4 [internal function]: Paginator::paginate(Object(Parroquia), 'page: page: 1', 'columns: parroq...', 'join: INNER JOI...')
+#5 /var/www/sigerisa/core/libs/kumbia_active_record/kumbia_active_record.php(2441): call_user_func_array(Array, Array)
+#6 /var/www/sigerisa/default/app/models/parroquia.php(47): KumbiaActiveRecord->paginate('page: page: 1', 'columns: parroq...', 'join: INNER JOI...')
+#7 /var/www/sigerisa/default/app/controllers/admin/parroquia_controller.php(42): Parroquia->parroquias_paginados('page: 1')
+#8 [internal function]: ParroquiaController->index()
+#9 /var/www/sigerisa/core/kumbia/router.php(190): ReflectionMethod->invokeArgs(Object(ParroquiaController), Array)
+#10 /var/www/sigerisa/core/kumbia/router.php(215): Router::_dispatch()
+#11 /var/www/sigerisa/core/kumbia/bootstrap.php(145): Router::execute('/admin/parroqui...')
+#12 /var/www/sigerisa/default/app/libs/bootstrap.php(21): require_once('/var/www/sigeri...')
+#13 /var/www/sigerisa/default/public/index.php(81): require('/var/www/sigeri...')
+#14 {main}

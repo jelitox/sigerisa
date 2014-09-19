@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>municipios</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/municipio/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear municipio'));
+$dt = new DataTable($municipios);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Nombre', 'Observación');
+$dt->addHeaders('Editar', 'Eliminar');
+$dt->check('municipio_id');
+$dt->addFields('id', 'nombre', 'observacion');
+$dt->imgLink('figuras/editar.png', 'admin/municipio/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/municipio/eliminar', '', '¿Realmente desea Eliminar Este municipio?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>

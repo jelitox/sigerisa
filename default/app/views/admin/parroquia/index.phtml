@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>parroquias</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/parroquia/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear parroquia'));
+$dt = new DataTable($parroquias);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Nombre', 'Municipio');
+$dt->addHeaders('Editar', 'Eliminar');
+$dt->check('parroquia_id');
+$dt->addFields('id', 'nombre', 'municipio');
+$dt->imgLink('figuras/editar.png', 'admin/parroquia/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/parroquia/eliminar', '', '¿Realmente desea Eliminar Este parroquia?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>

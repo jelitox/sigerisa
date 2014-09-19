@@ -22,6 +22,7 @@
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
  * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
  */
+
 class RegistroController extends AppController {
 
 	public function before_filter(){
@@ -31,12 +32,15 @@ class RegistroController extends AppController {
 	}
 
     public function index() {
-        if (Input::hasPost('registro')) {
-            if (Load::model('usuarios', Input::post('registro'))->registrar()){
-				Flash::valid("Exito");
-			}else{
-				Flash::error("Problemas");			
-			}
+        if (Input::hasPost('usuarios'))  {
+        var_dump(hasPost('usuarios'));
+        var_dump(hasPost('persona'));   
+            //if (Load::model('usuarios', Input::post('registro'))->registrar()){
+			//	Flash::valid("Exito");
+			//}else{
+			//	Flash::error("Problemas");			
+			//}
+        }else{ return false;
         }
     }
 

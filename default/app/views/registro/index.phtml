@@ -4,36 +4,120 @@
 <?php View::content(); ?>
 <?php echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
 <?php echo Form::hidden('registro.id') ?>
-<div class="control-group">
-    <label for="usuario_login">Nombre de Usuario (Login)* : </label>
-    <div class="controls">
-        <?php echo Form::text('registro.login') ?>
+<div class="hero-unit">
+    <div class="page-header">
+    <h3>Datos Personales <small>* Campos Requeridos </small></h3>
     </div>
-</div>
-<div class="control-group">
-    <label for="usuario_clave">Contrase&ntilde;a* : </label>
-    <div class="controls">
-        <?php echo Form::pass('registro.clave') ?>
-    </div>
-</div>
-<div class="control-group">
-    <label for="usuario_clave2">Volver a escribir Contrase&ntilde;a* : </label>
-    <div class="controls">
-        <?php echo Form::pass('registro.clave2') ?>
-    </div>
-</div>
-<div class="control-group">
-    <label for="usuario_nombres">Nombre Completo* : </label>
-    <div class="controls">
-        <?php echo Form::text('registro.nombres') ?>
-    </div>
-</div>
-<div class="control-group">
-    <label for="usuario_email">Correo Electronico* : </label>
-    <div class="controls">
-        <?php echo Form::text('registro.email') ?>
-    </div>
-</div>
+     
+        <div class="row control-group">
+            <div class="span2">
+                <label class="control-label" for="persona_cedula"><b>Cedula * :  </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.cedula', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+                <label class="control-label" for="persona_nombre1"><b>Primer Nombre * : </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.nombre1', 'class="span3"') ?>
+            </div>
+        </div>
+
+        <div class="row control-group">
+            <div class="span2">
+                <label class="control-label" for="persona_nombre2">Segundo Nombre  :  </label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.nombre2', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+                <label class="control-label" for="persona_apellido1"><b>Primer Apellido * : </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.apellido1', 'class="span3"') ?>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="span2">
+                <label class="control-label" for="persona_apellido2">Segundo Apellido  :  </label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.apellido2', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+                <label class="control-label" for="persona_fecha_nacimiento"><b>Fecha de Nacimiento * : </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::date('persona.fecha_nacimiento', 'class="span3"') ?>
+            </div>
+        </div>
+
+        <div class="row control-group">
+            <div class="span2">
+                <label class="control-label" for="persona_telefono_local"><b>Telefono Local * :  </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.telefono_local', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+                <label class="control-label" for="persona_telefono_movil"><b>Telefono Movil * : </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('persona.telefono_movil', 'class="span3"') ?>
+            </div>
+        </div>
+
+        <div class="row control-group">
+
+            <div class="span2">
+                <label class="control-label" for="persona_direccion"><b>Dirección * :  </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::textarea('persona.direccion', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+
+            </div>
+            <div class="span3">
+
+            </div>
+        </div>
+    <div class="page-header">
+    <h3>Datos de Usuario <small>* Campos Requeridos </small></h3>
+    </div>        
+        <div class="row control-group">
+            <div class="span2">
+                <label for="usuario_login"><b>Nombre de Usuario (Login)* : </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::text('registro.login', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+                <label for="usuario_clave"><b>Contrase&ntilde;a* : </b></label>
+            </div>
+            <div class="span3">
+                <?php echo Form::pass('registro.clave', 'class="span3"') ?>
+            </div>
+        </div>
+
+        <div class="row control-group">
+            <div class="span2">
+    <label for="usuario_clave2"><b>Volver a escribir Contrase&ntilde;a* : </b></label>
+            </div>
+            <div class="span3">
+        <?php echo Form::pass('registro.clave2', 'class="span3"') ?>
+            </div>
+            <div class="span2">
+    <label for="usuario_email"><b>Correo Electronico* : </b></label>
+            </div>
+            <div class="span3">
+        <?php echo Form::text('registro.email', 'class="span3"') ?>
+            </div>
+        </div>
+
+
+</div>        
 <div class="form-actions">
     <?php echo Form::submit('Crear Cuenta', 'class="btn btn-primary"') ?>
     <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>

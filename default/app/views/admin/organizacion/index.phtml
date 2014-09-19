@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>Organizaciones</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/organizacion/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear organizacion'));
+$dt = new DataTable($organizaciones);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Descripción', 'Observación');
+$dt->addHeaders('Editar', 'Eliminar');
+$dt->check('organizacion_id');
+$dt->addFields('id', 'descripcion', 'observacion');
+$dt->imgLink('figuras/editar.png', 'admin/organizacion/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/organizacion/eliminar', '', '¿Realmente desea Eliminar Este organizacion?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>
