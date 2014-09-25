@@ -22,9 +22,9 @@
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
  * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
  */
-Load::models('denuncia');
+Load::models('planificacion');
 
-class DenunciaController extends AdminController {
+class PlanificacionController extends AdminController {
 
     /**
      * Luego de ejecutar las acciones, se verifica si la petición es ajax
@@ -37,22 +37,22 @@ class DenunciaController extends AdminController {
     }
 
     public function index($pagina = 1) {
-        try {
-            $denuncias = new Denuncia();
-            $this->denuncias = $denuncias->paginate("page: $pagina");
+        /*try {
+            $cargos = new Cargo();
+            $this->cargos = $cargos->paginate("page: $pagina");
         } catch (KumbiaException $e) {
             View::excepcion($e);
-        }
+        }*/
     }
 
     public function crear() {
         try {
-            $this->titulo = 'Crear Denuncia';
+            $this->titulo = 'Crear Cargo';
 
-            if (Input::hasPost('denuncia')) {
-                $denuncia = new Denuncia(Input::post('denuncia'));
-                if ($denuncia->save()) {
-                    Flash::valid('La denuncia Ha Sido Agregado Exitosamente...!!!');
+            if (Input::hasPost('cargo')) {
+                $cargo = new Cargo(Input::post('cargo'));
+                if ($cargo->save()) {
+                    Flash::valid('El Cargo Ha Sido Agregado Exitosamente...!!!');
                     if (!Input::isAjax()) {
                         return Router::redirect();
                     }

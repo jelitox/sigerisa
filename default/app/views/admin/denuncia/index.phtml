@@ -2,18 +2,18 @@
     <h1>Denuncias</h1>
 </div>
 <?php View::content() ?>
-<?php/*
-echo Form::open('admin/cargo/eliminar', 'post', 'class="form_lista"');
-View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear Cargo'));
-$dt = new DataTable($cargos);
+<?php
+echo Form::open('admin/denuncia/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear Denuncia'));
+$dt = new DataTable($denuncias);
 $dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
 $dt->addHeaders('id', 'Nombre', 'Observación');
 $dt->addHeaders('Editar', 'Eliminar');
-$dt->check('cargo_id');
+$dt->check('denuncia_id');
 $dt->addFields('id', 'nombre', 'observacion');
-$dt->imgLink('figuras/editar.png', 'admin/cargo/editar');
-$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/cargo/eliminar', '', '¿Realmente desea Eliminar Este Cargo?');
+$dt->imgLink('figuras/editar.png', 'admin/denuncia/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/denuncia/eliminar', '', '¿Realmente desea Eliminar Esta ddenuncia?');
 echo $dt->render('class="table table-bordered table-striped"');
 echo Form::close();
-*/
+
 ?>
