@@ -1,22 +1,8 @@
 <?php
-
 /**
  * Backend - KumbiaPHP Backend
  * PHP version 5
  * LICENSE
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * ERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package Modelos
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
@@ -101,14 +87,15 @@ class Usuarios extends ActiveRecord
      * @param array $roles ids de los roles a guardar para el user
      * @return boolean retorna TRUE si se pudieron guardar los datos con exito
      */
-    public function guardar($data, $roles)
-    {
+    public function guardar($data, $roles=1){
+
         $this->begin();
 
         if (!$this->save($data)) {
             $this->rollback();
             return FALSE;
         }
+        
 
         $rolUser = Load::model('roles_usuarios');
 
