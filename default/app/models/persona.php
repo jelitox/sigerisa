@@ -3,20 +3,6 @@
 /**
  * Backend - KumbiaPHP Backend
  * PHP version 5
- * LICENSE
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * ERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package Modelos
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
@@ -29,18 +15,7 @@ class Persona extends ActiveRecord
 
     protected function initialize()
     {
-        //$this->belongs_to('roles');
-        //$this->has_many('auditorias');
-        //$this->has_many('roles_usuarios');
-        //$this->has_and_belongs_to_many('roles', 'model: roles', 'fk: roles_id', 'through: roles_usuarios', 'key: usuarios_id');
-        //$this->validates_presence_of('login', 'message: Debe escribir un <b>Login</b> para el Usuario');
-        //$this->validates_presence_of('clave', 'message: Debe escribir una <b>Contraseña</b>');
-        //$this->validates_length_of('clave', 50, $min_clave, "too_short: La Clave debe tener <b>Minimo {$min_clave} caracteres</b>");
-        //$this->validates_presence_of('clave2', 'message: Debe volver a escribir la <b>Contraseña</b>');
-        //$this->validates_presence_of('nombres', 'message: Debe escribir su <b>nombre completo</b>');
-        //$this->validates_presence_of('email', 'message: Debe escribir un <b>correo electronico</b>');
-        //$this->validates_email_in('email', 'message: Debe escribir un <b>correo electronico</b> válido');
-        //$this->validates_uniqueness_of('login', 'message: El <b>Login</b> ya está siendo utilizado');
+        
     }
 
     protected function before_save()
