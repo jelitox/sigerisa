@@ -1,16 +1,11 @@
 <?php
-
 /**
- * Backend - KumbiaPHP Backend
- * PHP version 5
- * LICENSE
- *
- *
  * @package Controller
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
- * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
+ * @author Alexis Borges <programador.manuel@gmail.com>
  */
-
+Load::models('usuarios');
+Load::models('persona');
 class RegistroController extends AppController {
 
 	public function before_filter(){
@@ -20,14 +15,32 @@ class RegistroController extends AppController {
 	}
 
     public function index() {
-        if (Input::hasPost('usuarios')){
-
-            //if (Load::model('usuarios', Input::post('registro'))->registrar()){
-			//	Flash::valid("Exito");
-			//}else{
-			//	Flash::error("Problemas");			
-			//}
-        }else{ return false;
+        if ((Input::hasPost('usuarios'))&& (Input::hasPost('persona')) ){
+            //esto es para tener atributos que no son campos de la tabla
+                $rol = array('id'=>'1');
+                $usr = new Usuarios(); 
+                $per = new Persona();
+                //guarda los datos del usuario, y le asigna los roles 
+                //seleccionados en el formulario.
+                $usr->begin();
+                $persona = $per->guardar(Input::post('persona'));
+                $persona_id = $per->getUltimaPersona();
+                if($persona){
+                    if ( $usr->guardar(Input::post('usuarios'), $rol, array('persona_id'=>$persona_id->id) ) ){
+                        $usr->commit();
+                        Flash::valid('El Usuario Ha Sido Agregado Exitosamente...!!!');
+                        if (!Input::isAjax()) {
+                            return Router::redirect();
+                        }
+                    }
+                    else {
+                        $usr->rollback();
+                        Flash::warning('No se Pudieron Guardar los Datos...!!!');
+                    }
+                }
+        }
+        else{
+            return false;
         }
     }
 
@@ -39,5 +52,10 @@ class RegistroController extends AppController {
             View::response('error');
         }
     }
+
+
+
+
+
 
 }

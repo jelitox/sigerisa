@@ -49,7 +49,7 @@
                 <label class="control-label" for="persona_fecha_nacimiento"><b>Fecha de Nacimiento * : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::date('persona.fecha_nacimiento', 'class="span3 "') ?>
+                <?php echo Form::date('persona.fecha_nacimiento', 'class="span3 mask-date"') ?>
             </div>
         </div>
 
@@ -91,13 +91,13 @@
                 <label for="usuario_login"><b>Nombre de Usuario (Login)* : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('registro.login', 'class="span3 mask-alpha"') ?>
+                <?php echo Form::text('usuarios.login', 'class="span3 mask-alpha"') ?>
             </div>
             <div class="span2">
                 <label for="usuario_clave"><b>Contrase&ntilde;a* : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::pass('registro.clave', 'class="span3"') ?>
+                <?php echo Form::pass('usuarios.clave', 'class="span3"') ?>
             </div>
         </div>
 
@@ -106,17 +106,15 @@
     <label for="usuario_clave2"><b>Volver a escribir Contrase&ntilde;a* : </b></label>
             </div>
             <div class="span3">
-        <?php echo Form::pass('registro.clave2', 'class="span3"') ?>
+        <?php echo Form::pass('usuarios.clave2', 'class="span3"') ?>
             </div>
             <div class="span2">
     <label for="usuario_email"><b>Correo Electronico* : </b></label>
             </div>
             <div class="span3">
-        <?php echo Form::text('registro.email', 'class="span3"') ?>
+        <?php echo Form::text('usuarios.email', 'class="span3"') ?>
             </div>
         </div>
-
-
 </div>        
 <div class="form-actions">
     <?php echo Form::submit('Crear Cuenta', 'class="btn btn-primary"') ?>
