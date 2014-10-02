@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>Tipos de Solicitudes</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/tipo_solicitud/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear Tipo de Solicitud'));
+$dt = new DataTable($tipo_solicitudes);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Nombre', 'Observación');
+$dt->addHeaders('Editar', 'Eliminar');
+$dt->check('tipo_solicitud_id');
+$dt->addFields('id', 'nombre', 'observacion');
+$dt->imgLink('figuras/editar.png', 'admin/tipo_solicitud/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/tipo_solicitud/eliminar', '', '¿Realmente desea Eliminar Este Tipo Solicitud?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>
