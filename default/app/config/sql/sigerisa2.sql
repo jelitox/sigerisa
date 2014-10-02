@@ -97,6 +97,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `sigerisa`.`tipo_solicitud`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sigerisa`.`tipo_solicitud` ;
+
+CREATE  TABLE IF NOT EXISTS `sigerisa`.`tipo_solicitud` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  `observacion` TEXT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `sigerisa`.`solicitud`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `sigerisa`.`solicitud` ;
@@ -116,10 +129,12 @@ CREATE  TABLE IF NOT EXISTS `sigerisa`.`solicitud` (
   `empleado_id` INT NOT NULL ,
   `observaciones_generales` TEXT NULL ,
   `estatus` VARCHAR(1) NOT NULL ,
+  `tipo_solicitud_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_solicitud_agua_urbanismo_municipio1_idx` (`parroquia_id` ASC) ,
   INDEX `fk_solicitud_agua_urbanismo_persona1_idx` (`persona_id` ASC) ,
   INDEX `fk_solicitud_empleado1_idx` (`empleado_id` ASC) ,
+  INDEX `fk_solicitud_tipo_solicitud` (`tipo_solicitud_id` ASC) ,
   CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1`
     FOREIGN KEY (`parroquia_id` )
     REFERENCES `sigerisa`.`parroquia` (`id` )
@@ -134,20 +149,12 @@ CREATE  TABLE IF NOT EXISTS `sigerisa`.`solicitud` (
     FOREIGN KEY (`empleado_id` )
     REFERENCES `sigerisa`.`empleado` (`id` )
     ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_solicitud_tipo_solicitud`
+    FOREIGN KEY (`tipo_solicitud_id` )
+    REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sigerisa`.`tipo_solicitud`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sigerisa`.`tipo_solicitud` ;
-
-CREATE  TABLE IF NOT EXISTS `sigerisa`.`tipo_solicitud` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `observacion` TEXT NULL ,
-  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
 
