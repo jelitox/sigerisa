@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-09-2014 a las 17:24:42
+-- Tiempo de generación: 02-10-2014 a las 10:17:31
 -- Versión del servidor: 5.5.37
 -- Versión de PHP: 5.3.10-1ubuntu3.13
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `auditorias`
 --
 
+DROP TABLE IF EXISTS `auditorias`;
 CREATE TABLE IF NOT EXISTS `auditorias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuarios_id` int(11) NOT NULL,
@@ -119,12 +120,13 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 -- Estructura de tabla para la tabla `cargo`
 --
 
+DROP TABLE IF EXISTS `cargo`;
 CREATE TABLE IF NOT EXISTS `cargo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `observacion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `cargo`
@@ -138,23 +140,10 @@ INSERT INTO `cargo` (`id`, `nombre`, `observacion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria_solicitud`
---
-
-CREATE TABLE IF NOT EXISTS `categoria_solicitud` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
-  `tipo_solicitud_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_categoria_solicitud_tipo_solicitud1_idx` (`tipo_solicitud_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `constancia_inspeccion_sanitaria`
 --
 
+DROP TABLE IF EXISTS `constancia_inspeccion_sanitaria`;
 CREATE TABLE IF NOT EXISTS `constancia_inspeccion_sanitaria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `solicitud_id` int(11) NOT NULL,
@@ -170,6 +159,7 @@ CREATE TABLE IF NOT EXISTS `constancia_inspeccion_sanitaria` (
 -- Estructura de tabla para la tabla `denuncia`
 --
 
+DROP TABLE IF EXISTS `denuncia`;
 CREATE TABLE IF NOT EXISTS `denuncia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `persona_id` int(11) NOT NULL,
@@ -188,6 +178,7 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
 -- Estructura de tabla para la tabla `detalle_denuncia`
 --
 
+DROP TABLE IF EXISTS `detalle_denuncia`;
 CREATE TABLE IF NOT EXISTS `detalle_denuncia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `empleado_id` int(11) NOT NULL,
@@ -202,26 +193,13 @@ CREATE TABLE IF NOT EXISTS `detalle_denuncia` (
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `detalle_solicitud`
---
 
-CREATE TABLE IF NOT EXISTS `detalle_solicitud` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sub_categoria_solicitud_id` int(11) NOT NULL,
-  `solicitud_id` int(11) NOT NULL,
-  `resultado` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_detalle_sol_agua_sub_categoria_sol_agua1_idx` (`sub_categoria_solicitud_id`),
-  KEY `fk_detalle_solicitud_solicitudes1_idx` (`solicitud_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `empleado`
 --
 
+DROP TABLE IF EXISTS `empleado`;
 CREATE TABLE IF NOT EXISTS `empleado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `persona_id` int(11) NOT NULL,
@@ -237,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 -- Estructura de tabla para la tabla `menus`
 --
 
+DROP TABLE IF EXISTS `menus`;
 CREATE TABLE IF NOT EXISTS `menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menus_id` int(11) DEFAULT NULL,
@@ -286,6 +265,7 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 -- Estructura de tabla para la tabla `municipio`
 --
 
+DROP TABLE IF EXISTS `municipio`;
 CREATE TABLE IF NOT EXISTS `municipio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
@@ -306,6 +286,7 @@ INSERT INTO `municipio` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `observacion_funcionario`
 --
 
+DROP TABLE IF EXISTS `observacion_funcionario`;
 CREATE TABLE IF NOT EXISTS `observacion_funcionario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `solicitud_id` int(11) NOT NULL,
@@ -324,12 +305,13 @@ CREATE TABLE IF NOT EXISTS `observacion_funcionario` (
 -- Estructura de tabla para la tabla `organizacion`
 --
 
+DROP TABLE IF EXISTS `organizacion`;
 CREATE TABLE IF NOT EXISTS `organizacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
   `observacion` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `organizacion`
@@ -344,6 +326,7 @@ INSERT INTO `organizacion` (`id`, `descripcion`, `observacion`) VALUES
 -- Estructura de tabla para la tabla `parroquia`
 --
 
+DROP TABLE IF EXISTS `parroquia`;
 CREATE TABLE IF NOT EXISTS `parroquia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
@@ -365,6 +348,7 @@ INSERT INTO `parroquia` (`id`, `nombre`, `municipio_id`) VALUES
 -- Estructura de tabla para la tabla `persona`
 --
 
+DROP TABLE IF EXISTS `persona`;
 CREATE TABLE IF NOT EXISTS `persona` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cedula` varchar(11) NOT NULL,
@@ -396,6 +380,7 @@ INSERT INTO `persona` (`id`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apell
 -- Estructura de tabla para la tabla `recursos`
 --
 
+DROP TABLE IF EXISTS `recursos`;
 CREATE TABLE IF NOT EXISTS `recursos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `modulo` varchar(50) DEFAULT NULL,
@@ -458,6 +443,7 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 -- Estructura de tabla para la tabla `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rol` varchar(50) NOT NULL,
@@ -482,6 +468,7 @@ INSERT INTO `roles` (`id`, `rol`, `plantilla`, `activo`) VALUES
 -- Estructura de tabla para la tabla `roles_recursos`
 --
 
+DROP TABLE IF EXISTS `roles_recursos`;
 CREATE TABLE IF NOT EXISTS `roles_recursos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roles_id` int(11) NOT NULL,
@@ -568,6 +555,7 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 -- Estructura de tabla para la tabla `roles_usuarios`
 --
 
+DROP TABLE IF EXISTS `roles_usuarios`;
 CREATE TABLE IF NOT EXISTS `roles_usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roles_id` int(11) NOT NULL,
@@ -588,63 +576,140 @@ INSERT INTO `roles_usuarios` (`id`, `roles_id`, `usuarios_id`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `solicitud`
---
 
-CREATE TABLE IF NOT EXISTS `solicitud` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `persona_id` int(11) NOT NULL,
-  `parroquia_id` int(11) NOT NULL,
-  `denominado` varchar(45) DEFAULT NULL,
-  `direccion` varchar(45) DEFAULT NULL,
-  `propietario` varchar(45) DEFAULT NULL,
-  `telefono` varchar(45) DEFAULT NULL,
-  `fecha_recibido` date DEFAULT NULL,
-  `fecha_solicitud` date DEFAULT NULL,
-  `fecha_comision` date DEFAULT NULL,
-  `fecha_para` date DEFAULT NULL,
-  `empleado_id` int(11) NOT NULL,
-  `observaciones_generales` text,
-  `estatus` varchar(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_solicitud_agua_urbanismo_municipio1_idx` (`parroquia_id`),
-  KEY `fk_solicitud_agua_urbanismo_persona1_idx` (`persona_id`),
-  KEY `fk_solicitud_empleado1_idx` (`empleado_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- -----------------------------------------------------
+-- Table `sigerisa`.`tipo_solicitud`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sigerisa`.`tipo_solicitud` ;
+
+CREATE  TABLE IF NOT EXISTS `sigerisa`.`tipo_solicitud` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  `observacion` TEXT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `sub_categoria_solicitud`
---
+-- -----------------------------------------------------
+-- Table `sigerisa`.`caracteristica`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sigerisa`.`caracteristica` ;
 
-CREATE TABLE IF NOT EXISTS `sub_categoria_solicitud` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoria_solicitud_id` int(11) NOT NULL,
-  `nombre` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_sub_categoria_sol_agua_categoria_sol_agua1_idx` (`categoria_solicitud_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE  TABLE IF NOT EXISTS `sigerisa`.`caracteristica` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  `tipo_valor` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `tipo_solicitud`
---
+-- -----------------------------------------------------
+-- Table `sigerisa`.`tiposolicitud_caracteristica`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sigerisa`.`tiposolicitud_caracteristica` ;
 
-CREATE TABLE IF NOT EXISTS `tipo_solicitud` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE  TABLE IF NOT EXISTS `sigerisa`.`tiposolicitud_caracteristica` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  `tipo_solicitud_id` INT NOT NULL ,
+  `caracteristica_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_categoria_solicitud_tipo_solicitud1_idx` (`tipo_solicitud_id` ASC) ,
+  INDEX `fk_tiposolicitud_caracteristica_caracteristica` (`caracteristica_id` ASC) ,
+  CONSTRAINT `fk_tiposolicitud_caracteristica_tipo_solicitud`
+    FOREIGN KEY (`tipo_solicitud_id` )
+    REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tiposolicitud_caracteristica_caracteristica`
+    FOREIGN KEY (`caracteristica_id` )
+    REFERENCES `sigerisa`.`caracteristica` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
--- --------------------------------------------------------
+
+-- -----------------------------------------------------
+-- Table `sigerisa`.`solicitud`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sigerisa`.`solicitud` ;
+
+CREATE  TABLE IF NOT EXISTS `sigerisa`.`solicitud` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `persona_id` INT NOT NULL ,
+  `parroquia_id` INT NOT NULL ,
+  `denominado` VARCHAR(45) NULL ,
+  `direccion` VARCHAR(45) NULL ,
+  `propietario` VARCHAR(45) NULL ,
+  `telefono` VARCHAR(45) NULL ,
+  `fecha_recibido` DATE NULL ,
+  `fecha_solicitud` DATE NULL ,
+  `fecha_comision` DATE NULL ,
+  `fecha_para` DATE NULL ,
+  `empleado_id` INT NOT NULL ,
+  `observaciones_generales` TEXT NULL ,
+  `estatus` VARCHAR(1) NOT NULL ,
+  `tipo_solicitud_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_solicitud_municipio1_idx` (`parroquia_id` ASC) ,
+  INDEX `fk_solicitud_persona1_idx` (`persona_id` ASC) ,
+  INDEX `fk_solicitud_empleado1_idx` (`empleado_id` ASC) ,
+  INDEX `fk_solicitud_tipo_solicitud` (`tipo_solicitud_id` ASC) ,
+  CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1`
+    FOREIGN KEY (`parroquia_id` )
+    REFERENCES `sigerisa`.`parroquia` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_solicitud_persona1`
+    FOREIGN KEY (`persona_id` )
+    REFERENCES `sigerisa`.`persona` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_solicitud_empleado1`
+    FOREIGN KEY (`empleado_id` )
+    REFERENCES `sigerisa`.`empleado` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_solicitud_tipo_solicitud`
+    FOREIGN KEY (`tipo_solicitud_id` )
+    REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sigerisa`.`detalle_solicitud`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sigerisa`.`detalle_solicitud` ;
+
+CREATE  TABLE IF NOT EXISTS `sigerisa`.`detalle_solicitud` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `solicitud_id` INT NOT NULL ,
+  `tiposolicitud_caracteristica_id` INT NOT NULL ,
+  `resultado` VARCHAR(45) NOT NULL ,
+  INDEX `fk_detalle_solicitud_solicitudes1_idx` (`solicitud_id` ASC) ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_detalle_solicitud_tiposolicitud_caracteristica` (`tiposolicitud_caracteristica_id` ASC) ,
+  CONSTRAINT `fk_detalle_solicitud_solicitudes1`
+    FOREIGN KEY (`solicitud_id` )
+    REFERENCES `sigerisa`.`solicitud` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_detalle_solicitud_tiposolicitud_caracteristica`
+    FOREIGN KEY (`tiposolicitud_caracteristica_id` )
+    REFERENCES `sigerisa`.`tiposolicitud_caracteristica` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
@@ -675,107 +740,83 @@ INSERT INTO `usuarios` (`id`, `login`, `clave`, `email`, `activo`, `persona_id`)
 -- Filtros para la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  ADD CONSTRAINT `auditorias_ibfk_10` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `auditorias_ibfk_10` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON UPDATE NO ACTION;
 
---
--- Filtros para la tabla `categoria_solicitud`
---
-ALTER TABLE `categoria_solicitud`
-  ADD CONSTRAINT `fk_categoria_solicitud_tipo_solicitud1` FOREIGN KEY (`tipo_solicitud_id`) REFERENCES `tipo_solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `constancia_inspeccion_sanitaria`
 --
 ALTER TABLE `constancia_inspeccion_sanitaria`
-  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-  ADD CONSTRAINT `fk_denuncia_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_denuncia_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `detalle_denuncia`
 --
 ALTER TABLE `detalle_denuncia`
-  ADD CONSTRAINT `fk_detalle_denuncia_denuncia1` FOREIGN KEY (`denuncia_id`) REFERENCES `denuncia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_detalle_denuncia_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_detalle_denuncia_denuncia1` FOREIGN KEY (`denuncia_id`) REFERENCES `denuncia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_detalle_denuncia_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
---
--- Filtros para la tabla `detalle_solicitud`
---
-ALTER TABLE `detalle_solicitud`
-  ADD CONSTRAINT `fk_detalle_sol_agua_sub_categoria_sol_agua1` FOREIGN KEY (`sub_categoria_solicitud_id`) REFERENCES `sub_categoria_solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_detalle_solicitud_solicitudes1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  ADD CONSTRAINT `fk_empleado_persona` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_empleado_cargo` FOREIGN KEY (`cargo_id`) REFERENCES `cargo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_empleado_cargo` FOREIGN KEY (`cargo_id`) REFERENCES `cargo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_empleado_persona` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `menus`
 --
 ALTER TABLE `menus`
-  ADD CONSTRAINT `menus_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `menus_ibfk_10` FOREIGN KEY (`menus_id`) REFERENCES `menus` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `menus_ibfk_10` FOREIGN KEY (`menus_id`) REFERENCES `menus` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `menus_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `observacion_funcionario`
 --
 ALTER TABLE `observacion_funcionario`
-  ADD CONSTRAINT `fk_observacion_funcionario_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_observacion_funcionario_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_observacion_funcionario_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_observacion_funcionario_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `parroquia`
 --
 ALTER TABLE `parroquia`
-  ADD CONSTRAINT `fk_parroquia_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_parroquia_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD CONSTRAINT `fk_persona_organizacion` FOREIGN KEY (`organizacion_id`) REFERENCES `organizacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_persona_organizacion` FOREIGN KEY (`organizacion_id`) REFERENCES `organizacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `roles_recursos`
 --
 ALTER TABLE `roles_recursos`
-  ADD CONSTRAINT `roles_recursos_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `roles_recursos_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `roles_recursos_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `roles_recursos_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `roles_usuarios`
 --
 ALTER TABLE `roles_usuarios`
-  ADD CONSTRAINT `roles_usuarios_ibfk_20` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `roles_usuarios_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `roles_usuarios_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `roles_usuarios_ibfk_20` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
---
--- Filtros para la tabla `solicitud`
---
-ALTER TABLE `solicitud`
-  ADD CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1` FOREIGN KEY (`parroquia_id`) REFERENCES `parroquia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_solicitud_agua_urbanismo_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_solicitud_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `sub_categoria_solicitud`
---
-ALTER TABLE `sub_categoria_solicitud`
-  ADD CONSTRAINT `fk_sub_categoria_sol_agua_categoria_sol_agua1` FOREIGN KEY (`categoria_solicitud_id`) REFERENCES `categoria_solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `fk_usuarios_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_usuarios_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
