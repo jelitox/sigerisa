@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>Caracteristicas</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/caracteristica/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Crear Caracteristica'));
+$dt = new DataTable($caracteristicas);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Nombre', 'Tipo Valor');
+$dt->addHeaders('Editar', 'Eliminar');
+$dt->check('caracteristica_id');
+$dt->addFields('id', 'nombre', 'tipo_valor');
+$dt->imgLink('figuras/editar.png', 'admin/caracteristica/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/caracteristica/eliminar', '', '¿Realmente desea Eliminar Este Caracteristica?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>

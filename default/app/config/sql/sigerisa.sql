@@ -621,13 +621,13 @@ CREATE  TABLE IF NOT EXISTS `sigerisa`.`tiposolicitud_caracteristica` (
   CONSTRAINT `fk_tiposolicitud_caracteristica_tipo_solicitud`
     FOREIGN KEY (`tipo_solicitud_id` )
     REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_tiposolicitud_caracteristica_caracteristica`
     FOREIGN KEY (`caracteristica_id` )
     REFERENCES `sigerisa`.`caracteristica` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -660,23 +660,23 @@ CREATE  TABLE IF NOT EXISTS `sigerisa`.`solicitud` (
   CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1`
     FOREIGN KEY (`parroquia_id` )
     REFERENCES `sigerisa`.`parroquia` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_solicitud_persona1`
     FOREIGN KEY (`persona_id` )
     REFERENCES `sigerisa`.`persona` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_solicitud_empleado1`
     FOREIGN KEY (`empleado_id` )
     REFERENCES `sigerisa`.`empleado` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_solicitud_tipo_solicitud`
     FOREIGN KEY (`tipo_solicitud_id` )
     REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -696,13 +696,13 @@ CREATE  TABLE IF NOT EXISTS `sigerisa`.`detalle_solicitud` (
   CONSTRAINT `fk_detalle_solicitud_solicitudes1`
     FOREIGN KEY (`solicitud_id` )
     REFERENCES `sigerisa`.`solicitud` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_detalle_solicitud_tiposolicitud_caracteristica`
     FOREIGN KEY (`tiposolicitud_caracteristica_id` )
     REFERENCES `sigerisa`.`tiposolicitud_caracteristica` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 --
@@ -740,83 +740,83 @@ INSERT INTO `usuarios` (`id`, `login`, `clave`, `email`, `activo`, `persona_id`)
 -- Filtros para la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  ADD CONSTRAINT `auditorias_ibfk_10` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `auditorias_ibfk_10` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON UPDATE NO ACTION;
 
 
 --
 -- Filtros para la tabla `constancia_inspeccion_sanitaria`
 --
 ALTER TABLE `constancia_inspeccion_sanitaria`
-  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_constancia_inspeccion_sanitaria_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-  ADD CONSTRAINT `fk_denuncia_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_denuncia_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `detalle_denuncia`
 --
 ALTER TABLE `detalle_denuncia`
-  ADD CONSTRAINT `fk_detalle_denuncia_denuncia1` FOREIGN KEY (`denuncia_id`) REFERENCES `denuncia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_detalle_denuncia_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_detalle_denuncia_denuncia1` FOREIGN KEY (`denuncia_id`) REFERENCES `denuncia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_detalle_denuncia_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
 --
 -- Filtros para la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  ADD CONSTRAINT `fk_empleado_cargo` FOREIGN KEY (`cargo_id`) REFERENCES `cargo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_empleado_persona` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_empleado_cargo` FOREIGN KEY (`cargo_id`) REFERENCES `cargo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_empleado_persona` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `menus`
 --
 ALTER TABLE `menus`
-  ADD CONSTRAINT `menus_ibfk_10` FOREIGN KEY (`menus_id`) REFERENCES `menus` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `menus_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `menus_ibfk_10` FOREIGN KEY (`menus_id`) REFERENCES `menus` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `menus_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `observacion_funcionario`
 --
 ALTER TABLE `observacion_funcionario`
-  ADD CONSTRAINT `fk_observacion_funcionario_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_observacion_funcionario_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_observacion_funcionario_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_observacion_funcionario_solicitud1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `parroquia`
 --
 ALTER TABLE `parroquia`
-  ADD CONSTRAINT `fk_parroquia_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_parroquia_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD CONSTRAINT `fk_persona_organizacion` FOREIGN KEY (`organizacion_id`) REFERENCES `organizacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_persona_organizacion` FOREIGN KEY (`organizacion_id`) REFERENCES `organizacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `roles_recursos`
 --
 ALTER TABLE `roles_recursos`
-  ADD CONSTRAINT `roles_recursos_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `roles_recursos_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `roles_recursos_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `roles_recursos_ibfk_20` FOREIGN KEY (`recursos_id`) REFERENCES `recursos` (`id`) ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `roles_usuarios`
 --
 ALTER TABLE `roles_usuarios`
-  ADD CONSTRAINT `roles_usuarios_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `roles_usuarios_ibfk_20` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `roles_usuarios_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `roles_usuarios_ibfk_20` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
 --
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `fk_usuarios_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_usuarios_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
