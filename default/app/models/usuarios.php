@@ -87,40 +87,41 @@ class Usuarios extends ActiveRecord
      * @param array $roles ids de los roles a guardar para el user
      * @return boolean retorna TRUE si se pudieron guardar los datos con exito
      */
-    public function guardar($data, $roles=1){
+    public function guardar($data, $roles, $optData=array()){
+        $obj = new Usuarios($data);
+        if(!empty($optData)) {
+            $obj->dump_result_self($optData);
+        }
 
-        $this->begin();
+        $obj->begin();
 
-        if (!$this->save($data)) {
-            $this->rollback();
+        if (!$obj->save($data)) {
+            $obj->rollback();
             return FALSE;
         }
-        
-
         $rolUser = Load::model('roles_usuarios');
-
         if (is_array($roles) && count($roles)) {
 
-            if (!$rolUser->delete_all("usuarios_id = '$this->id'")) {
+            if (!$rolUser->delete_all("usuarios_id = '$obj->id'")) {
                 Flash::error('No se pudieron Guardar los Roles para el usuario');
-                $this->rollback();
+                $obj->rollback();
                 return FALSE;
             }
 
             foreach ($roles as $e) {
-                if (!$rolUser->asignarRol($this->id, $e)) {
+                if (!$rolUser->asignarRol($obj->id, $e)) {
                     Flash::error('No se pudieron Guardar los Roles para el usuario');
-                    $this->rollback();
+                    $obj->rollback();
                     return FALSE;
                 }
             }
         } else {
             Flash::error('Debe seleccionar al menos un Rol para el Usuario');
-            $this->rollback();
+            $obj->rollback();
             return FALSE;
         }
 
-        $this->commit();
+        $obj->commit();
         return TRUE;
     }
 
@@ -147,8 +148,7 @@ class Usuarios extends ActiveRecord
      * Obtiene un arreglo con los nombres de los roles que posee el usuario.
      * @return array
      */
-    public function getRolesNames()
-    {
+    public function getRolesNames(){
         $res = Load::model('roles')->distinct('rol',
                         "join: INNER JOIN roles_usuarios ru ON ru.roles_id = roles.id AND ru.usuarios_id = '$this->id'");
         return join(', ', $res);
