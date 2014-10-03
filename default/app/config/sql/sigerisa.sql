@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-10-2014 a las 10:17:31
--- Versión del servidor: 5.5.37
--- Versión de PHP: 5.3.10-1ubuntu3.13
+-- Tiempo de generación: 02-10-2014 a las 21:51:27
+-- Versión del servidor: 5.5.38-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4.4
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `auditorias`
 --
 
-DROP TABLE IF EXISTS `auditorias`;
 CREATE TABLE IF NOT EXISTS `auditorias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuarios_id` int(11) NOT NULL,
@@ -36,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=71 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -112,7 +111,21 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (67, 3, '2014-09-19 04:55:24', 'UPDATE menus SET menus_id = NULL,recursos_id = ''21'',nombre = ''Noticias'',url = ''noticias/noticias/index'',posicion = ''100'',clases = NULL,visible_en = ''1'',activo = ''0'' WHERE  id = ''25''', 'MENUS', '127.0.0.1'),
 (68, 3, '2014-09-19 04:55:29', 'UPDATE menus SET menus_id = ''25'',recursos_id = ''21'',nombre = ''Circulares'',url = ''noticias/noticias/index'',posicion = ''80'',clases = NULL,visible_en = ''1'',activo = ''0'' WHERE  id = ''26''', 'MENUS', '127.0.0.1'),
 (69, 3, '2014-09-19 05:04:13', 'UPDATE menus SET menus_id = NULL,recursos_id = ''46'',nombre = ''Denuncias'',url = ''admin/denuncia/index'',posicion = ''2'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''36''', 'MENUS', '127.0.0.1'),
-(70, 3, '2014-09-19 05:04:49', 'UPDATE recursos SET modulo = ''admin'',controlador = ''denuncia'',accion = ''index'',recurso = ''admin/denuncia/index'',descripcion = ''listado principal de denuncias'',activo = ''1'' WHERE  id = ''46''', 'RECURSOS', '127.0.0.1');
+(70, 3, '2014-09-19 05:04:49', 'UPDATE recursos SET modulo = ''admin'',controlador = ''denuncia'',accion = ''index'',recurso = ''admin/denuncia/index'',descripcion = ''listado principal de denuncias'',activo = ''1'' WHERE  id = ''46''', 'RECURSOS', '127.0.0.1'),
+(71, 3, '2014-10-02 21:41:44', 'DELETE FROM roles_recursos WHERE id IN (''1062'',''1063'',''1064'',''1065'',''1066'',''1067'',''1068'',''1069'',''1070'',''1071'',''1072'',''1073'',''1074'',''1075'',''1076'',''1077'',''1078'',''1079'',''1080'',''1081'',''1082'',''1083'',''1084'',''1085'',''1086'',''1087'',''1088'',''1089'',''1090'',''1091'',''1092'',''1093'',''1094'',''1095'',''1096'',''1097'',''1098'',''1099'',''1100'',''1101'',''1102'',''1103'',''1104'',''1105'',''1106'',''1107'',''1108'',''1109'',''1110'',''1111'',''1112'',''1113'',''1114'',''1115'',''1116'',''1117'',''1118'',''1119'',''1120'')', 'ROLES_RECURSOS', '127.0.0.1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `caracteristica`
+--
+
+CREATE TABLE IF NOT EXISTS `caracteristica` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_valor` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -120,7 +133,6 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 -- Estructura de tabla para la tabla `cargo`
 --
 
-DROP TABLE IF EXISTS `cargo`;
 CREATE TABLE IF NOT EXISTS `cargo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
@@ -143,7 +155,6 @@ INSERT INTO `cargo` (`id`, `nombre`, `observacion`) VALUES
 -- Estructura de tabla para la tabla `constancia_inspeccion_sanitaria`
 --
 
-DROP TABLE IF EXISTS `constancia_inspeccion_sanitaria`;
 CREATE TABLE IF NOT EXISTS `constancia_inspeccion_sanitaria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `solicitud_id` int(11) NOT NULL,
@@ -159,7 +170,6 @@ CREATE TABLE IF NOT EXISTS `constancia_inspeccion_sanitaria` (
 -- Estructura de tabla para la tabla `denuncia`
 --
 
-DROP TABLE IF EXISTS `denuncia`;
 CREATE TABLE IF NOT EXISTS `denuncia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `persona_id` int(11) NOT NULL,
@@ -178,7 +188,6 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
 -- Estructura de tabla para la tabla `detalle_denuncia`
 --
 
-DROP TABLE IF EXISTS `detalle_denuncia`;
 CREATE TABLE IF NOT EXISTS `detalle_denuncia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `empleado_id` int(11) NOT NULL,
@@ -193,13 +202,26 @@ CREATE TABLE IF NOT EXISTS `detalle_denuncia` (
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `detalle_solicitud`
+--
 
+CREATE TABLE IF NOT EXISTS `detalle_solicitud` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `solicitud_id` int(11) NOT NULL,
+  `tiposolicitud_caracteristica_id` int(11) NOT NULL,
+  `resultado` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_detalle_solicitud_solicitudes1_idx` (`solicitud_id`),
+  KEY `fk_detalle_solicitud_tiposolicitud_caracteristica` (`tiposolicitud_caracteristica_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `empleado`
 --
 
-DROP TABLE IF EXISTS `empleado`;
 CREATE TABLE IF NOT EXISTS `empleado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `persona_id` int(11) NOT NULL,
@@ -215,7 +237,6 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 -- Estructura de tabla para la tabla `menus`
 --
 
-DROP TABLE IF EXISTS `menus`;
 CREATE TABLE IF NOT EXISTS `menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menus_id` int(11) DEFAULT NULL,
@@ -229,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`),
   KEY `menus_id` (`menus_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -257,7 +278,8 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 (34, 23, 42, 'Parroquias', 'admin/parroquia/index', 80, NULL, 2, 1),
 (35, NULL, 45, 'Solicitudes', 'admin/solicitud/index', 1, NULL, 2, 1),
 (36, NULL, 46, 'Denuncias', 'admin/denuncia/index', 2, NULL, 2, 1),
-(37, NULL, 47, 'Planificación', 'admin/planificacion/index', 3, NULL, 2, 1);
+(37, NULL, 47, 'Planificación', 'admin/planificacion/index', 3, NULL, 2, 1),
+(38, 36, 48, 'Crear', 'admin/denuncia/crear', 100, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -265,7 +287,6 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 -- Estructura de tabla para la tabla `municipio`
 --
 
-DROP TABLE IF EXISTS `municipio`;
 CREATE TABLE IF NOT EXISTS `municipio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
@@ -286,7 +307,6 @@ INSERT INTO `municipio` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `observacion_funcionario`
 --
 
-DROP TABLE IF EXISTS `observacion_funcionario`;
 CREATE TABLE IF NOT EXISTS `observacion_funcionario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `solicitud_id` int(11) NOT NULL,
@@ -305,7 +325,6 @@ CREATE TABLE IF NOT EXISTS `observacion_funcionario` (
 -- Estructura de tabla para la tabla `organizacion`
 --
 
-DROP TABLE IF EXISTS `organizacion`;
 CREATE TABLE IF NOT EXISTS `organizacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
@@ -326,7 +345,6 @@ INSERT INTO `organizacion` (`id`, `descripcion`, `observacion`) VALUES
 -- Estructura de tabla para la tabla `parroquia`
 --
 
-DROP TABLE IF EXISTS `parroquia`;
 CREATE TABLE IF NOT EXISTS `parroquia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
@@ -348,7 +366,6 @@ INSERT INTO `parroquia` (`id`, `nombre`, `municipio_id`) VALUES
 -- Estructura de tabla para la tabla `persona`
 --
 
-DROP TABLE IF EXISTS `persona`;
 CREATE TABLE IF NOT EXISTS `persona` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cedula` varchar(11) NOT NULL,
@@ -380,7 +397,6 @@ INSERT INTO `persona` (`id`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apell
 -- Estructura de tabla para la tabla `recursos`
 --
 
-DROP TABLE IF EXISTS `recursos`;
 CREATE TABLE IF NOT EXISTS `recursos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `modulo` varchar(50) DEFAULT NULL,
@@ -390,7 +406,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -435,7 +451,8 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (44, 'admin', 'parroquia', 'eliminar', 'admin/parroquia/eliminar', 'vista para eliminar los registro de las parroquias', 1),
 (45, 'admin', 'solicitud', 'index', 'admin/solicitud/index', 'listado principal de solicitudes', 1),
 (46, 'admin', 'denuncia', 'index', 'admin/denuncia/index', 'listado principal de denuncias', 1),
-(47, 'admin', 'planificacion', 'index', 'admin/planificacion/index', 'listado de planificacion de visitas', 1);
+(47, 'admin', 'planificacion', 'index', 'admin/planificacion/index', 'listado de planificacion de visitas', 1),
+(48, 'admin', 'denuncia', 'crear', 'admin/denuncia/crear', 'Creacion de la denuncia', 1);
 
 -- --------------------------------------------------------
 
@@ -443,7 +460,6 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 -- Estructura de tabla para la tabla `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rol` varchar(50) NOT NULL,
@@ -468,7 +484,6 @@ INSERT INTO `roles` (`id`, `rol`, `plantilla`, `activo`) VALUES
 -- Estructura de tabla para la tabla `roles_recursos`
 --
 
-DROP TABLE IF EXISTS `roles_recursos`;
 CREATE TABLE IF NOT EXISTS `roles_recursos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roles_id` int(11) NOT NULL,
@@ -476,7 +491,7 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1121 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1181 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
@@ -489,65 +504,66 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 (1059, 1, 11),
 (1060, 2, 11),
 (1061, 4, 11),
-(1062, 1, 18),
-(1063, 2, 18),
-(1064, 4, 18),
-(1065, 1, 32),
-(1066, 2, 32),
-(1067, 4, 32),
-(1068, 2, 35),
-(1069, 4, 35),
-(1070, 2, 36),
-(1071, 4, 36),
-(1072, 2, 34),
-(1073, 4, 34),
-(1074, 2, 46),
-(1075, 4, 46),
-(1076, 2, 31),
-(1077, 4, 31),
-(1078, 1, 15),
-(1079, 2, 15),
-(1080, 4, 15),
-(1081, 1, 4),
-(1082, 2, 4),
-(1083, 4, 4),
-(1084, 2, 41),
-(1085, 4, 41),
-(1086, 2, 40),
-(1087, 4, 40),
-(1088, 2, 38),
-(1089, 4, 38),
-(1090, 1, 37),
-(1091, 2, 37),
-(1092, 4, 37),
-(1093, 2, 43),
-(1094, 4, 43),
-(1095, 2, 44),
-(1096, 4, 44),
-(1097, 2, 42),
-(1098, 4, 42),
-(1099, 2, 47),
-(1100, 4, 47),
-(1101, 1, 5),
-(1102, 2, 5),
-(1103, 4, 5),
-(1104, 1, 3),
-(1105, 2, 3),
-(1106, 4, 3),
-(1107, 1, 2),
-(1108, 2, 2),
-(1109, 4, 2),
-(1110, 2, 45),
-(1111, 4, 45),
-(1112, 1, 1),
-(1113, 2, 1),
-(1114, 4, 1),
-(1115, 1, 17),
-(1116, 2, 17),
-(1117, 4, 17),
-(1118, 1, 14),
-(1119, 2, 14),
-(1120, 4, 14);
+(1121, 1, 18),
+(1122, 2, 18),
+(1123, 4, 18),
+(1124, 1, 32),
+(1125, 2, 32),
+(1126, 4, 32),
+(1127, 2, 35),
+(1128, 4, 35),
+(1129, 2, 36),
+(1130, 4, 36),
+(1131, 2, 34),
+(1132, 4, 34),
+(1133, 4, 48),
+(1134, 2, 46),
+(1135, 4, 46),
+(1136, 2, 31),
+(1137, 4, 31),
+(1138, 1, 15),
+(1139, 2, 15),
+(1140, 4, 15),
+(1141, 1, 4),
+(1142, 2, 4),
+(1143, 4, 4),
+(1144, 2, 41),
+(1145, 4, 41),
+(1146, 2, 40),
+(1147, 4, 40),
+(1148, 2, 38),
+(1149, 4, 38),
+(1150, 1, 37),
+(1151, 2, 37),
+(1152, 4, 37),
+(1153, 2, 43),
+(1154, 4, 43),
+(1155, 2, 44),
+(1156, 4, 44),
+(1157, 2, 42),
+(1158, 4, 42),
+(1159, 2, 47),
+(1160, 4, 47),
+(1161, 1, 5),
+(1162, 2, 5),
+(1163, 4, 5),
+(1164, 1, 3),
+(1165, 2, 3),
+(1166, 4, 3),
+(1167, 1, 2),
+(1168, 2, 2),
+(1169, 4, 2),
+(1170, 2, 45),
+(1171, 4, 45),
+(1172, 1, 1),
+(1173, 2, 1),
+(1174, 4, 1),
+(1175, 1, 17),
+(1176, 2, 17),
+(1177, 4, 17),
+(1178, 1, 14),
+(1179, 2, 14),
+(1180, 4, 14);
 
 -- --------------------------------------------------------
 
@@ -555,7 +571,6 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 -- Estructura de tabla para la tabla `roles_usuarios`
 --
 
-DROP TABLE IF EXISTS `roles_usuarios`;
 CREATE TABLE IF NOT EXISTS `roles_usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roles_id` int(11) NOT NULL,
@@ -576,140 +591,68 @@ INSERT INTO `roles_usuarios` (`id`, `roles_id`, `usuarios_id`) VALUES
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `solicitud`
+--
 
-
--- -----------------------------------------------------
--- Table `sigerisa`.`tipo_solicitud`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sigerisa`.`tipo_solicitud` ;
-
-CREATE  TABLE IF NOT EXISTS `sigerisa`.`tipo_solicitud` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `observacion` TEXT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `solicitud` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `persona_id` int(11) NOT NULL,
+  `parroquia_id` int(11) NOT NULL,
+  `denominado` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `direccion` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `propietario` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `telefono` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `fecha_recibido` date DEFAULT NULL,
+  `fecha_solicitud` date DEFAULT NULL,
+  `fecha_comision` date DEFAULT NULL,
+  `fecha_para` date DEFAULT NULL,
+  `empleado_id` int(11) NOT NULL,
+  `observaciones_generales` text COLLATE utf8_spanish2_ci,
+  `estatus` varchar(1) COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_solicitud_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_solicitud_municipio1_idx` (`parroquia_id`),
+  KEY `fk_solicitud_persona1_idx` (`persona_id`),
+  KEY `fk_solicitud_empleado1_idx` (`empleado_id`),
+  KEY `fk_solicitud_tipo_solicitud` (`tipo_solicitud_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `sigerisa`.`caracteristica`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sigerisa`.`caracteristica` ;
+--
+-- Estructura de tabla para la tabla `tiposolicitud_caracteristica`
+--
 
-CREATE  TABLE IF NOT EXISTS `sigerisa`.`caracteristica` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `tipo_valor` INT NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `tiposolicitud_caracteristica` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_solicitud_id` int(11) NOT NULL,
+  `caracteristica_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_categoria_solicitud_tipo_solicitud1_idx` (`tipo_solicitud_id`),
+  KEY `fk_tiposolicitud_caracteristica_caracteristica` (`caracteristica_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `sigerisa`.`tiposolicitud_caracteristica`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sigerisa`.`tiposolicitud_caracteristica` ;
+--
+-- Estructura de tabla para la tabla `tipo_solicitud`
+--
 
-CREATE  TABLE IF NOT EXISTS `sigerisa`.`tiposolicitud_caracteristica` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `tipo_solicitud_id` INT NOT NULL ,
-  `caracteristica_id` INT NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_categoria_solicitud_tipo_solicitud1_idx` (`tipo_solicitud_id` ASC) ,
-  INDEX `fk_tiposolicitud_caracteristica_caracteristica` (`caracteristica_id` ASC) ,
-  CONSTRAINT `fk_tiposolicitud_caracteristica_tipo_solicitud`
-    FOREIGN KEY (`tipo_solicitud_id` )
-    REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tiposolicitud_caracteristica_caracteristica`
-    FOREIGN KEY (`caracteristica_id` )
-    REFERENCES `sigerisa`.`caracteristica` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `tipo_solicitud` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `observacion` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
--- -----------------------------------------------------
--- Table `sigerisa`.`solicitud`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sigerisa`.`solicitud` ;
-
-CREATE  TABLE IF NOT EXISTS `sigerisa`.`solicitud` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `persona_id` INT NOT NULL ,
-  `parroquia_id` INT NOT NULL ,
-  `denominado` VARCHAR(45) NULL ,
-  `direccion` VARCHAR(45) NULL ,
-  `propietario` VARCHAR(45) NULL ,
-  `telefono` VARCHAR(45) NULL ,
-  `fecha_recibido` DATE NULL ,
-  `fecha_solicitud` DATE NULL ,
-  `fecha_comision` DATE NULL ,
-  `fecha_para` DATE NULL ,
-  `empleado_id` INT NOT NULL ,
-  `observaciones_generales` TEXT NULL ,
-  `estatus` VARCHAR(1) NOT NULL ,
-  `tipo_solicitud_id` INT NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_solicitud_municipio1_idx` (`parroquia_id` ASC) ,
-  INDEX `fk_solicitud_persona1_idx` (`persona_id` ASC) ,
-  INDEX `fk_solicitud_empleado1_idx` (`empleado_id` ASC) ,
-  INDEX `fk_solicitud_tipo_solicitud` (`tipo_solicitud_id` ASC) ,
-  CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1`
-    FOREIGN KEY (`parroquia_id` )
-    REFERENCES `sigerisa`.`parroquia` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_solicitud_persona1`
-    FOREIGN KEY (`persona_id` )
-    REFERENCES `sigerisa`.`persona` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_solicitud_empleado1`
-    FOREIGN KEY (`empleado_id` )
-    REFERENCES `sigerisa`.`empleado` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_solicitud_tipo_solicitud`
-    FOREIGN KEY (`tipo_solicitud_id` )
-    REFERENCES `sigerisa`.`tipo_solicitud` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sigerisa`.`detalle_solicitud`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sigerisa`.`detalle_solicitud` ;
-
-CREATE  TABLE IF NOT EXISTS `sigerisa`.`detalle_solicitud` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `solicitud_id` INT NOT NULL ,
-  `tiposolicitud_caracteristica_id` INT NOT NULL ,
-  `resultado` VARCHAR(45) NOT NULL ,
-  INDEX `fk_detalle_solicitud_solicitudes1_idx` (`solicitud_id` ASC) ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_detalle_solicitud_tiposolicitud_caracteristica` (`tiposolicitud_caracteristica_id` ASC) ,
-  CONSTRAINT `fk_detalle_solicitud_solicitudes1`
-    FOREIGN KEY (`solicitud_id` )
-    REFERENCES `sigerisa`.`solicitud` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_detalle_solicitud_tiposolicitud_caracteristica`
-    FOREIGN KEY (`tiposolicitud_caracteristica_id` )
-    REFERENCES `sigerisa`.`tiposolicitud_caracteristica` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
@@ -742,7 +685,6 @@ INSERT INTO `usuarios` (`id`, `login`, `clave`, `email`, `activo`, `persona_id`)
 ALTER TABLE `auditorias`
   ADD CONSTRAINT `auditorias_ibfk_10` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON UPDATE NO ACTION;
 
-
 --
 -- Filtros para la tabla `constancia_inspeccion_sanitaria`
 --
@@ -763,6 +705,12 @@ ALTER TABLE `detalle_denuncia`
   ADD CONSTRAINT `fk_detalle_denuncia_denuncia1` FOREIGN KEY (`denuncia_id`) REFERENCES `denuncia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_detalle_denuncia_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
+--
+-- Filtros para la tabla `detalle_solicitud`
+--
+ALTER TABLE `detalle_solicitud`
+  ADD CONSTRAINT `fk_detalle_solicitud_solicitudes1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_detalle_solicitud_tiposolicitud_caracteristica` FOREIGN KEY (`tiposolicitud_caracteristica_id`) REFERENCES `tiposolicitud_caracteristica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `empleado`
@@ -811,6 +759,21 @@ ALTER TABLE `roles_usuarios`
   ADD CONSTRAINT `roles_usuarios_ibfk_10` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `roles_usuarios_ibfk_20` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
+--
+-- Filtros para la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  ADD CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1` FOREIGN KEY (`parroquia_id`) REFERENCES `parroquia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_solicitud_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_solicitud_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_solicitud_tipo_solicitud` FOREIGN KEY (`tipo_solicitud_id`) REFERENCES `tipo_solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `tiposolicitud_caracteristica`
+--
+ALTER TABLE `tiposolicitud_caracteristica`
+  ADD CONSTRAINT `fk_tiposolicitud_caracteristica_tipo_solicitud` FOREIGN KEY (`tipo_solicitud_id`) REFERENCES `tipo_solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tiposolicitud_caracteristica_caracteristica` FOREIGN KEY (`caracteristica_id`) REFERENCES `caracteristica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `usuarios`
