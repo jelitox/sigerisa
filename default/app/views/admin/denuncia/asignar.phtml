@@ -1,0 +1,33 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+<div class="row">
+    <div class="span8" >
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php $persona_id = Auth::get('persona_id');
+        echo Form::hidden('denuncia.id');?>
+        <div class="row control-group">
+            <label class="control-label" for="denuncia_nombre">Fecha Asignacion: </label>
+            <?php echo Form::text('denuncia.fecha_denuncia', 'class="span4" readonly', date('d-m-Y') ) ?>
+        </div>
+        <div class="row control-group">
+            <label class="control-label" for="denuncia_observacion">Datos del denunciado: </label>
+            <?php echo Form::textarea('denuncia.datos_denunciado', 'class="span4"') ?>
+        </div>
+        <div class="row control-group">
+            <label class="control-label" for="detalle_denucia_observacion">Observaciones: </label>
+            <?php echo Form::textarea('denuncia.observacion_asiganacion', 'class="span4"') ?>
+        </div>
+        <div class="row control-group">
+            <?php echo Form::dbSelect('detalle_denucia.empleado_id', 'nombre', array('empleado', 'find'), 'Ninguno') ?>
+        </div>
+
+        <div class="form-actions">
+            <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+            </div>
+        <?php echo Form::close() ?>
+    </div>
+</div>

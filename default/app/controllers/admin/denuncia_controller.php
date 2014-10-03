@@ -31,6 +31,14 @@ class DenunciaController extends AdminController {
             View::excepcion($e);
         }
     }
+    public function listado($pagina = 1) {
+        try {
+            $denuncias = new Denuncia();
+            $this->denuncias = $denuncias->paginarRegistradas($pagina);
+        } catch (KumbiaException $e) {
+            View::excepcion($e);
+        }
+    }
 
     public function crear() {
         try {
@@ -50,6 +58,14 @@ class DenunciaController extends AdminController {
         } catch (KumbiaException $e) {
             View::excepcion($e);
         }
+    }
+
+    public function asignar($id){
+            $id = (int) $id;
+            $denuncia = new Denuncia();
+            $denuncia->getInformacionDenuncia($id);
+            $this->denuncia= $denuncia;
+
     }
 
     public function editar($id) {

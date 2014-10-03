@@ -18,7 +18,17 @@ class Denuncia extends ActiveRecord {
         //$this->validates_presence_of('observacion', 'message: Debe escribir una <b>Descripción del Cargo</b>');
         //$this->validates_uniqueness_of('nombre', 'message: Este Cargo <b>ya existe</b> en el sistema');
     }
+    public function paginarRegistradas($pagina = 1){
+        $cols = "P.*, denuncia.* ";
+        $joins = ' INNER JOIN persona as P ON P.id = denuncia.persona_id ';
+        return $this->paginate("page: $pagina", "columns: $cols", "join: $joins", "conditions: denuncia.estatus='R'");
+    }
 
+    public function getInformacionDenuncia($id){
+        $cols = "P.*, denuncia.* ";
+        $joins = ' INNER JOIN persona as P ON P.id = denuncia.persona_id ';
+        return $this->find_first("conditions: denuncia.id = $id","columns: $cols", "join: $joins");
+    }
     /**
      * Obtiene los recursos a los que un rol tiene acceso.
      * 

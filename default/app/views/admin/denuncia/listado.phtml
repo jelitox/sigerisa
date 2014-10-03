@@ -1,0 +1,16 @@
+<div class="page-header">
+    <h1>Denuncias</h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('admin/denuncia/eliminar', 'post', 'class="form_lista"');
+$dt = new DataTable($denuncias);
+$dt->addHeaders('id', 'Denunciante', 'Fecha Denuncia', 'Denunciado');
+$dt->addHeaders( 'Asignar', 'Rechazar');
+$dt->addFields('id', 'nombre1', 'fecha_denuncia', 'datos_denunciado');
+$dt->imgLink('figuras/editar.png', 'admin/denuncia/asignar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'admin/denuncia/eliminar', '', '¿Realmente desea Eliminar Esta ddenuncia?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+
+?>
