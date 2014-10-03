@@ -3,20 +3,37 @@
 </div>
 <div class="row">
     <div class="span3">
-        <?php View::partial('backend/menus/cargo') ?>
+        <?php //View::partial('backend/menus/cargo') ?>
     </div>
     <div class="span8 span-derecho" >
         <div id="res-form-ajax"><?php View::content() ?></div>
         <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
         <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
-        <?php echo Form::hidden('cargo.id') ?>
+        <?php $persona_id = Auth::get('persona_id');
+        echo Form::hidden('solicitud.id');
+        echo Form::hidden('solicitud.persona_id', '', $persona_id);?>        
+        <?php echo Form::hidden('solicitud.id') ?>
+                <div class="control-group">
+            <label class="control-label" for="solicitud_parroquia_id">Parroquia : </label>
+            <div class="controls">
+                <?php echo Form::dbSelect('solicitud.parroquia_id', 'nombre', array('parroquia', 'find'), 'Ninguno') ?>
+            </div>
+        </div>
+                <div class="row control-group">        
+                    <div class="span2">
+                        <?php echo Form::dbSelect('empleado.cargo_id', 'nombre', array('cargo', 'find'), 'Ninguno') ?>
+                    </div>
+                    <div class="span2">
+                        <p> </p>
+                    </div>
+                </div>        
         <div class="row control-group">
-            <label class="control-label" for="cargo_nombre">Nombre * : </label>
-            <?php echo Form::text('cargo.nombre', 'class="span4"') ?>
+            <label class="control-label" for="solicitud_nombre">Nombre * : </label>
+            <?php echo Form::text('solicitud.nombre', 'class="span4"') ?>
         </div>
         <div class="row control-group">
-            <label class="control-label" for="cargo_observacion">Observación * : </label>
-            <?php echo Form::textarea('cargo.observacion', 'class="span4"') ?>
+            <label class="control-label" for="solicitud_observacion">Observación * : </label>
+            <?php echo Form::textarea('solicitud.observacion', 'class="span4"') ?>
         </div>
             <div class="form-actions">
             <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>

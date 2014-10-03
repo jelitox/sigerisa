@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-10-2014 a las 23:02:26
+-- Tiempo de generación: 03-10-2014 a las 01:13:03
 -- Versión del servidor: 5.5.37
 -- Versión de PHP: 5.3.10-1ubuntu3.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=73 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -113,7 +113,12 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (69, 3, '2014-09-19 05:04:13', 'UPDATE menus SET menus_id = NULL,recursos_id = ''46'',nombre = ''Denuncias'',url = ''admin/denuncia/index'',posicion = ''2'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''36''', 'MENUS', '127.0.0.1'),
 (70, 3, '2014-09-19 05:04:49', 'UPDATE recursos SET modulo = ''admin'',controlador = ''denuncia'',accion = ''index'',recurso = ''admin/denuncia/index'',descripcion = ''listado principal de denuncias'',activo = ''1'' WHERE  id = ''46''', 'RECURSOS', '127.0.0.1'),
 (71, 3, '2014-10-02 21:41:44', 'DELETE FROM roles_recursos WHERE id IN (''1062'',''1063'',''1064'',''1065'',''1066'',''1067'',''1068'',''1069'',''1070'',''1071'',''1072'',''1073'',''1074'',''1075'',''1076'',''1077'',''1078'',''1079'',''1080'',''1081'',''1082'',''1083'',''1084'',''1085'',''1086'',''1087'',''1088'',''1089'',''1090'',''1091'',''1092'',''1093'',''1094'',''1095'',''1096'',''1097'',''1098'',''1099'',''1100'',''1101'',''1102'',''1103'',''1104'',''1105'',''1106'',''1107'',''1108'',''1109'',''1110'',''1111'',''1112'',''1113'',''1114'',''1115'',''1116'',''1117'',''1118'',''1119'',''1120'')', 'ROLES_RECURSOS', '127.0.0.1'),
-(72, 3, '2014-10-02 22:42:23', 'DELETE FROM roles_recursos WHERE id IN (''1121'',''1122'',''1123'',''1124'',''1125'',''1126'',''1127'',''1128'',''1129'',''1130'',''1131'',''1132'',''1133'',''1134'',''1135'',''1136'',''1137'',''1138'',''1139'',''1140'',''1141'',''1142'',''1143'',''1144'',''1145'',''1146'',''1147'',''1148'',''1149'',''1150'',''1151'',''1152'',''1153'',''1154'',''1155'',''1156'',''1157'',''1158'',''1159'',''1160'',''1161'',''1162'',''1163'',''1164'',''1165'',''1166'',''1167'',''1168'',''1169'',''1170'',''1171'',''1172'',''1173'',''1174'',''1175'',''1176'',''1177'',''1178'',''1179'',''1180'')', 'ROLES_RECURSOS', '127.0.0.1');
+(72, 3, '2014-10-02 22:42:23', 'DELETE FROM roles_recursos WHERE id IN (''1121'',''1122'',''1123'',''1124'',''1125'',''1126'',''1127'',''1128'',''1129'',''1130'',''1131'',''1132'',''1133'',''1134'',''1135'',''1136'',''1137'',''1138'',''1139'',''1140'',''1141'',''1142'',''1143'',''1144'',''1145'',''1146'',''1147'',''1148'',''1149'',''1150'',''1151'',''1152'',''1153'',''1154'',''1155'',''1156'',''1157'',''1158'',''1159'',''1160'',''1161'',''1162'',''1163'',''1164'',''1165'',''1166'',''1167'',''1168'',''1169'',''1170'',''1171'',''1172'',''1173'',''1174'',''1175'',''1176'',''1177'',''1178'',''1179'',''1180'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(73, 3, '2014-10-02 23:44:42', 'UPDATE menus SET menus_id = NULL,recursos_id = ''49'',nombre = ''Solicitudes'',url = ''admin/solicitud'',posicion = ''1'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''35''', 'MENUS', '127.0.0.1'),
+(74, 3, '2014-10-02 23:45:05', 'UPDATE menus SET menus_id = NULL,recursos_id = ''49'',nombre = ''Solicitudes'',url = ''admin/solicitud/index'',posicion = ''1'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''35''', 'MENUS', '127.0.0.1'),
+(75, 3, '2014-10-02 23:45:21', 'UPDATE menus SET menus_id = ''35'',recursos_id = ''50'',nombre = ''Crear Solicitud'',url = ''admin/solicitud/crear'',posicion = ''2'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''39''', 'MENUS', '127.0.0.1'),
+(76, 3, '2014-10-02 23:45:26', 'UPDATE menus SET menus_id = ''35'',recursos_id = ''50'',nombre = ''Crear Solicitud'',url = ''admin/solicitud/crear'',posicion = ''2'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''39''', 'MENUS', '127.0.0.1'),
+(77, 3, '2014-10-02 23:45:41', 'DELETE FROM roles_recursos WHERE id IN (''1181'',''1182'',''1183'',''1184'',''1185'',''1186'',''1187'',''1188'',''1189'',''1190'',''1191'',''1192'',''1193'',''1194'',''1195'',''1196'',''1197'',''1198'',''1199'',''1200'',''1201'',''1202'',''1203'',''1204'',''1205'',''1206'',''1207'',''1208'',''1209'',''1210'',''1211'',''1212'',''1213'',''1214'',''1215'',''1216'',''1217'',''1218'',''1219'',''1220'',''1221'',''1222'',''1223'',''1224'',''1225'',''1226'',''1227'',''1228'',''1229'',''1230'',''1231'',''1232'',''1233'',''1234'',''1235'',''1236'',''1237'')', 'ROLES_RECURSOS', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -195,7 +200,12 @@ CREATE TABLE IF NOT EXISTS `detalle_denuncia` (
   `denuncia_id` int(11) NOT NULL,
   `fecha_asignacion` date DEFAULT NULL,
   `fecha_inspeccion` date DEFAULT NULL,
-  `observaciones` text,
+  `observacion_registro` text,
+  `observacion_asignacion` text NOT NULL,
+  `observacion_inspeccion` text NOT NULL,
+  `observacion_revision` text NOT NULL,
+  `observacion_rechazo` text NOT NULL,
+  `observacion_cierre` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_detalle_denuncia_denuncia1_idx` (`denuncia_id`),
   KEY `fk_detalle_denuncia_empleado1_idx` (`empleado_id`)
@@ -252,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`),
   KEY `menus_id` (`menus_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -278,7 +288,7 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 (32, 23, 34, 'Cargos', 'admin/cargo/index', 85, NULL, 2, 1),
 (33, 23, 37, 'Organizaciones', 'admin/organizacion/index', 12, NULL, 2, 1),
 (34, 23, 42, 'Parroquias', 'admin/parroquia/index', 80, NULL, 2, 1),
-(35, NULL, 45, 'Solicitudes', 'admin/solicitud/index', 1, NULL, 2, 1),
+(35, NULL, 49, 'Solicitudes', 'admin/solicitud/index', 1, NULL, 2, 1),
 (36, NULL, 46, 'Denuncias', 'admin/denuncia/index', 2, NULL, 2, 1),
 (37, NULL, 47, 'Planificación', 'admin/planificacion/index', 3, NULL, 2, 1),
 (38, 36, 48, 'Crear', 'admin/denuncia/crear', 100, NULL, 2, 1);
@@ -408,7 +418,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -454,7 +464,10 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (45, 'admin', 'solicitud', 'index', 'admin/solicitud/index', 'listado principal de solicitudes', 1),
 (46, 'admin', 'denuncia', 'index', 'admin/denuncia/index', 'listado principal de denuncias', 1),
 (47, 'admin', 'planificacion', 'index', 'admin/planificacion/index', 'listado de planificacion de visitas', 1),
-(48, 'admin', 'denuncia', 'crear', 'admin/denuncia/crear', 'Creacion de la denuncia', 1);
+(48, 'admin', 'denuncia', 'crear', 'admin/denuncia/crear', 'Creacion de la denuncia', 1),
+(49, 'admin', 'solicitud', '*', 'admin/solicitud/*', 'Submodulo de gestion de solicitudes ', 1),
+(50, 'admin', 'solicitud', 'crear', 'admin/solicitud/crear', 'Formulario de registro de solicitudes', 1),
+(51, 'admin', 'solicitud', 'eliminar', 'admin/solicitud/eliminar', 'vista para eliminar solicitudes', 1);
 
 -- --------------------------------------------------------
 
@@ -493,7 +506,7 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1245 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1306 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
@@ -506,70 +519,74 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 (1059, 1, 11),
 (1060, 2, 11),
 (1061, 4, 11),
-(1181, 1, 18),
-(1182, 2, 18),
-(1183, 4, 18),
-(1184, 1, 32),
-(1185, 2, 32),
-(1186, 4, 32),
-(1187, 2, 35),
-(1188, 4, 35),
-(1189, 2, 36),
-(1190, 4, 36),
-(1191, 2, 34),
-(1192, 4, 34),
-(1193, 4, 48),
-(1194, 2, 46),
-(1195, 4, 46),
-(1196, 2, 31),
-(1197, 4, 31),
-(1198, 1, 15),
-(1199, 2, 15),
-(1200, 4, 15),
-(1201, 1, 4),
-(1202, 2, 4),
-(1203, 4, 4),
-(1204, 2, 41),
-(1205, 4, 41),
-(1206, 2, 40),
-(1207, 4, 40),
-(1208, 4, 33),
-(1209, 2, 38),
-(1210, 4, 38),
-(1211, 4, 39),
-(1212, 1, 37),
-(1213, 2, 37),
-(1214, 4, 37),
-(1215, 2, 43),
-(1216, 4, 43),
-(1217, 2, 44),
-(1218, 4, 44),
-(1219, 2, 42),
-(1220, 4, 42),
-(1221, 2, 47),
-(1222, 4, 47),
-(1223, 4, 22),
-(1224, 1, 5),
-(1225, 2, 5),
-(1226, 4, 5),
-(1227, 1, 3),
-(1228, 2, 3),
-(1229, 4, 3),
-(1230, 1, 2),
-(1231, 2, 2),
-(1232, 4, 2),
-(1233, 2, 45),
-(1234, 4, 45),
-(1235, 1, 1),
-(1236, 2, 1),
-(1237, 4, 1),
 (1238, 1, 17),
 (1239, 2, 17),
 (1240, 4, 17),
 (1241, 1, 14),
 (1242, 2, 14),
 (1243, 4, 14),
-(1244, 4, 29);
+(1244, 4, 29),
+(1245, 1, 18),
+(1246, 2, 18),
+(1247, 4, 18),
+(1248, 1, 32),
+(1249, 2, 32),
+(1250, 4, 32),
+(1251, 2, 35),
+(1252, 4, 35),
+(1253, 2, 36),
+(1254, 4, 36),
+(1255, 2, 34),
+(1256, 4, 34),
+(1257, 4, 48),
+(1258, 2, 46),
+(1259, 4, 46),
+(1260, 2, 31),
+(1261, 4, 31),
+(1262, 1, 15),
+(1263, 2, 15),
+(1264, 4, 15),
+(1265, 1, 4),
+(1266, 2, 4),
+(1267, 4, 4),
+(1268, 2, 41),
+(1269, 4, 41),
+(1270, 4, 20),
+(1271, 2, 40),
+(1272, 4, 40),
+(1273, 4, 33),
+(1274, 2, 38),
+(1275, 4, 38),
+(1276, 4, 39),
+(1277, 1, 37),
+(1278, 2, 37),
+(1279, 4, 37),
+(1280, 2, 43),
+(1281, 4, 43),
+(1282, 2, 44),
+(1283, 4, 44),
+(1284, 2, 42),
+(1285, 4, 42),
+(1286, 2, 47),
+(1287, 4, 47),
+(1288, 4, 22),
+(1289, 1, 5),
+(1290, 2, 5),
+(1291, 4, 5),
+(1292, 1, 3),
+(1293, 2, 3),
+(1294, 4, 3),
+(1295, 1, 2),
+(1296, 2, 2),
+(1297, 4, 2),
+(1298, 4, 49),
+(1299, 4, 50),
+(1300, 4, 51),
+(1301, 2, 45),
+(1302, 4, 45),
+(1303, 1, 1),
+(1304, 2, 1),
+(1305, 4, 1);
 
 -- --------------------------------------------------------
 
