@@ -3,10 +3,6 @@
 /**
  * Backend - KumbiaPHP Backend
  * PHP version 5
- * LICENSE
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package Controller
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
