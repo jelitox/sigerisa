@@ -3,7 +3,6 @@
 /**
  * Backend - KumbiaPHP Backend
  * PHP version 5
- *
  * @package Modelos
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
  * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
@@ -20,8 +19,6 @@ class Persona extends ActiveRecord
         $this->fecha_nacimiento = $fecha_nac->format('Y-m-d');
 
     }
-
-
 
     /**
      * Devuelve los usuarios de la bd Paginados.

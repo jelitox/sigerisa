@@ -7,13 +7,11 @@
 Load::models('usuarios');
 Load::models('persona');
 class RegistroController extends AppController {
-
 	public function before_filter(){
 		if (!Config::get('config.application.registro')){
 			return View::notFound();
 		}
 	}
-
     public function index() {
         if ((Input::hasPost('usuarios'))&& (Input::hasPost('persona')) ){
             //esto es para tener atributos que no son campos de la tabla
