@@ -37,22 +37,22 @@ class SolicitudController extends AdminController {
     }
 
     public function index($pagina = 1) {
-        /*try {
-            $cargos = new Cargo();
-            $this->cargos = $cargos->paginate("page: $pagina");
+        try {
+            $solicitudes = new Solicitud();
+            $this->solicitudes = $solicitudes->paginate("page: $pagina");
         } catch (KumbiaException $e) {
             View::excepcion($e);
-        }*/
+        }
     }
 
     public function crear() {
         try {
-            $this->titulo = 'Crear Cargo';
+            $this->titulo = 'Crear Solicitud';
 
-            if (Input::hasPost('cargo')) {
-                $cargo = new Cargo(Input::post('cargo'));
-                if ($cargo->save()) {
-                    Flash::valid('El Cargo Ha Sido Agregado Exitosamente...!!!');
+            if (Input::hasPost('solicitud')) {
+                $solicitud = new Solicitud(Input::post('solicitud'));
+                if ($solicitud->save()) {
+                    Flash::valid('La Solicitud Ha Sido Agregado Exitosamente...!!!');
                     if (!Input::isAjax()) {
                         return Router::redirect();
                     }
@@ -66,29 +66,29 @@ class SolicitudController extends AdminController {
     }
 
     public function editar($id) {
-        $this->titulo = 'Editar Cargo';
+        $this->titulo = 'Editar Solicitud';
         try {
             $id = (int) $id;
 
             View::select('crear');
 
-            $cargo = new Cargo();
-            $this->cargo = $cargo->find_first($id);
+            $solicitud = new Solicitud();
+            $this->solicitud = $solicitud->find_first($id);
 
-            if ($this->cargo) {//validamos la existencia del recurso.
-                if (Input::hasPost('cargo')) {
-                    if ($cargo->update(Input::post('cargo'))) {
-                        Flash::valid('El Cargo ha sido Actualizado Exitosamente...!!!');
+            if ($this->solicitud) {//validamos la existencia del recurso.
+                if (Input::hasPost('solicitud')) {
+                    if ($solicitud->update(Input::post('solicitud'))) {
+                        Flash::valid('La Solicitud ha sido Actualizado Exitosamente...!!!');
                         if (!Input::isAjax()) {
                             return Router::redirect();
                         }
                     } else {
                         Flash::warning('No se Pudieron Guardar los Datos...!!!');
-                        unset($this->cargo); //para que cargue el $_POST en el form
+                        unset($this->solicitud); //para que cargue el $_POST en el form
                     }
                 }
             } else {
-                Flash::warning("No existe ningun cargo con id '{$id}'");
+                Flash::warning("No existe ninguna solicitud con id '{$id}'");
                 if (!Input::isAjax()) {
                     return Router::redirect();
                 }
@@ -100,25 +100,25 @@ class SolicitudController extends AdminController {
 
     public function eliminar($id = NULL) {
         try {
-            $rec = new Cargo();
+            $rec = new Solicitud();
 
             if (is_int($id)) {
 
                 if (!$rec->find_first($id)) {
-                    Flash::warning("No existe ningun cargo con id '{$id}'");
+                    Flash::warning("No existe ninguna solicitud con id '{$id}'");
                 } elseif ($rec->delete()) {
-                    Flash::valid("El cargo <b>{$rec->cargo}</b> ha sido Eliminado...!!!");
+                    Flash::valid("La solicitud <b>{$rec->solicitud}</b> ha sido Eliminado...!!!");
                 } else {
-                    Flash::warning("No se Pudo Eliminar el Cargo <b>{$rec->cargo}</b>...!!!");
+                    Flash::warning("No se Pudo Eliminar la Solicitud <b>{$rec->solicitud}</b>...!!!");
                 }
             } elseif (is_string($id)) {
                 if ($rec->delete_all("id IN ($id)")) {
-                    Flash::valid("El Cargo <b>{$id}</b> fue Eliminado...!!!");
+                    Flash::valid("La Solicitud <b>{$id}</b> fue Eliminado...!!!");
                 } else {
-                    Flash::warning("No se Pudieron Eliminar los Cargos...!!!");
+                    Flash::warning("No se Pudieron Eliminar las Solicitudes...!!!");
                 }
-            } elseif (Input::hasPost('cargos_id')) {
-                $this->ids = Input::post('cargos_id');
+            } elseif (Input::hasPost('solicitudes_id')) {
+                $this->ids = Input::post('solicitudes_id');
                 return;
             }
         } catch (KumbiaException $e) {
