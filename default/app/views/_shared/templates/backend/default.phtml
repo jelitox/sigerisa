@@ -5,20 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo Config::get('config.application.name') ?></title>
         <?php
-        Tag::css('backened/bootstrap.min');
-        Tag::css('backende/bootstrap-responsive.min');
+        //Tag::css('backend/bootstrap.min');
+        //Tag::css('backend/bootstrap-responsive.min');
         Tag::css('backend/base-admin-2');
         Tag::css('backend/base-admin-2-responsive');
         Tag::css('backend/estilos');
         Tag::css('backend/ui-lightness/jquery-ui-1.10.0.custom.min');
         Tag::css('backend/pages/dashboard');        
-        
+        Tag::css('backend/calendario/fullcalendar');        
+        Tag::css('backend/calendario/fullcalendar.print');                
         echo Html::includeCss();
         echo Tag::js('jquery/jquery.min');
         echo Tag::js('jquery/jquery.kumbiaphp');
         echo Tag::js('bootstrap/bootstrap');
         echo Tag::js('jquery/jquery.keyfilter');
         echo Tag::js('global');
+        echo Tag::js('calendario/moment.min');
+        echo Tag::js('calendario/fullcalendar.min');
         ?>
     </head>
     <body>
