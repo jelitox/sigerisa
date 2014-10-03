@@ -39,6 +39,14 @@ class DenunciaController extends AdminController {
             View::excepcion($e);
         }
     }
+        public function asignadas($pagina = 1) {
+        try {
+            $denuncias = new Denuncia();
+            $this->denuncias = $denuncias->paginarAsignadas($pagina);
+        } catch (KumbiaException $e) {
+            View::excepcion($e);
+        }
+    }
 
     public function crear() {
         try {

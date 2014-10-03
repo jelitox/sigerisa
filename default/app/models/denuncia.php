@@ -23,6 +23,13 @@ class Denuncia extends ActiveRecord {
         $joins = ' INNER JOIN persona as P ON P.id = denuncia.persona_id ';
         return $this->paginate("page: $pagina", "columns: $cols", "join: $joins", "conditions: denuncia.estatus='R'");
     }
+    //paginar asignadas 
+    public function paginarAsignadas($pagina = 1){
+        $cols = "P.*, denuncia.* ";
+        $joins = ' INNER JOIN persona as P ON P.id = denuncia.persona_id ';
+        return $this->paginate("page: $pagina", "columns: $cols", "join: $joins", "conditions: denuncia.estatus='A'");
+    }
+
 
     public function getInformacionDenuncia($id){
         $cols = "P.*, denuncia.* ";

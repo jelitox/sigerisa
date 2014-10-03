@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-10-2014 a las 11:10:48
+-- Tiempo de generación: 03-10-2014 a las 14:23:06
 -- Versión del servidor: 5.5.38-0ubuntu0.14.04.1
 -- Versión de PHP: 5.5.9-1ubuntu4.4
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -127,7 +127,9 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (83, 3, '2014-10-03 10:58:14', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
 (84, 3, '2014-10-03 10:58:15', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
 (85, 3, '2014-10-03 10:58:30', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
-(86, 3, '2014-10-03 10:59:27', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''A'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1');
+(86, 3, '2014-10-03 10:59:27', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''A'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
+(87, 3, '2014-10-03 11:18:06', 'UPDATE menus SET menus_id = ''36'',recursos_id = ''52'',nombre = ''Asignaciones'',url = ''admin/denuncia/listado'',posicion = ''100'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''40''', 'MENUS', '127.0.0.1'),
+(88, 3, '2014-10-03 14:10:18', 'DELETE FROM roles_recursos WHERE id IN (''1423'',''1424'',''1425'',''1426'',''1427'',''1428'',''1429'',''1430'',''1431'',''1432'',''1433'',''1434'',''1435'',''1436'',''1437'',''1438'',''1439'',''1440'',''1441'',''1442'',''1443'',''1444'',''1445'',''1446'',''1447'',''1448'',''1449'',''1450'',''1451'',''1452'',''1453'',''1454'',''1455'',''1456'',''1457'',''1458'',''1459'',''1460'',''1461'',''1462'',''1463'',''1464'',''1465'',''1466'',''1467'',''1468'',''1469'',''1470'',''1471'',''1472'',''1473'',''1474'',''1475'',''1476'',''1477'',''1478'',''1479'')', 'ROLES_RECURSOS', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -294,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`),
   KEY `menus_id` (`menus_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -324,7 +326,8 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 (36, NULL, 46, 'Denuncias', 'admin/denuncia/index', 2, NULL, 2, 1),
 (37, NULL, 47, 'Planificación', 'admin/planificacion/index', 3, NULL, 2, 1),
 (38, 36, 48, 'Crear', 'admin/denuncia/crear', 100, NULL, 2, 1),
-(40, 36, 52, 'Listado', 'admin/denuncia/listado', 100, NULL, 2, 1);
+(40, 36, 52, 'Asignaciones', 'admin/denuncia/listado', 100, NULL, 2, 1),
+(41, 36, 55, 'Inspecciones', 'admin/denuncia/asignadas', 100, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -452,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -504,7 +507,8 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (51, 'admin', 'solicitud', 'eliminar', 'admin/solicitud/eliminar', 'vista para eliminar solicitudes', 1),
 (52, 'admin', 'denuncia', 'listado', 'admin/denuncia/listado', 'Lisataod e las registradad', 1),
 (53, 'admin', 'denuncia', 'asignar', 'admin/denuncia/asignar', 'para asginar el personal a una determinada denuncia', 1),
-(54, 'admin', 'denuncia', 'rechazar', 'admin/denuncia/rechazar', 'Para rechazar las solicitudes', 1);
+(54, 'admin', 'denuncia', 'rechazar', 'admin/denuncia/rechazar', 'Para rechazar las solicitudes', 1),
+(55, 'admin', 'denuncia', 'asignadas', 'admin/denuncia/asignadas', 'LIstado de todas las Denuncias Asignadas', 1);
 
 -- --------------------------------------------------------
 
@@ -543,7 +547,7 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1481 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1539 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
@@ -569,64 +573,65 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 (1363, 2, 45),
 (1364, 4, 45),
 (1422, 4, 51),
-(1423, 1, 18),
-(1424, 2, 18),
-(1425, 4, 18),
-(1426, 1, 32),
-(1427, 2, 32),
-(1428, 4, 32),
-(1429, 2, 35),
-(1430, 4, 35),
-(1431, 2, 36),
-(1432, 4, 36),
-(1433, 2, 34),
-(1434, 4, 34),
-(1435, 4, 53),
-(1436, 4, 48),
-(1437, 2, 46),
-(1438, 4, 46),
-(1439, 4, 52),
-(1440, 4, 54),
-(1441, 2, 31),
-(1442, 4, 31),
-(1443, 1, 15),
-(1444, 2, 15),
-(1445, 4, 15),
-(1446, 1, 4),
-(1447, 2, 4),
-(1448, 4, 4),
-(1449, 2, 41),
-(1450, 4, 41),
-(1451, 4, 20),
-(1452, 2, 40),
-(1453, 4, 40),
-(1454, 4, 33),
-(1455, 2, 38),
-(1456, 4, 38),
-(1457, 4, 39),
-(1458, 1, 37),
-(1459, 2, 37),
-(1460, 4, 37),
-(1461, 2, 43),
-(1462, 4, 43),
-(1463, 2, 44),
-(1464, 4, 44),
-(1465, 2, 42),
-(1466, 4, 42),
-(1467, 2, 47),
-(1468, 4, 47),
-(1469, 4, 22),
-(1470, 1, 5),
-(1471, 2, 5),
-(1472, 4, 5),
-(1473, 1, 3),
-(1474, 2, 3),
-(1475, 4, 3),
-(1476, 1, 2),
-(1477, 2, 2),
-(1478, 4, 2),
-(1479, 4, 49),
-(1480, 4, 50);
+(1480, 4, 50),
+(1481, 1, 18),
+(1482, 2, 18),
+(1483, 4, 18),
+(1484, 1, 32),
+(1485, 2, 32),
+(1486, 4, 32),
+(1487, 2, 35),
+(1488, 4, 35),
+(1489, 2, 36),
+(1490, 4, 36),
+(1491, 2, 34),
+(1492, 4, 34),
+(1493, 4, 55),
+(1494, 4, 53),
+(1495, 4, 48),
+(1496, 2, 46),
+(1497, 4, 46),
+(1498, 4, 52),
+(1499, 4, 54),
+(1500, 2, 31),
+(1501, 4, 31),
+(1502, 1, 15),
+(1503, 2, 15),
+(1504, 4, 15),
+(1505, 1, 4),
+(1506, 2, 4),
+(1507, 4, 4),
+(1508, 2, 41),
+(1509, 4, 41),
+(1510, 4, 20),
+(1511, 2, 40),
+(1512, 4, 40),
+(1513, 4, 33),
+(1514, 2, 38),
+(1515, 4, 38),
+(1516, 4, 39),
+(1517, 1, 37),
+(1518, 2, 37),
+(1519, 4, 37),
+(1520, 2, 43),
+(1521, 4, 43),
+(1522, 2, 44),
+(1523, 4, 44),
+(1524, 2, 42),
+(1525, 4, 42),
+(1526, 2, 47),
+(1527, 4, 47),
+(1528, 4, 22),
+(1529, 1, 5),
+(1530, 2, 5),
+(1531, 4, 5),
+(1532, 1, 3),
+(1533, 2, 3),
+(1534, 4, 3),
+(1535, 1, 2),
+(1536, 2, 2),
+(1537, 4, 2),
+(1538, 4, 49);
 
 -- --------------------------------------------------------
 
