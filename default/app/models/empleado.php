@@ -28,16 +28,17 @@ class Empleado extends ActiveRecord
     {
         
     }
-
     /**
      * Devuelve los usuarios de la bd Paginados.
      * 
      * @param  integer $pagina numero de pagina a mostrar
-     * @return array          resultado de la consulta
+     * @return array resultado de la consulta
      */
-    public function paginar($pagina = 1)
-    {
-        return $this->paginate("page: $pagina");
+    public function paginar($pagina = 1){
+        $cols = 'C.*, P.*, empleado.* ';
+        $joins = ' INNER JOIN persona as P ON P.id = empleado.persona_id ';
+        $joins.= ' INNER JOIN cargo as C ON C.id = empleado.cargo_id ';
+        return $this->paginate("page: $pagina", "columns: $cols", "join: $joins");
     }
 
     public function numAcciones($pagina = 1)
@@ -90,6 +91,22 @@ class Empleado extends ActiveRecord
         $obj->commit();
         return TRUE;
     }
+     public function editar($data, $optData=array()){
+        $obj = new Empleado($data);
+        if(!empty($optData)) {
+            $obj->dump_result_self($optData);
+        }
+
+        $obj->begin();
+
+        if (!$obj->update($data)) {
+            $obj->rollback();
+            return FALSE;
+        }
+      
+        $obj->commit();
+        return TRUE;
+    }
 
     /**
      * Crea un arreglo con pares idRol => nombreRol con los roles
@@ -110,6 +127,15 @@ class Empleado extends ActiveRecord
         return $roles_id;
     }
 
+
+     public function getInformacionEmpleado($id){
+        $cols = 'C.*, P.*, P.id as idpersona, empleado.* ';
+        $joins = ' INNER JOIN persona as P ON P.id = empleado.persona_id ';
+        $joins.= ' INNER JOIN cargo as C ON C.id = empleado.cargo_id ';
+        return $this->find_first("conditions: empleado.id = $id","columns: $cols", "join: $joins");
+
+
+     }
     /**
      * Obtiene un arreglo con los nombres de los roles que posee el usuario.
      * @return array

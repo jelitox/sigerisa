@@ -42,6 +42,11 @@ class Persona extends ActiveRecord
         $rs = $obj->create();
         return $rs;
     }
+    public function editar($data){
+        $obj = new Persona($data);
+        $rs = $obj->update();
+        return $rs;
+    }
 
     /* obtener el ultimo registro */
 
