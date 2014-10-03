@@ -9,6 +9,9 @@
         <div id="res-form-ajax"><?php View::content() ?></div>
         <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
         <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php $persona_id = Auth::get('persona_id');
+        echo Form::hidden('solicitud.id');
+        echo Form::hidden('solicitud.persona_id', '', $persona_id);?>        
         <?php echo Form::hidden('solicitud.id') ?>
                 <div class="control-group">
             <label class="control-label" for="solicitud_parroquia_id">Parroquia : </label>
