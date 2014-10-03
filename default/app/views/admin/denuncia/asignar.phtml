@@ -10,23 +10,24 @@
         echo Form::hidden('denuncia.id');?>
         <div class="row control-group">
             <label class="control-label" for="denuncia_nombre">Fecha Asignacion: </label>
-            <?php echo Form::text('denuncia.fecha_denuncia', 'class="span4" readonly', date('d-m-Y') ) ?>
+            <?php echo Form::text('detalle_denuncia.fecha_asignacion', 'class="span2" readonly', date('d-m-Y') ) ?>
         </div>
         <div class="row control-group">
-            <label class="control-label" for="denuncia_observacion">Datos del denunciado: </label>
-            <?php echo Form::textarea('denuncia.datos_denunciado', 'class="span4"') ?>
+            <label class="control-label" for="detalle_denucia_observacion">Empleado a asignar: </label>
+            <?php echo Form::dbSelect('detalle_denuncia.empleado_id', 'nombre1', array('empleado', 'getListadoEmpleado'), 'Seleccione:') ?>
+        </div>
+         <div class="row control-group">
+            <label class="control-label" for="detalle_denucia_turno">Turno: </label>
+           <?php echo DwForm::select('detalle_denuncia.turno', array(''=>'Seleccione:', 'M'=>'Mañana', 'T'=>'Tarde'), array('class'=>'input-required')); ?>
         </div>
         <div class="row control-group">
-            <label class="control-label" for="detalle_denucia_observacion">Observaciones: </label>
-            <?php echo Form::textarea('denuncia.observacion_asiganacion', 'class="span4"') ?>
-        </div>
-        <div class="row control-group">
-            <?php echo Form::dbSelect('detalle_denucia.empleado_id', 'nombre', array('empleado', 'find'), 'Ninguno') ?>
+            <label class="control-label" for="denuncia_observacion">Observaciones: </label>
+            <?php echo Form::textarea('detalle_denuncia.observacion_asignacion', 'class="span4"') ?>
         </div>
 
         <div class="form-actions">
             <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
-            <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+            <?php echo Html::linkAction('listado', 'Cancelar', 'class="btn"') ?>
             </div>
         <?php echo Form::close() ?>
     </div>

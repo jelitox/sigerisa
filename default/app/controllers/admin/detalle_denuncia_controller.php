@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Backend - KumbiaPHP Backend
  * PHP version 5
@@ -42,11 +43,11 @@ class DenunciaController extends AdminController {
 
     public function crear() {
         try {
-            $this->titulo = 'Crear Denuncia';
+            $this->titulo = 'Asignar Denuncia';
 
-            if (Input::hasPost('denuncia')) {
-                $denuncia = new Denuncia(Input::post('denuncia'));
-                if ($denuncia->save()) {
+            if (Input::hasPost('detalle_denuncia')) {
+                $denuncia_dt = new Denuncia(Input::post('detalle_denuncia'));
+                if ($denuncia_dt->save()) {
                     Flash::valid('La denuncia Ha Sido Agregado Exitosamente...!!!');
                     if (!Input::isAjax()) {
                         return Router::redirect();
@@ -64,35 +65,12 @@ class DenunciaController extends AdminController {
             $id = (int) $id;
             $denuncia = new Denuncia();
             $denuncia->getInformacionDenuncia($id);
-            if (Input::hasPost('detalle_denuncia')) {
-                $denuncia_dt = new DetalleDenuncia();
-                if($denuncia_dt->guardar(Input::post('detalle_denuncia'), array('denuncia_id'=>$id))) {
-                    $denuncia->estatus = 'A';
-                    $denuncia->save();
-                    Flash::valid('La denuncia Ha Sido Asiganda Exitosamente...!!!');
-                    if (!Input::isAjax()) {
-                        return Router::redirect();
-                    }
-                } else {
-                    Flash::warning('No se Pudieron Guardar los Datos...!!!');
-                }
-            }
             $this->denuncia= $denuncia;
+
+
             $this->titulo = 'Asiganción de Personal a la Denuncia';
 
     }
-
-    public function rechazar($id){
-        $id = (int) $id;
-        $denuncia = new Denuncia();
-        $denuncia->getInformacionDenuncia($id);
-
-
-        $this->denuncia= $denuncia;
-        $this->titulo = 'Rechazo de la Denuncia';
-
-    }
-
 
     public function editar($id) {
         $this->titulo = 'Editar Cargo';

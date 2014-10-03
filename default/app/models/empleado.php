@@ -126,16 +126,21 @@ class Empleado extends ActiveRecord
         }
         return $roles_id;
     }
-
-
-     public function getInformacionEmpleado($id){
+    //PARA OBENTENER LA INFORMACION DE UN EMPLEADO EN ESPECIFICO 
+    public function getInformacionEmpleado($id){
         $cols = 'C.*, P.*, P.id as idpersona, empleado.* ';
         $joins = ' INNER JOIN persona as P ON P.id = empleado.persona_id ';
         $joins.= ' INNER JOIN cargo as C ON C.id = empleado.cargo_id ';
         return $this->find_first("conditions: empleado.id = $id","columns: $cols", "join: $joins");
-
-
      }
+     //PARA OBENTENER LISTADO DE TODOS LOS EMPLEADOS 
+    public function getListadoEmpleado(){
+        $cols = 'C.*, P.*, P.id as idpersona, empleado.* ';
+        $joins = ' INNER JOIN persona as P ON P.id = empleado.persona_id ';
+        $joins.= ' INNER JOIN cargo as C ON C.id = empleado.cargo_id ';
+        return $this->find("conditions: empleado.activo = 1","columns: $cols", "join: $joins");
+     }
+
     /**
      * Obtiene un arreglo con los nombres de los roles que posee el usuario.
      * @return array

@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-10-2014 a las 01:13:03
--- Versión del servidor: 5.5.37
--- Versión de PHP: 5.3.10-1ubuntu3.13
+-- Tiempo de generación: 03-10-2014 a las 11:10:48
+-- Versión del servidor: 5.5.38-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4.4
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -118,7 +118,16 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (74, 3, '2014-10-02 23:45:05', 'UPDATE menus SET menus_id = NULL,recursos_id = ''49'',nombre = ''Solicitudes'',url = ''admin/solicitud/index'',posicion = ''1'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''35''', 'MENUS', '127.0.0.1'),
 (75, 3, '2014-10-02 23:45:21', 'UPDATE menus SET menus_id = ''35'',recursos_id = ''50'',nombre = ''Crear Solicitud'',url = ''admin/solicitud/crear'',posicion = ''2'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''39''', 'MENUS', '127.0.0.1'),
 (76, 3, '2014-10-02 23:45:26', 'UPDATE menus SET menus_id = ''35'',recursos_id = ''50'',nombre = ''Crear Solicitud'',url = ''admin/solicitud/crear'',posicion = ''2'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''39''', 'MENUS', '127.0.0.1'),
-(77, 3, '2014-10-02 23:45:41', 'DELETE FROM roles_recursos WHERE id IN (''1181'',''1182'',''1183'',''1184'',''1185'',''1186'',''1187'',''1188'',''1189'',''1190'',''1191'',''1192'',''1193'',''1194'',''1195'',''1196'',''1197'',''1198'',''1199'',''1200'',''1201'',''1202'',''1203'',''1204'',''1205'',''1206'',''1207'',''1208'',''1209'',''1210'',''1211'',''1212'',''1213'',''1214'',''1215'',''1216'',''1217'',''1218'',''1219'',''1220'',''1221'',''1222'',''1223'',''1224'',''1225'',''1226'',''1227'',''1228'',''1229'',''1230'',''1231'',''1232'',''1233'',''1234'',''1235'',''1236'',''1237'')', 'ROLES_RECURSOS', '127.0.0.1');
+(77, 3, '2014-10-02 23:45:41', 'DELETE FROM roles_recursos WHERE id IN (''1181'',''1182'',''1183'',''1184'',''1185'',''1186'',''1187'',''1188'',''1189'',''1190'',''1191'',''1192'',''1193'',''1194'',''1195'',''1196'',''1197'',''1198'',''1199'',''1200'',''1201'',''1202'',''1203'',''1204'',''1205'',''1206'',''1207'',''1208'',''1209'',''1210'',''1211'',''1212'',''1213'',''1214'',''1215'',''1216'',''1217'',''1218'',''1219'',''1220'',''1221'',''1222'',''1223'',''1224'',''1225'',''1226'',''1227'',''1228'',''1229'',''1230'',''1231'',''1232'',''1233'',''1234'',''1235'',''1236'',''1237'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(78, 3, '2014-10-03 01:25:01', 'DELETE FROM roles_recursos WHERE id IN (''1245'',''1246'',''1247'',''1248'',''1249'',''1250'',''1251'',''1252'',''1253'',''1254'',''1255'',''1256'',''1257'',''1258'',''1259'',''1260'',''1261'',''1262'',''1263'',''1264'',''1265'',''1266'',''1267'',''1268'',''1269'',''1270'',''1271'',''1272'',''1273'',''1274'',''1275'',''1276'',''1277'',''1278'',''1279'',''1280'',''1281'',''1282'',''1283'',''1284'',''1285'',''1286'',''1287'',''1288'',''1289'',''1290'',''1291'',''1292'',''1293'',''1294'',''1295'',''1296'',''1297'',''1298'',''1299'',''1300'',''1301'',''1302'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(79, 3, '2014-10-03 01:32:02', 'DELETE FROM roles_recursos WHERE id IN (''1306'',''1307'',''1308'',''1309'',''1310'',''1311'',''1312'',''1313'',''1314'',''1315'',''1316'',''1317'',''1318'',''1319'',''1320'',''1321'',''1322'',''1323'',''1324'',''1325'',''1326'',''1327'',''1328'',''1329'',''1330'',''1331'',''1332'',''1333'',''1334'',''1335'',''1336'',''1337'',''1338'',''1339'',''1340'',''1341'',''1342'',''1343'',''1344'',''1345'',''1346'',''1347'',''1348'',''1349'',''1350'',''1351'',''1352'',''1353'',''1354'',''1355'',''1356'',''1357'',''1358'',''1359'',''1360'',''1361'',''1362'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(80, 3, '2014-10-03 09:46:39', 'UPDATE empleado SET persona_id = ''6'',cargo_id = ''2'',activo = ''0'' WHERE  id = ''1''', 'EMPLEADO', '127.0.0.1'),
+(81, 3, '2014-10-03 09:46:43', 'UPDATE empleado SET persona_id = ''6'',cargo_id = ''2'',activo = ''1'' WHERE  id = ''1''', 'EMPLEADO', '127.0.0.1'),
+(82, 3, '2014-10-03 10:13:51', 'DELETE FROM roles_recursos WHERE id IN (''1365'',''1366'',''1367'',''1368'',''1369'',''1370'',''1371'',''1372'',''1373'',''1374'',''1375'',''1376'',''1377'',''1378'',''1379'',''1380'',''1381'',''1382'',''1383'',''1384'',''1385'',''1386'',''1387'',''1388'',''1389'',''1390'',''1391'',''1392'',''1393'',''1394'',''1395'',''1396'',''1397'',''1398'',''1399'',''1400'',''1401'',''1402'',''1403'',''1404'',''1405'',''1406'',''1407'',''1408'',''1409'',''1410'',''1411'',''1412'',''1413'',''1414'',''1415'',''1416'',''1417'',''1418'',''1419'',''1420'',''1421'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(83, 3, '2014-10-03 10:58:14', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
+(84, 3, '2014-10-03 10:58:15', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
+(85, 3, '2014-10-03 10:58:30', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
+(86, 3, '2014-10-03 10:59:27', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''A'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -183,10 +192,17 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
   `datos_denunciado` text,
   `direccion_denunciado` text,
   `planteamiento_problema` text,
-  `estatus` varchar(1) DEFAULT NULL,
+  `estatus` char(1) DEFAULT 'R',
   PRIMARY KEY (`id`),
   KEY `fk_denuncia_persona1_idx` (`persona_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `denuncia`
+--
+
+INSERT INTO `denuncia` (`id`, `persona_id`, `fecha_denuncia`, `datos_denunciado`, `direccion_denunciado`, `planteamiento_problema`, `estatus`) VALUES
+(1, 1, '2014-10-03', 'javier leon ', 'baraure', ' no se baña', 'A');
 
 -- --------------------------------------------------------
 
@@ -199,17 +215,26 @@ CREATE TABLE IF NOT EXISTS `detalle_denuncia` (
   `empleado_id` int(11) NOT NULL,
   `denuncia_id` int(11) NOT NULL,
   `fecha_asignacion` date DEFAULT NULL,
+  `turno` char(1) NOT NULL,
   `fecha_inspeccion` date DEFAULT NULL,
   `observacion_registro` text,
-  `observacion_asignacion` text NOT NULL,
-  `observacion_inspeccion` text NOT NULL,
-  `observacion_revision` text NOT NULL,
-  `observacion_rechazo` text NOT NULL,
-  `observacion_cierre` text NOT NULL,
+  `observacion_asignacion` text,
+  `observacion_inspeccion` text,
+  `observacion_revision` text,
+  `observacion_rechazo` text,
+  `observacion_cierre` text,
+  `activo` int(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_detalle_denuncia_denuncia1_idx` (`denuncia_id`),
   KEY `fk_detalle_denuncia_empleado1_idx` (`empleado_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `detalle_denuncia`
+--
+
+INSERT INTO `detalle_denuncia` (`id`, `empleado_id`, `denuncia_id`, `fecha_asignacion`, `turno`, `fecha_inspeccion`, `observacion_registro`, `observacion_asignacion`, `observacion_inspeccion`, `observacion_revision`, `observacion_rechazo`, `observacion_cierre`, `activo`) VALUES
+(5, 1, 1, '0000-00-00', 'T', NULL, NULL, 'jkasdflkajsdfl ajsdlkf wuiqe lk,asdjlkf jaslkdjfla sdofi8ausd ofjhaskld fhkjasdyhf kadfkh lkafjsdlf kajsdlkfuaj lsdjflaksd', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -237,11 +262,18 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `persona_id` int(11) NOT NULL,
   `cargo_id` int(11) NOT NULL,
-  `activo` int(11) NOT NULL,
+  `activo` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_empleado_persona` (`persona_id`),
   KEY `fk_empleado_cargo` (`cargo_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `empleado`
+--
+
+INSERT INTO `empleado` (`id`, `persona_id`, `cargo_id`, `activo`) VALUES
+(1, 6, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -262,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`),
   KEY `menus_id` (`menus_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -291,7 +323,8 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 (35, NULL, 49, 'Solicitudes', 'admin/solicitud/index', 1, NULL, 2, 1),
 (36, NULL, 46, 'Denuncias', 'admin/denuncia/index', 2, NULL, 2, 1),
 (37, NULL, 47, 'Planificación', 'admin/planificacion/index', 3, NULL, 2, 1),
-(38, 36, 48, 'Crear', 'admin/denuncia/crear', 100, NULL, 2, 1);
+(38, 36, 48, 'Crear', 'admin/denuncia/crear', 100, NULL, 2, 1),
+(40, 36, 52, 'Listado', 'admin/denuncia/listado', 100, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -393,7 +426,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `rif_UNIQUE` (`cedula`),
   KEY `fk_persona_organizacion` (`organizacion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `persona`
@@ -401,7 +434,8 @@ CREATE TABLE IF NOT EXISTS `persona` (
 
 INSERT INTO `persona` (`id`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `fecha_nacimiento`, `direccion`, `telefono_movil`, `telefono_local`, `organizacion_id`) VALUES
 (1, '123123', 'edgar ', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 2147483647, NULL),
-(2, '1231234', 'edgar', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 25562100, NULL);
+(2, '1231234', 'edgar', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 25562100, NULL),
+(6, '16758987', 'javier ', NULL, 'leon', NULL, '2014-10-01', 'asd fs', 423423, 3214234, NULL);
 
 -- --------------------------------------------------------
 
@@ -418,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -467,7 +501,10 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (48, 'admin', 'denuncia', 'crear', 'admin/denuncia/crear', 'Creacion de la denuncia', 1),
 (49, 'admin', 'solicitud', '*', 'admin/solicitud/*', 'Submodulo de gestion de solicitudes ', 1),
 (50, 'admin', 'solicitud', 'crear', 'admin/solicitud/crear', 'Formulario de registro de solicitudes', 1),
-(51, 'admin', 'solicitud', 'eliminar', 'admin/solicitud/eliminar', 'vista para eliminar solicitudes', 1);
+(51, 'admin', 'solicitud', 'eliminar', 'admin/solicitud/eliminar', 'vista para eliminar solicitudes', 1),
+(52, 'admin', 'denuncia', 'listado', 'admin/denuncia/listado', 'Lisataod e las registradad', 1),
+(53, 'admin', 'denuncia', 'asignar', 'admin/denuncia/asignar', 'para asginar el personal a una determinada denuncia', 1),
+(54, 'admin', 'denuncia', 'rechazar', 'admin/denuncia/rechazar', 'Para rechazar las solicitudes', 1);
 
 -- --------------------------------------------------------
 
@@ -506,7 +543,7 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1306 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1481 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
@@ -526,67 +563,70 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 (1242, 2, 14),
 (1243, 4, 14),
 (1244, 4, 29),
-(1245, 1, 18),
-(1246, 2, 18),
-(1247, 4, 18),
-(1248, 1, 32),
-(1249, 2, 32),
-(1250, 4, 32),
-(1251, 2, 35),
-(1252, 4, 35),
-(1253, 2, 36),
-(1254, 4, 36),
-(1255, 2, 34),
-(1256, 4, 34),
-(1257, 4, 48),
-(1258, 2, 46),
-(1259, 4, 46),
-(1260, 2, 31),
-(1261, 4, 31),
-(1262, 1, 15),
-(1263, 2, 15),
-(1264, 4, 15),
-(1265, 1, 4),
-(1266, 2, 4),
-(1267, 4, 4),
-(1268, 2, 41),
-(1269, 4, 41),
-(1270, 4, 20),
-(1271, 2, 40),
-(1272, 4, 40),
-(1273, 4, 33),
-(1274, 2, 38),
-(1275, 4, 38),
-(1276, 4, 39),
-(1277, 1, 37),
-(1278, 2, 37),
-(1279, 4, 37),
-(1280, 2, 43),
-(1281, 4, 43),
-(1282, 2, 44),
-(1283, 4, 44),
-(1284, 2, 42),
-(1285, 4, 42),
-(1286, 2, 47),
-(1287, 4, 47),
-(1288, 4, 22),
-(1289, 1, 5),
-(1290, 2, 5),
-(1291, 4, 5),
-(1292, 1, 3),
-(1293, 2, 3),
-(1294, 4, 3),
-(1295, 1, 2),
-(1296, 2, 2),
-(1297, 4, 2),
-(1298, 4, 49),
-(1299, 4, 50),
-(1300, 4, 51),
-(1301, 2, 45),
-(1302, 4, 45),
 (1303, 1, 1),
 (1304, 2, 1),
-(1305, 4, 1);
+(1305, 4, 1),
+(1363, 2, 45),
+(1364, 4, 45),
+(1422, 4, 51),
+(1423, 1, 18),
+(1424, 2, 18),
+(1425, 4, 18),
+(1426, 1, 32),
+(1427, 2, 32),
+(1428, 4, 32),
+(1429, 2, 35),
+(1430, 4, 35),
+(1431, 2, 36),
+(1432, 4, 36),
+(1433, 2, 34),
+(1434, 4, 34),
+(1435, 4, 53),
+(1436, 4, 48),
+(1437, 2, 46),
+(1438, 4, 46),
+(1439, 4, 52),
+(1440, 4, 54),
+(1441, 2, 31),
+(1442, 4, 31),
+(1443, 1, 15),
+(1444, 2, 15),
+(1445, 4, 15),
+(1446, 1, 4),
+(1447, 2, 4),
+(1448, 4, 4),
+(1449, 2, 41),
+(1450, 4, 41),
+(1451, 4, 20),
+(1452, 2, 40),
+(1453, 4, 40),
+(1454, 4, 33),
+(1455, 2, 38),
+(1456, 4, 38),
+(1457, 4, 39),
+(1458, 1, 37),
+(1459, 2, 37),
+(1460, 4, 37),
+(1461, 2, 43),
+(1462, 4, 43),
+(1463, 2, 44),
+(1464, 4, 44),
+(1465, 2, 42),
+(1466, 4, 42),
+(1467, 2, 47),
+(1468, 4, 47),
+(1469, 4, 22),
+(1470, 1, 5),
+(1471, 2, 5),
+(1472, 4, 5),
+(1473, 1, 3),
+(1474, 2, 3),
+(1475, 4, 3),
+(1476, 1, 2),
+(1477, 2, 2),
+(1478, 4, 2),
+(1479, 4, 49),
+(1480, 4, 50);
 
 -- --------------------------------------------------------
 
@@ -787,16 +827,16 @@ ALTER TABLE `roles_usuarios`
 --
 ALTER TABLE `solicitud`
   ADD CONSTRAINT `fk_solicitud_agua_urbanismo_municipio1` FOREIGN KEY (`parroquia_id`) REFERENCES `parroquia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_solicitud_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_solicitud_empleado1` FOREIGN KEY (`empleado_id`) REFERENCES `empleado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_solicitud_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_solicitud_tipo_solicitud` FOREIGN KEY (`tipo_solicitud_id`) REFERENCES `tipo_solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tiposolicitud_caracteristica`
 --
 ALTER TABLE `tiposolicitud_caracteristica`
-  ADD CONSTRAINT `fk_tiposolicitud_caracteristica_tipo_solicitud` FOREIGN KEY (`tipo_solicitud_id`) REFERENCES `tipo_solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_tiposolicitud_caracteristica_caracteristica` FOREIGN KEY (`caracteristica_id`) REFERENCES `caracteristica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tiposolicitud_caracteristica_caracteristica` FOREIGN KEY (`caracteristica_id`) REFERENCES `caracteristica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tiposolicitud_caracteristica_tipo_solicitud` FOREIGN KEY (`tipo_solicitud_id`) REFERENCES `tipo_solicitud` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `usuarios`
