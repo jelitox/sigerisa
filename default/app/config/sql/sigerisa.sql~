@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-10-2014 a las 23:02:26
+-- Tiempo de generación: 02-10-2014 a las 22:59:48
 -- Versión del servidor: 5.5.37
 -- Versión de PHP: 5.3.10-1ubuntu3.13
 
@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `persona_id` int(11) NOT NULL,
   `cargo_id` int(11) NOT NULL,
-  `activo` int(11) NOT NULL,
+  `estado` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_empleado_persona` (`persona_id`),
   KEY `fk_empleado_cargo` (`cargo_id`)
