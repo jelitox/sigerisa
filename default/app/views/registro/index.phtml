@@ -2,7 +2,7 @@
     <h1>Crear una Cuenta</h1>
 </div>
 <?php View::content(); ?>
-<?php echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+<?php echo Form::open(NULL, 'post', 'class="form-horizontal" id="form"') ?>
 <?php echo Form::hidden('registro.id') ?>
 <div class="hero-unit">
     <div class="page-header">
@@ -14,13 +14,13 @@
                 <label class="control-label" for="persona_cedula"><b>Cedula * :  </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('persona.cedula', 'class="span3 mask-num"') ?>
+                <?php echo Form::text('persona.cedula', 'class="span3 mask-num" required') ?>
             </div>
             <div class="span2">
                 <label class="control-label" for="persona_nombre1"><b>Primer Nombre * : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('persona.nombre1', 'class="span3 mask-alpha"') ?>
+                <?php echo Form::text('persona.nombre1', 'class="span3 mask-alpha " required') ?>
             </div>
         </div>
 
@@ -29,13 +29,13 @@
                 <label class="control-label" for="persona_nombre2">Segundo Nombre  :  </label>
             </div>
             <div class="span3">
-                <?php echo Form::text('persona.nombre2', 'class="span3 mask-alpha"') ?>
+                <?php echo Form::text('persona.nombre2', 'class="span3 mask-alpha" ') ?>
             </div>
             <div class="span2">
                 <label class="control-label" for="persona_apellido1"><b>Primer Apellido * : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('persona.apellido1', 'class="span3 mask-alpha"') ?>
+                <?php echo Form::text('persona.apellido1', 'class="span3 mask-alpha" required') ?>
             </div>
         </div>
         <div class="row control-group">
@@ -49,7 +49,7 @@
                 <label class="control-label" for="persona_fecha_nacimiento"><b>Fecha de Nacimiento * : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::date('persona.fecha_nacimiento', 'class="span3 mask-date"') ?>
+                <?php echo Form::date('persona.fecha_nacimiento', 'class="span3 mask-date" required') ?>
             </div>
         </div>
 
@@ -58,23 +58,39 @@
                 <label class="control-label" for="persona_telefono_local"><b>Telefono Local * :  </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('persona.telefono_local', 'class="span3 mask-num"') ?>
+                <?php echo Form::text('persona.telefono_local', 'class="span3 mask-num" required') ?>
             </div>
             <div class="span2">
                 <label class="control-label" for="persona_telefono_movil"><b>Telefono Movil * : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('persona.telefono_movil', 'class="span3 mask-num"') ?>
+                <?php echo Form::text('persona.telefono_movil', 'class="span3 mask-num" required') ?>
             </div>
         </div>
+        <div class="row control-group">
+         	<div class="span2">
+                <label class="control-label" for="persona_municipio"><b>Municipio * :  </b></label>
+            </div>
+	        <div class="span3">
+                <?php echo DwForm::dbSelect('persona.municipio_id', 'nombre', array('municipio', 'buscar'), NULL, array('class'=>'input-required'), NULL ,'Municipio'); ?>
+            </div>
+
+            <div class="span2">
+            	 <label class="control-label" for="persona_municipio"><b>Parroquia * :  </b></label>
+            </div>
+            <div class="span3">
+            	<div id="div_paroquia"></div>
+
+            </div>
+		</div>
 
         <div class="row control-group">
 
             <div class="span2">
                 <label class="control-label" for="persona_direccion"><b>Dirección * :  </b></label>
             </div>
-            <div class="span3">
-                <?php echo Form::textarea('persona.direccion', 'class="span3 mask-alpha"') ?>
+            <div class="span3"> 
+                <?php echo Form::textarea('persona.direccion', 'class="span3 mask-alphanum" required') ?>
             </div>
             <div class="span2">
 
@@ -91,13 +107,13 @@
                 <label for="usuario_login"><b>Nombre de Usuario (Login)* : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::text('usuarios.login', 'class="span3 mask-alpha"') ?>
+                <?php echo Form::text('usuarios.login', 'class="span3 mask-alpha" required') ?>
             </div>
             <div class="span2">
                 <label for="usuario_clave"><b>Contrase&ntilde;a* : </b></label>
             </div>
             <div class="span3">
-                <?php echo Form::pass('usuarios.clave', 'class="span3"') ?>
+                <?php echo Form::pass('usuarios.clave', 'class="span3" required') ?>
             </div>
         </div>
 
@@ -106,13 +122,13 @@
     <label for="usuario_clave2"><b>Volver a escribir Contrase&ntilde;a* : </b></label>
             </div>
             <div class="span3">
-        <?php echo Form::pass('usuarios.clave2', 'class="span3"') ?>
+        <?php echo Form::pass('usuarios.clave2', 'class="span3" required') ?>
             </div>
             <div class="span2">
     <label for="usuario_email"><b>Correo Electronico* : </b></label>
             </div>
             <div class="span3">
-        <?php echo Form::text('usuarios.email', 'class="span3"') ?>
+        <?php echo Form::text('usuarios.email', 'class="span3" required') ?>
             </div>
         </div>
 </div>        
@@ -121,3 +137,55 @@
     <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
 </div>
 <?php echo Form::close() ?>
+
+<!-- Funcion para darle el tamano maximo a cada input -->
+<script type="text/javascript">
+$(function(){
+    var cedula = document.getElementById("persona_cedula");
+    document.getElementById("persona_nombre1").maxLength = 40;
+    document.getElementById("persona_nombre2").maxLength = 40;
+    document.getElementById("persona_apellido1").maxLength = 40;
+    document.getElementById("persona_apellido2").maxLength = 40;
+    document.getElementById("persona_direccion").maxLength = 45;
+    var telefono = document.getElementById("persona_telefono_local");
+    var celular = document.getElementById("persona_telefono_movil");
+    cedula.maxLength = 8; 
+    telefono.maxLength = 11;
+    celular.maxLength = 11;
+    //los datos de usuario
+    document.getElementById("usuarios_login").maxLength = 40;
+    //VALIDAR NRO MINIMO ( NO PERMITIR MENOS DE 11 Xd)
+})
+</script>
+<script type="text/javascript">
+//validando tamapo de clave antes de salir a la bd 
+$("#form").submit(function () { 
+    if( ($("#usuarios_clave").val().length < 5)&& ($("#usuarios_clave2").val().length < 5) ) {  
+        alert("La clave debe contener al menos 5 caracateres");  
+        return false;  
+    }
+    else if(($("#usuarios_clave").val())!=($("#usuarios_clave2").val())){
+    	alert("La claves no coinciden");  
+        return false;  
+    }
+    else{
+    	return true
+    }
+
+});
+</script>
+<!-- Script para obtener por Ajax el departamento en funcion de las Upsas  -->
+<script type='text/javascript'>
+$("#persona_municipio_id").change(function(){
+	var municipio_id     =   $('#persona_municipio_id').val();
+        $.ajax({
+          type: "POST",
+          url: "<?php echo PUBLIC_PATH . 'registro/getParroquia/'; ?>",
+          data: "municipio_id=" + municipio_id,
+          success: function(html){
+            $("#div_parroquia").html(html);
+          }
+        });
+});
+</script>
+

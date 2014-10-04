@@ -32,8 +32,7 @@ class Usuarios extends ActiveRecord
         $this->validates_uniqueness_of('login', 'message: El <b>Login</b> ya está siendo utilizado');
     }
 
-    protected function before_save()
-    {
+    protected function before_save(){
         if (isset($this->clave2) and $this->clave !== $this->clave2) {
             Flash::error('Las <b>CLaves</b> no Coinciden...!!!');
             return 'cancel';

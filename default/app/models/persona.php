@@ -11,12 +11,12 @@ class Persona extends ActiveRecord
 {
 
     protected function initialize(){
-        
     }
 
     protected function before_save() {
         $fecha_nac= new DateTime($this->fecha_nacimiento);
         $this->fecha_nacimiento = $fecha_nac->format('Y-m-d');
+        
 
     }
 

@@ -6,6 +6,7 @@
  */
 Load::models('usuarios');
 Load::models('persona');
+Load::models('parroquia', 'municipio');
 class RegistroController extends AppController {
 	public function before_filter(){
 		if (!Config::get('config.application.registro')){
@@ -13,6 +14,7 @@ class RegistroController extends AppController {
 		}
 	}
     public function index() {
+        $municipio = new Municipio();
         if ((Input::hasPost('usuarios'))&& (Input::hasPost('persona')) ){
             //esto es para tener atributos que no son campos de la tabla
                 $rol = array('id'=>'1');
@@ -40,6 +42,7 @@ class RegistroController extends AppController {
         else{
             return false;
         }
+        $this->municipio = $municipio->buscar(); 
     }
 
     public function activar($id_usuario, $hash) {
@@ -51,7 +54,10 @@ class RegistroController extends AppController {
         }
     }
 
-
+    public function getParroquia(){
+       View::response('view'); 
+       $this->municipio_id=Input::post('municipio_id');
+    }
 
 
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-10-2014 a las 14:23:06
+-- Tiempo de generación: 04-10-2014 a las 09:34:01
 -- Versión del servidor: 5.5.38-0ubuntu0.14.04.1
 -- Versión de PHP: 5.5.9-1ubuntu4.4
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=90 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -129,7 +129,8 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (85, 3, '2014-10-03 10:58:30', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''R'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
 (86, 3, '2014-10-03 10:59:27', 'UPDATE denuncia SET persona_id = ''1'',fecha_denuncia = ''2014-10-03'',datos_denunciado = ''javier leon '',direccion_denunciado = ''baraure'',planteamiento_problema = '' no se baña'',estatus = ''A'' WHERE  id = ''1''', 'DENUNCIA', '127.0.0.1'),
 (87, 3, '2014-10-03 11:18:06', 'UPDATE menus SET menus_id = ''36'',recursos_id = ''52'',nombre = ''Asignaciones'',url = ''admin/denuncia/listado'',posicion = ''100'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''40''', 'MENUS', '127.0.0.1'),
-(88, 3, '2014-10-03 14:10:18', 'DELETE FROM roles_recursos WHERE id IN (''1423'',''1424'',''1425'',''1426'',''1427'',''1428'',''1429'',''1430'',''1431'',''1432'',''1433'',''1434'',''1435'',''1436'',''1437'',''1438'',''1439'',''1440'',''1441'',''1442'',''1443'',''1444'',''1445'',''1446'',''1447'',''1448'',''1449'',''1450'',''1451'',''1452'',''1453'',''1454'',''1455'',''1456'',''1457'',''1458'',''1459'',''1460'',''1461'',''1462'',''1463'',''1464'',''1465'',''1466'',''1467'',''1468'',''1469'',''1470'',''1471'',''1472'',''1473'',''1474'',''1475'',''1476'',''1477'',''1478'',''1479'')', 'ROLES_RECURSOS', '127.0.0.1');
+(88, 3, '2014-10-03 14:10:18', 'DELETE FROM roles_recursos WHERE id IN (''1423'',''1424'',''1425'',''1426'',''1427'',''1428'',''1429'',''1430'',''1431'',''1432'',''1433'',''1434'',''1435'',''1436'',''1437'',''1438'',''1439'',''1440'',''1441'',''1442'',''1443'',''1444'',''1445'',''1446'',''1447'',''1448'',''1449'',''1450'',''1451'',''1452'',''1453'',''1454'',''1455'',''1456'',''1457'',''1458'',''1459'',''1460'',''1461'',''1462'',''1463'',''1464'',''1465'',''1466'',''1467'',''1468'',''1469'',''1470'',''1471'',''1472'',''1473'',''1474'',''1475'',''1476'',''1477'',''1478'',''1479'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(89, 3, '2014-10-03 14:36:13', 'DELETE FROM roles_recursos WHERE id IN (''1481'',''1482'',''1483'',''1484'',''1485'',''1486'',''1487'',''1488'',''1489'',''1490'',''1491'',''1492'',''1493'',''1494'',''1495'',''1496'',''1497'',''1498'',''1499'',''1500'',''1501'',''1502'',''1503'',''1504'',''1505'',''1506'',''1507'',''1508'',''1509'',''1510'',''1511'',''1512'',''1513'',''1514'',''1515'',''1516'',''1517'',''1518'',''1519'',''1520'',''1521'',''1522'',''1523'',''1524'',''1525'',''1526'',''1527'',''1528'',''1529'',''1530'',''1531'',''1532'',''1533'',''1534'',''1535'',''1536'',''1537'')', 'ROLES_RECURSOS', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -426,19 +427,22 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `telefono_movil` int(10) DEFAULT NULL,
   `telefono_local` int(10) DEFAULT NULL,
   `organizacion_id` int(11) DEFAULT NULL,
+  `parroquia_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `rif_UNIQUE` (`cedula`),
-  KEY `fk_persona_organizacion` (`organizacion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  KEY `fk_persona_organizacion` (`organizacion_id`),
+  KEY `parroquia_id` (`parroquia_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`id`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `fecha_nacimiento`, `direccion`, `telefono_movil`, `telefono_local`, `organizacion_id`) VALUES
-(1, '123123', 'edgar ', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 2147483647, NULL),
-(2, '1231234', 'edgar', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 25562100, NULL),
-(6, '16758987', 'javier ', NULL, 'leon', NULL, '2014-10-01', 'asd fs', 423423, 3214234, NULL);
+INSERT INTO `persona` (`id`, `cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `fecha_nacimiento`, `direccion`, `telefono_movil`, `telefono_local`, `organizacion_id`, `parroquia_id`) VALUES
+(1, '123123', 'edgar ', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 2147483647, NULL, NULL),
+(2, '1231234', 'edgar', 'enrique', 'roa', 'gutierrez', '1988-09-01', 'urb. las palmas', 414111111, 25562100, NULL, NULL),
+(6, '16758987', 'javier ', NULL, 'leon', NULL, '2014-10-01', 'asd fs', 423423, 3214234, NULL, NULL),
+(7, '31242314', 'sadfdsf', 'a', 'asdfsad', NULL, '2014-10-04', 'asddff q', 2147483647, 2147483647, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -455,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -508,7 +512,8 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (52, 'admin', 'denuncia', 'listado', 'admin/denuncia/listado', 'Lisataod e las registradad', 1),
 (53, 'admin', 'denuncia', 'asignar', 'admin/denuncia/asignar', 'para asginar el personal a una determinada denuncia', 1),
 (54, 'admin', 'denuncia', 'rechazar', 'admin/denuncia/rechazar', 'Para rechazar las solicitudes', 1),
-(55, 'admin', 'denuncia', 'asignadas', 'admin/denuncia/asignadas', 'LIstado de todas las Denuncias Asignadas', 1);
+(55, 'admin', 'denuncia', 'asignadas', 'admin/denuncia/asignadas', 'LIstado de todas las Denuncias Asignadas', 1),
+(56, 'admin', 'denuncia', 'inspeccionar', 'admin/denuncia/inspeccionar', 'Cargar las observaciones de la inspeccion', 1);
 
 -- --------------------------------------------------------
 
@@ -547,7 +552,7 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1539 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1597 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
@@ -574,64 +579,65 @@ INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
 (1364, 4, 45),
 (1422, 4, 51),
 (1480, 4, 50),
-(1481, 1, 18),
-(1482, 2, 18),
-(1483, 4, 18),
-(1484, 1, 32),
-(1485, 2, 32),
-(1486, 4, 32),
-(1487, 2, 35),
-(1488, 4, 35),
-(1489, 2, 36),
-(1490, 4, 36),
-(1491, 2, 34),
-(1492, 4, 34),
-(1493, 4, 55),
-(1494, 4, 53),
-(1495, 4, 48),
-(1496, 2, 46),
-(1497, 4, 46),
-(1498, 4, 52),
-(1499, 4, 54),
-(1500, 2, 31),
-(1501, 4, 31),
-(1502, 1, 15),
-(1503, 2, 15),
-(1504, 4, 15),
-(1505, 1, 4),
-(1506, 2, 4),
-(1507, 4, 4),
-(1508, 2, 41),
-(1509, 4, 41),
-(1510, 4, 20),
-(1511, 2, 40),
-(1512, 4, 40),
-(1513, 4, 33),
-(1514, 2, 38),
-(1515, 4, 38),
-(1516, 4, 39),
-(1517, 1, 37),
-(1518, 2, 37),
-(1519, 4, 37),
-(1520, 2, 43),
-(1521, 4, 43),
-(1522, 2, 44),
-(1523, 4, 44),
-(1524, 2, 42),
-(1525, 4, 42),
-(1526, 2, 47),
-(1527, 4, 47),
-(1528, 4, 22),
-(1529, 1, 5),
-(1530, 2, 5),
-(1531, 4, 5),
-(1532, 1, 3),
-(1533, 2, 3),
-(1534, 4, 3),
-(1535, 1, 2),
-(1536, 2, 2),
-(1537, 4, 2),
-(1538, 4, 49);
+(1538, 4, 49),
+(1539, 1, 18),
+(1540, 2, 18),
+(1541, 4, 18),
+(1542, 1, 32),
+(1543, 2, 32),
+(1544, 4, 32),
+(1545, 2, 35),
+(1546, 4, 35),
+(1547, 2, 36),
+(1548, 4, 36),
+(1549, 2, 34),
+(1550, 4, 34),
+(1551, 4, 55),
+(1552, 4, 53),
+(1553, 4, 48),
+(1554, 2, 46),
+(1555, 4, 46),
+(1556, 4, 56),
+(1557, 4, 52),
+(1558, 4, 54),
+(1559, 2, 31),
+(1560, 4, 31),
+(1561, 1, 15),
+(1562, 2, 15),
+(1563, 4, 15),
+(1564, 1, 4),
+(1565, 2, 4),
+(1566, 4, 4),
+(1567, 2, 41),
+(1568, 4, 41),
+(1569, 4, 20),
+(1570, 2, 40),
+(1571, 4, 40),
+(1572, 4, 33),
+(1573, 2, 38),
+(1574, 4, 38),
+(1575, 4, 39),
+(1576, 1, 37),
+(1577, 2, 37),
+(1578, 4, 37),
+(1579, 2, 43),
+(1580, 4, 43),
+(1581, 2, 44),
+(1582, 4, 44),
+(1583, 2, 42),
+(1584, 4, 42),
+(1585, 2, 47),
+(1586, 4, 47),
+(1587, 4, 22),
+(1588, 1, 5),
+(1589, 2, 5),
+(1590, 4, 5),
+(1591, 1, 3),
+(1592, 2, 3),
+(1593, 4, 3),
+(1594, 1, 2),
+(1595, 2, 2),
+(1596, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -811,6 +817,7 @@ ALTER TABLE `parroquia`
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
+  ADD CONSTRAINT `fk_parroqui_persona` FOREIGN KEY (`parroquia_id`) REFERENCES `persona` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_persona_organizacion` FOREIGN KEY (`organizacion_id`) REFERENCES `organizacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
