@@ -80,7 +80,7 @@ class CaracteristicaController extends AdminController {
                     if ($caracteristica->update(Input::post('caracteristica'))) {
                         Flash::valid('El Caracteristica ha sido Actualizado Exitosamente...!!!');
                         if (!Input::isAjax()) {
-                            return Router::redirect();
+                            return Router::redirect('/admin/caracteristica/index');
                         }
                     } else {
                         Flash::warning('No se Pudieron Guardar los Datos...!!!');

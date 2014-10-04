@@ -16,7 +16,7 @@
         </div>
         <div class="row control-group">
             <label class="control-label" for="caracteristica_tipo_valor">Tipo de Valor * : </label>
-            <?php echo Form::text('caracteristica.tipo_valor', 'class="span4"') ?>
+                 <?php echo Form::select('caracteristica.tipo_valor', array(''=>'Seleccione:', '1'=>'Radio', '2'=>'Caja de Texto','3'=>'Checkbox', '4'=>'Caja de Seleccion', '5'=>'Caja Area de Texto')); ?>
         </div>
             <div class="form-actions">
             <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
