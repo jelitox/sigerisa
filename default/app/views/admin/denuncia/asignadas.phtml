@@ -6,7 +6,7 @@
 echo Form::open('admin/denuncia/eliminar', 'post', 'class="form_lista"');
 $dt = new DataTable($denuncias);
 $dt->addHeaders('id', 'Cedula Denunciante','Nombre Denunciante', 'Fecha Denuncia', 'Denunciado ');
-$dt->addHeaders( 'Asignar', 'Rechazar');
+$dt->addHeaders( 'Inspeccionar', 'Rechazar');
 $dt->addFields('id', 'cedula', 'nombre1', 'fecha_denuncia', 'datos_denunciado');
 $dt->imgLink('figuras/editar.png', 'admin/denuncia/inspeccionar');
 $dt->imgLinkConfirm('figuras/eliminar.png', 'admin/denuncia/rechazar', '', '¿Realmente desea Rechazar esta denuncia?');

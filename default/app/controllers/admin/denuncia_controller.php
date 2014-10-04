@@ -39,7 +39,7 @@ class DenunciaController extends AdminController {
             View::excepcion($e);
         }
     }
-        public function asignadas($pagina = 1) {
+    public function asignadas($pagina = 1) {
         try {
             $denuncias = new Denuncia();
             $this->denuncias = $denuncias->paginarAsignadas($pagina);
@@ -87,6 +87,28 @@ class DenunciaController extends AdminController {
             }
             $this->denuncia= $denuncia;
             $this->titulo = 'Asiganción de Personal a la Denuncia';
+
+    }
+    //Cargar las observaciones de la inspeccion
+     public function inspeccionar($id){
+            $id = (int) $id;
+            $denuncia = new Denuncia();
+            $denuncia->getInformacionDenuncia($id);
+            if (Input::hasPost('detalle_denuncia')) {
+                $denuncia_dt = new DetalleDenuncia();
+                if($denuncia_dt->guardar(Input::post('detalle_denuncia'), array('denuncia_id'=>$id))) {
+                    $denuncia->estatus = 'A';
+                    $denuncia->save();
+                    Flash::valid('La denuncia Ha Sido Asiganda Exitosamente...!!!');
+                    if (!Input::isAjax()) {
+                        return Router::redirect();
+                    }
+                } else {
+                    Flash::warning('No se Pudieron Guardar los Datos...!!!');
+                }
+            }
+            $this->denuncia= $denuncia;
+            $this->titulo = 'Observaciones obtenidas en la Inspección';
 
     }
 
