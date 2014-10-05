@@ -12,13 +12,17 @@
             <label class="control-label" for="denuncia_nombre">Fecha Asignacion: </label>
             <?php echo Form::text('detalle_denuncia.fecha_asignacion', 'class="span2" readonly', date('d-m-Y') ) ?>
         </div>
+         <div class="row control-group">
+            <label class="control-label" for="denuncia_nombre">Fecha a Inspeccionar: </label>
+            <?php echo Form::date('detalle_denuncia.fecha_inspeccion', 'class="span2 mask-num"') ?>
+        </div>
         <div class="row control-group">
             <label class="control-label" for="detalle_denucia_observacion">Empleado a asignar: </label>
             <?php echo Form::dbSelect('detalle_denuncia.empleado_id', 'nombre1', array('empleado', 'getListadoEmpleado'), 'Seleccione:') ?>
         </div>
          <div class="row control-group">
             <label class="control-label" for="detalle_denucia_turno">Turno: </label>
-           <?php echo DwForm::select('detalle_denuncia.turno', array(''=>'Seleccione:', 'M'=>'Mañana', 'T'=>'Tarde'), array('class'=>'input-required')); ?>
+           <?php echo DwForm::select('detalle_denuncia.turno', array(''=>'Seleccione:', 'M'=>'Mañana', 'T'=>'Tarde', 'D'=>'Todo el Dia'), array('class'=>'input-required')); ?>
         </div>
         <div class="row control-group">
             <label class="control-label" for="denuncia_observacion">Observaciones: </label>

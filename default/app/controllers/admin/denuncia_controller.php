@@ -93,19 +93,25 @@ class DenunciaController extends AdminController {
      public function inspeccionar($id){
             $id = (int) $id;
             $denuncia = new Denuncia();
-            $denuncia->getInformacionDenuncia($id);
-            if (Input::hasPost('detalle_denuncia')) {
+            $denuncia->getInformacionDenunciaDetalles($id);
+            if (Input::hasPost('observacion_inspeccion')) {
                 $denuncia_dt = new DetalleDenuncia();
-                if($denuncia_dt->guardar(Input::post('detalle_denuncia'), array('denuncia_id'=>$id))) {
-                    $denuncia->estatus = 'A';
-                    $denuncia->save();
-                    Flash::valid('La denuncia Ha Sido Asiganda Exitosamente...!!!');
+                $denuncia_dt->getInformacionDetalleDenuncia($id);
+
+                
+                Flash::warning('joder..!!!'.Input::post('observacion_inspeccion'));
+
+               
+            /*    if($denuncia_dt->guardar(Input::post('detalle_denuncia'), array('denuncia_id'=>$id))) {
+                        $denuncia->estatus = 'I';
+                        $denuncia->save();
+                    Flash::valid('Se han cargado la inspección Exitosamente..!!!');
                     if (!Input::isAjax()) {
                         return Router::redirect();
                     }
                 } else {
                     Flash::warning('No se Pudieron Guardar los Datos...!!!');
-                }
+                }*/
             }
             $this->denuncia= $denuncia;
             $this->titulo = 'Observaciones obtenidas en la Inspección';
