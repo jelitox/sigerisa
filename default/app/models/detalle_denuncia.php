@@ -56,7 +56,15 @@ class DetalleDenuncia extends ActiveRecord {
      * @return array         
      */
     protected function before_save() {
-       $this->fecha_denuncia = date("Y-m-d");
+       $this->fecha_asignacion = date("Y-m-d");
+       $fecha_ins= new DateTime($this->fecha_inspeccion);
+       $this->fecha_inspeccion = $fecha_ins->format('Y-m-d');
+
+    }
+
+    public function getInformacionDenunciaDetalle($id){
+        $cols = "detalle_denuncia.* ";
+        return $this->find_first("conditions: denuncia.id = $id AND detalle_denuncia=1","columns: $cols");
     }
 
     public function obtener_recursos_por_rol($id_rol) {

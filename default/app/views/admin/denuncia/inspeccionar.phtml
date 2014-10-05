@@ -2,20 +2,40 @@
     <h1><?php eh($titulo) ?></h1>
 </div>
 <div class="row">
-    <div class="span8" >
+    <div class="span12" >
         <div id="res-form-ajax"><?php View::content() ?></div>
         <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
         <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
         <?php $persona_id = Auth::get('persona_id');
         echo Form::hidden('denuncia.id');?>
+        
+        <div class="control-group">
+            <table class="table table-bordered table-hover table-striped table-condensed ">
+                <thead>
+                    <tr>
+                        <th class="no-responsive" style="width: 200px" >NOMBRES INSPECTOR</th>
+                        <th class="col-collapse" data-search="nombre">FECHA DENUNCIA</th>
+                        <th class="col-collapse" data-search="apellido">FECHA ASIGNADA A INSPECCION</th>
+                        <th class="col-collapse" data-search="apellido">TURNO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td><?php echo $denuncia->nombre1." ".$denuncia->apellido1; ?></td>
+                    <td><?php echo $denuncia->fecha_denuncia; ?></td>
+                    <td><?php echo $denuncia->fecha_asignacion; ?></td>
+                    <td><?php if($denuncia->turno=="T"){echo "Tarde";}elseif($denuncia->turno=="M"){echo "Mañana";}elseif($denuncia->turno=="D"){echo "Todo el Dia";}  ?></td>
+                </tbody>
+            
+            </table>
+        </div>
         <div class="row control-group">
             <label class="control-label" for="denuncia_observacion">Observaciones: </label>
-            <?php echo Form::textarea('detalle_denuncia.observacion_inspeccion', 'class="span4"') ?>
+            <?php echo Form::textarea('observacion_inspeccion', 'class="span4"') ?>
         </div>
 
         <div class="form-actions">
             <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
-            <?php echo Html::linkAction('listado', 'Cancelar', 'class="btn"') ?>
+            <?php echo Html::linkAction('asignadas', 'Cancelar', 'class="btn"') ?>
             </div>
         <?php echo Form::close() ?>
     </div>
