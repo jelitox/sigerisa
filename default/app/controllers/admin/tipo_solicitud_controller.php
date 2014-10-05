@@ -23,6 +23,7 @@
  * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
  */
 Load::models('tipo_solicitud');
+Load::models('tiposolicitud_caracteristica');
 
 class TipoSolicitudController extends AdminController {
 
@@ -127,4 +128,28 @@ class TipoSolicitudController extends AdminController {
         return Router::redirect();
     }
 
+  public function asignar($id){
+            $id = (int) $id;
+            $tipo_solicitud = new Tipo_solicitud();
+            $tipo_solicitud->getInformacionTiposolicitud($id);
+            /*if (Input::hasPost('detalle_denuncia')) {
+                $denuncia_dt = new DetalleDenuncia();
+                if($denuncia_dt->guardar(Input::post('detalle_denuncia'), array('denuncia_id'=>$id))) {
+                    $denuncia->estatus = 'A';
+                    $denuncia->save();
+                    Flash::valid('La denuncia Ha Sido Asiganda Exitosamente...!!!');
+                    if (!Input::isAjax()) {
+                        return Router::redirect();
+                    }
+                } else {
+                    Flash::warning('No se Pudieron Guardar los Datos...!!!');
+                }
+            }
+            $this->denuncia= $denuncia;
+            */
+            $this->titulo = 'Asiganción de Personal a la Denuncia';
+
+    }
+
 }
+

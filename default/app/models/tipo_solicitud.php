@@ -22,17 +22,21 @@
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
  * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
  */
-class Tipo_solicitud extends ActiveRecord {
+class TipoSolicitud extends ActiveRecord {
 
 //    public $debug = true;
 
     protected function initialize() {
         //validaciones
-        $this->validates_presence_of('nombre', 'message: Debe escribir un <b>Nombre</b>');
-        $this->validates_presence_of('observacion', 'message: Debe escribir una <b>Descripción del Cargo</b>');
-        $this->validates_uniqueness_of('nombre', 'message: Este Cargo <b>ya existe</b> en el sistema');
+        //$this->validates_presence_of('nombre', 'message: Debe escribir un <b>Nombre</b>');
+        //$this->validates_presence_of('observacion', 'message: Debe escribir una <b>Descripción del Cargo</b>');
+        //$this->validates_uniqueness_of('nombre', 'message: Este Cargo <b>ya existe</b> en el sistema');
     }
-
+    public function getInformacionTiposolicitud($id){
+        $cols = "P.*, denuncia.* ";
+        $joins = ' INNER JOIN persona as P ON P.id = denuncia.persona_id ';
+        return $this->find_first("conditions: denuncia.id = $id","columns: $cols", "join: $joins");
+    }
     /**
      * Obtiene los recursos a los que un rol tiene acceso.
      * 

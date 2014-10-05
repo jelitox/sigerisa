@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-10-2014 a las 15:51:04
+-- Tiempo de generación: 05-10-2014 a las 16:05:16
 -- Versión del servidor: 5.5.37
 -- Versión de PHP: 5.3.10-1ubuntu3.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=145 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=156 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -185,7 +185,18 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (141, 3, '2014-10-04 15:05:17', 'UPDATE caracteristica SET nombre = ''Sala de Masajes'',tipo_valor = ''2'' WHERE  id = ''5''', 'CARACTERISTICA', '127.0.0.1'),
 (142, 3, '2014-10-04 15:05:29', 'UPDATE caracteristica SET nombre = ''Sala de Masajes'',tipo_valor = ''2'' WHERE  id = ''5''', 'CARACTERISTICA', '127.0.0.1'),
 (143, 3, '2014-10-04 15:05:49', 'UPDATE caracteristica SET nombre = ''Sala de Masajes'',tipo_valor = ''1'' WHERE  id = ''5''', 'CARACTERISTICA', '127.0.0.1'),
-(144, 3, '2014-10-04 15:11:27', 'UPDATE caracteristica SET nombre = ''Gimnasio'',tipo_valor = ''2'' WHERE  id = ''4''', 'CARACTERISTICA', '127.0.0.1');
+(144, 3, '2014-10-04 15:11:27', 'UPDATE caracteristica SET nombre = ''Gimnasio'',tipo_valor = ''2'' WHERE  id = ''4''', 'CARACTERISTICA', '127.0.0.1'),
+(145, 3, '2014-10-04 17:43:36', 'DELETE FROM roles_recursos WHERE id IN (''1724'',''1725'',''1726'',''1727'',''1728'',''1729'',''1730'',''1731'',''1732'',''1733'',''1734'',''1735'',''1736'',''1737'',''1738'',''1739'',''1740'',''1741'',''1742'',''1743'',''1744'',''1745'',''1746'',''1747'',''1748'',''1749'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(146, 3, '2014-10-04 17:57:26', 'UPDATE recursos SET modulo = ''admin'',controlador = ''tiposolicitud_caracteristica'',accion = NULL,recurso = ''admin/tiposolicitud_caracteristica/*'',descripcion = ''modulo para asignacion de caracteristicas a los tipos de solicitudes'',activo = ''1'' WHERE  id = ''65''', 'RECURSOS', '127.0.0.1'),
+(147, 3, '2014-10-04 18:19:47', 'UPDATE caracteristica SET nombre = ''Gimnasio'',tipo_valor = ''1'' WHERE  id = ''4''', 'CARACTERISTICA', '127.0.0.1'),
+(148, 3, '2014-10-04 18:25:50', 'DELETE FROM roles_recursos WHERE id IN (''1799'',''1800'',''1801'',''1802'',''1803'',''1804'',''1805'',''1806'',''1807'',''1808'',''1809'',''1810'',''1811'',''1812'',''1813'',''1814'',''1815'',''1816'',''1817'',''1818'',''1819'',''1820'',''1821'',''1822'',''1823'',''1824'',''1825'',''1826'',''1827'',''1828'',''1829'',''1830'',''1831'',''1832'',''1833'',''1834'',''1835'',''1836'',''1837'',''1838'',''1839'',''1840'',''1841'',''1842'',''1843'',''1844'',''1845'',''1846'',''1847'',''1848'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(149, 3, '2014-10-04 18:25:57', 'DELETE FROM roles_recursos WHERE id IN (''1876'',''1877'',''1878'',''1879'',''1880'',''1881'',''1882'',''1883'',''1884'',''1885'',''1886'',''1887'',''1888'',''1889'',''1890'',''1891'',''1892'',''1893'',''1894'',''1895'',''1896'',''1897'',''1898'',''1899'',''1900'',''1901'',''1902'',''1903'',''1904'',''1905'',''1906'',''1907'',''1908'',''1909'',''1910'',''1911'',''1912'',''1913'',''1914'',''1915'',''1916'',''1917'',''1918'',''1919'',''1920'',''1921'',''1922'',''1923'',''1924'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(150, 3, '2014-10-04 18:26:02', 'DELETE FROM roles_recursos WHERE id IN (''1925'',''1926'',''1927'',''1928'',''1929'',''1930'',''1931'',''1932'',''1933'',''1934'',''1935'',''1936'',''1937'',''1938'',''1939'',''1940'',''1941'',''1942'',''1943'',''1944'',''1945'',''1946'',''1947'',''1948'',''1949'',''1950'',''1951'',''1952'',''1953'',''1954'',''1955'',''1956'',''1957'',''1958'',''1959'',''1960'',''1961'',''1962'',''1963'',''1964'',''1965'',''1966'',''1967'',''1968'',''1969'',''1970'',''1971'',''1972'',''1973'',''1974'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(151, 3, '2014-10-04 18:26:12', 'DELETE FROM roles_recursos WHERE id IN (''1975'',''1976'',''1977'',''1978'',''1979'',''1980'',''1981'',''1982'',''1983'',''1984'',''1985'',''1986'',''1987'',''1988'',''1989'',''1990'',''1991'',''1992'',''1993'',''1994'',''1995'',''1996'',''1997'',''1998'',''1999'',''2000'',''2001'',''2002'',''2003'',''2004'',''2005'',''2006'',''2007'',''2008'',''2009'',''2010'',''2011'',''2012'',''2013'',''2014'',''2015'',''2016'',''2017'',''2018'',''2019'',''2020'',''2021'',''2022'',''2023'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(152, 3, '2014-10-04 18:29:01', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''1'',''2'',''3'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
+(153, 3, '2014-10-04 18:31:15', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''4'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
+(154, 3, '2014-10-04 18:31:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''5'',''6'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
+(155, 3, '2014-10-04 18:35:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''7'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -198,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `caracteristica` (
   `nombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `tipo_valor` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `caracteristica`
@@ -208,9 +219,12 @@ INSERT INTO `caracteristica` (`id`, `nombre`, `tipo_valor`) VALUES
 (1, 'Barberia', 1),
 (2, 'Salon de Bellleza', 1),
 (3, 'Peluqueria', 1),
-(4, 'Gimnasio', 2),
+(4, 'Gimnasio', 1),
 (5, 'Sala de Masajes', 1),
-(6, 'Spas', 1);
+(6, 'Spas', 1),
+(7, 'Manicura/Pedicura', 1),
+(8, 'Afines y Similares / Casas Naturistas', 1),
+(9, 'Denominado', 2);
 
 -- --------------------------------------------------------
 
@@ -535,7 +549,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -597,7 +611,8 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (61, 'admin', 'caracteristica', 'index', 'admin/caracteristica/index', 'listado de caracteristicas', 1),
 (62, 'admin', 'caracteristica', 'crear', 'admin/caracteristica/crear', 'formulario de registro de formulario ', 1),
 (63, 'admin', 'caracteristica', 'eliminar', 'admin/caracteristica/eliminar', 'vista para eliminar caracteristicas', 1),
-(64, 'admin', 'denuncia', 'inspeccionar', 'admin/denuncia/inspeccionar', 'vista para procesar inspeccion de la denuncia', 1);
+(64, 'admin', 'denuncia', 'inspeccionar', 'admin/denuncia/inspeccionar', 'vista para procesar inspeccion de la denuncia', 1),
+(65, 'admin', 'tiposolicitud_caracteristica', NULL, 'admin/tiposolicitud_caracteristica/*', 'modulo para asignacion de caracteristicas a los tipos de solicitudes', 1);
 
 -- --------------------------------------------------------
 
@@ -636,89 +651,90 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1849 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2074 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
 --
 
 INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
-(1724, 2, 5),
-(1725, 4, 5),
-(1726, 2, 3),
-(1727, 4, 3),
-(1728, 2, 2),
-(1729, 4, 2),
-(1730, 4, 49),
-(1731, 4, 50),
-(1732, 4, 51),
-(1733, 2, 45),
-(1734, 4, 45),
-(1735, 4, 56),
-(1736, 4, 58),
-(1737, 4, 59),
-(1738, 4, 57),
-(1739, 2, 1),
-(1740, 4, 1),
-(1741, 2, 17),
-(1742, 4, 17),
-(1743, 2, 14),
-(1744, 4, 14),
-(1745, 4, 29),
-(1746, 2, 11),
-(1747, 4, 11),
-(1748, 2, 23),
-(1749, 4, 23),
-(1799, 2, 18),
-(1800, 4, 18),
-(1801, 4, 60),
-(1802, 4, 62),
-(1803, 4, 63),
-(1804, 4, 61),
-(1805, 2, 32),
-(1806, 4, 32),
-(1807, 2, 35),
-(1808, 4, 35),
-(1809, 2, 36),
-(1810, 4, 36),
-(1811, 2, 34),
-(1812, 4, 34),
-(1813, 4, 55),
-(1814, 4, 53),
-(1815, 1, 48),
-(1816, 4, 48),
-(1817, 1, 46),
-(1818, 2, 46),
-(1819, 4, 46),
-(1820, 4, 64),
-(1821, 4, 52),
-(1822, 4, 54),
-(1823, 2, 31),
-(1824, 4, 31),
-(1825, 1, 15),
-(1826, 2, 15),
-(1827, 4, 15),
-(1828, 2, 4),
-(1829, 4, 4),
-(1830, 2, 41),
-(1831, 4, 41),
-(1832, 4, 20),
-(1833, 2, 40),
-(1834, 4, 40),
-(1835, 4, 33),
-(1836, 2, 38),
-(1837, 4, 38),
-(1838, 4, 39),
-(1839, 2, 37),
-(1840, 4, 37),
-(1841, 2, 43),
-(1842, 4, 43),
-(1843, 2, 44),
-(1844, 4, 44),
-(1845, 2, 42),
-(1846, 4, 42),
-(1847, 2, 47),
-(1848, 4, 47);
+(1849, 2, 5),
+(1850, 4, 5),
+(1851, 2, 3),
+(1852, 4, 3),
+(1853, 2, 2),
+(1854, 4, 2),
+(1855, 4, 49),
+(1856, 4, 50),
+(1857, 4, 51),
+(1858, 2, 45),
+(1859, 4, 45),
+(1860, 4, 65),
+(1861, 4, 56),
+(1862, 4, 58),
+(1863, 4, 59),
+(1864, 4, 57),
+(1865, 2, 1),
+(1866, 4, 1),
+(1867, 2, 17),
+(1868, 4, 17),
+(1869, 2, 14),
+(1870, 4, 14),
+(1871, 4, 29),
+(1872, 2, 11),
+(1873, 4, 11),
+(1874, 2, 23),
+(1875, 4, 23),
+(2024, 2, 18),
+(2025, 4, 18),
+(2026, 4, 60),
+(2027, 4, 62),
+(2028, 4, 63),
+(2029, 4, 61),
+(2030, 2, 32),
+(2031, 4, 32),
+(2032, 2, 35),
+(2033, 4, 35),
+(2034, 2, 36),
+(2035, 4, 36),
+(2036, 2, 34),
+(2037, 4, 34),
+(2038, 4, 55),
+(2039, 4, 53),
+(2040, 1, 48),
+(2041, 4, 48),
+(2042, 1, 46),
+(2043, 2, 46),
+(2044, 4, 46),
+(2045, 4, 64),
+(2046, 4, 52),
+(2047, 4, 54),
+(2048, 2, 31),
+(2049, 4, 31),
+(2050, 1, 15),
+(2051, 2, 15),
+(2052, 4, 15),
+(2053, 2, 4),
+(2054, 4, 4),
+(2055, 2, 41),
+(2056, 4, 41),
+(2057, 4, 20),
+(2058, 2, 40),
+(2059, 4, 40),
+(2060, 4, 33),
+(2061, 2, 38),
+(2062, 4, 38),
+(2063, 4, 39),
+(2064, 2, 37),
+(2065, 4, 37),
+(2066, 2, 43),
+(2067, 4, 43),
+(2068, 2, 44),
+(2069, 4, 44),
+(2070, 2, 42),
+(2071, 4, 42),
+(2072, 2, 47),
+(2073, 4, 47);
 
 -- --------------------------------------------------------
 
@@ -782,13 +798,28 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
 
 CREATE TABLE IF NOT EXISTS `tiposolicitud_caracteristica` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `nombre` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `tipo_solicitud_id` int(11) NOT NULL,
   `caracteristica_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_categoria_solicitud_tipo_solicitud1_idx` (`tipo_solicitud_id`),
   KEY `fk_tiposolicitud_caracteristica_caracteristica` (`caracteristica_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=17 ;
+
+--
+-- Volcado de datos para la tabla `tiposolicitud_caracteristica`
+--
+
+INSERT INTO `tiposolicitud_caracteristica` (`id`, `nombre`, `tipo_solicitud_id`, `caracteristica_id`) VALUES
+(8, NULL, 1, 1),
+(9, NULL, 1, 2),
+(10, NULL, 1, 3),
+(11, NULL, 1, 4),
+(12, NULL, 1, 5),
+(13, NULL, 1, 6),
+(14, NULL, 1, 7),
+(15, NULL, 1, 8),
+(16, NULL, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -801,7 +832,14 @@ CREATE TABLE IF NOT EXISTS `tipo_solicitud` (
   `nombre` varchar(45) NOT NULL,
   `observacion` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `tipo_solicitud`
+--
+
+INSERT INTO `tipo_solicitud` (`id`, `nombre`, `observacion`) VALUES
+(1, 'ESTETICA HUMANA', 'SOLICITUD DE CONFORMIDAD SANITARIA PARA ESTABLECIMIENTOS DE SALUD DE ESTÉTICA HUMANA');
 
 -- --------------------------------------------------------
 
