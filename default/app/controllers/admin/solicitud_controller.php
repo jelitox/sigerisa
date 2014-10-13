@@ -72,7 +72,7 @@ class SolicitudController extends AdminController {
        View::response('view'); 
        $tiposolicitud_id=Input::post('tiposolicitud_id');
        $tiposolicitud_caracteristica = new TiposolicitudCaracteristica(); 
-       $this->tiposolicitud_caracteristicas = $tiposolicitud_caracteristica->obtener_tiposolicitud_caracteristicas($tiposolicitud_id);
+       $this->tiposolicitud_caracteristicas = $tiposolicitud_caracteristica->obtener_tiposolicitud_caracteristica($tiposolicitud_id);
        //var_dump($this->tiposolicitud_caracteristicas);
        foreach($this->tiposolicitud_caracteristicas as $this->dis) {
                  //echo Form::radio('solicitud.caracteristica', $dis->tipo_valor); 
