@@ -11,28 +11,114 @@
         <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
         <?php $persona_id = Auth::get('persona_id');
         echo Form::hidden('solicitud.id');
-        echo Form::hidden('solicitud.tiposolicitud_id','','1');        
-        echo Form::hidden('solicitud.persona_id', '', $persona_id);?>        
-        <?php echo Form::hidden('solicitud.id') ?>
+        echo Form::hidden('solicitud.tipo_solicitud_id','','1');        
+        echo Form::hidden('solicitud.persona_id', '', $persona_id);?>  
+		     <div class="control-group">
+            <label class="control-label" for="solicitud_parroquia_id">Parroquia: : </label>
+            <div class="controls">
+                <?php echo Form::dbSelect('solicitud.parroquia_id', 'nombre', array('parroquia', 'find'), 'Ninguno') ?>
+            </div>
+        </div> 
+    <div class="control-group">
+	  <label class="control-label" for="solicitud_direccion">Dirección : </label>
+            <div class="controls">
+                <?php echo Form::textarea('solicitud.direccion' ) ?>
+            </div>
+      </div>         
+    <div class="control-group">
+	  <label class="control-label" for="solicitud_propietario">Propietario : </label>
+            <div class="controls">
+                <?php echo Form::text('solicitud.propietario' ) ?>
+            </div>
+      </div> 
+    <div class="control-group">
+	  <label class="control-label" for="solicitud_telefono">Telefono : </label>
+            <div class="controls">
+                <?php echo Form::text('solicitud.telefono' ) ?>
+            </div>
+      </div> 
+    
                 <div class="control-group">
             <label class="control-label" for="solicitud_tiposolicitud_id">Tipo de Solicitud : </label>
             <div class="controls">
-       <?php  foreach($tiposolicitud_caracteristicas as $dis) {
-                 echo Form::radio('solicitud.caracteristica', $dis[0]->tipo_valor);                  
-        }      
+       <?php  //var_dump($tiposolicitud_caracteristicas); foreach($tiposolicitud_caracteristicas as $dis) {?>
+                 <label class="control-label" for="solicitud_tiposolicitud_id"><?php //echo $valor_tipo.' '.$dis[1].' '.$dis[2].' '.$dis[3] ?> : </label>
+  <?php
+             //echo Form::radio('solicitud.caracteristica', $dis[1]);                         
+             //     }      
 ?>
             </div>
         </div>
-        <div id='div_estado'> </div>
 
-        <div class="row control-group">
-            <label class="control-label" for="solicitud_nombre">Nombre * : </label>
-            <?php echo Form::text('solicitud.nombre', 'class="span4"') ?>
+
+     <div id="page-wrap">
+     <div id="header">FACTURA </div>
+        <div id="customer">
+            <table id="meta">
+            <div class="row-fluid">
+              <div class="span3">
+                <?php echo DwForm::text('factura.nro_factura', array('class'=>'input-medium input-required mask-num'), NULL, 'Nro Factura'); ?>
+              </div>
+              <div class="span3"> 
+                <?php echo DwForm::text('factura.nro_control', array('class'=>'input-medium input-required mask-num '), NULL, 'Nro Control'); ?>
+              </div>
+              <div class="span3"> 
+                <?php echo DwForm::date('factura.fecha_factura', array('class'=>'input-medium input-required'), NULL, 'Fecha Factura'); ?>
+              </div>
+            </div>
+            </table>
         </div>
-        <div class="row control-group">
-            <label class="control-label" for="solicitud_observacion">Observación * : </label>
-            <?php echo Form::textarea('solicitud.observacion', 'class="span4"') ?>
+        
+        <table id="items" >
+          <tr>
+              <th>Descripcion</th>
+              <th>Cantidad</th>
+              <th>Costo Unitario</th>
+              <th>Exento</th>
+              <th colspan="2">Total Articulo</th>
+
+          </tr>
+          <tr class="item-row">
+              <td class="description"><div class="delete-wpr"> <input type="text" name="descripcion[]" class="input-xlarge"><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+              <td><input type="text" name="cantidad[]" class="qty input-small mask-num"></td>
+              <td><input type="text" name="monto[]" class="cost input-small mask-num"></td>
+              <td><input type="checkbox" name="exento[]"></td>
+              <td><span class="price"></span></td>
+          </tr>
+          <tr id="hiderow">
+            <td colspan="6"><a id="addrow" href="javascript:;" title="Add a row">Agregar Articulo</a></td>
+          </tr>
+          <tr>
+              <td colspan="2" class="blank"> </td>
+              <td colspan="1" class="blank"> </td>
+              <td colspan="2" class="total-line">Subtotal</td>
+              <td class="total-value"><div id="subtotal"></div></td>
+          </tr>
+          <tr>
+              <td colspan="2" class="blank"> </td>
+              <td colspan="1" class="blank"> </td>
+              <td colspan="2" class="total-line">Total</td>
+              <td class="total-value"> <?php echo DwForm::text('factura.monto', array('class'=>'input-small input-required readonly'), NULL, NULL); ?>  </td>
+          </tr>
+          <tr>
+              <td colspan="2" class="blank"> </td>
+              <td colspan="1" class="blank"> </td>
+
+          </tr>
+        </table>
+    </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <?php echo DwForm::textarea('factura.observacion', array('class'=>'input-xxlarge  mask-alphanum'), NULL, 'Observaciones'); ?>
         </div>
+        <div class="span6"> 
+        <span>Cargar Multiples Facturas</span> <input type="checkbox" name="multifactura"></div>
+      </div>
+
+
+    </div>
+
+
             <div class="form-actions">
             <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
             <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
