@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-10-2014 a las 16:05:16
+-- Tiempo de generación: 13-10-2014 a las 09:55:42
 -- Versión del servidor: 5.5.37
 -- Versión de PHP: 5.3.10-1ubuntu3.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=156 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -196,7 +196,8 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (152, 3, '2014-10-04 18:29:01', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''1'',''2'',''3'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
 (153, 3, '2014-10-04 18:31:15', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''4'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
 (154, 3, '2014-10-04 18:31:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''5'',''6'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
-(155, 3, '2014-10-04 18:35:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''7'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1');
+(155, 3, '2014-10-04 18:35:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''7'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
+(156, 3, '2014-10-12 22:42:26', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''8'',''9'',''10'',''11'',''12'',''13'',''14'',''15'',''16'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -209,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `caracteristica` (
   `nombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `tipo_valor` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `caracteristica`
@@ -224,7 +225,10 @@ INSERT INTO `caracteristica` (`id`, `nombre`, `tipo_valor`) VALUES
 (6, 'Spas', 1),
 (7, 'Manicura/Pedicura', 1),
 (8, 'Afines y Similares / Casas Naturistas', 1),
-(9, 'Denominado', 2);
+(9, 'Denominado', 2),
+(10, 'Vivienda', 1),
+(11, 'Comercio', 1),
+(12, 'Industria', 1);
 
 -- --------------------------------------------------------
 
@@ -384,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`),
   KEY `menus_id` (`menus_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -417,7 +421,8 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 (40, 36, 52, 'Asignaciones', 'admin/denuncia/listado', 100, NULL, 2, 1),
 (41, 36, 55, 'Inspecciones', 'admin/denuncia/asignadas', 100, NULL, 2, 1),
 (42, 23, 61, 'Caracteristica', 'admin/caracteristica/index', 20, NULL, 2, 1),
-(43, 23, 57, 'Tipo de Solicitudes', 'admin/tipo_solicitud/index', 21, NULL, 2, 1);
+(43, 23, 57, 'Tipo de Solicitudes', 'admin/tipo_solicitud/index', 21, NULL, 2, 1),
+(44, 23, 65, 'Config. Tipo Solicitud', 'admin/tiposolicitud_caracteristica', 300, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -804,22 +809,25 @@ CREATE TABLE IF NOT EXISTS `tiposolicitud_caracteristica` (
   PRIMARY KEY (`id`),
   KEY `fk_categoria_solicitud_tipo_solicitud1_idx` (`tipo_solicitud_id`),
   KEY `fk_tiposolicitud_caracteristica_caracteristica` (`caracteristica_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=29 ;
 
 --
 -- Volcado de datos para la tabla `tiposolicitud_caracteristica`
 --
 
 INSERT INTO `tiposolicitud_caracteristica` (`id`, `nombre`, `tipo_solicitud_id`, `caracteristica_id`) VALUES
-(8, NULL, 1, 1),
-(9, NULL, 1, 2),
-(10, NULL, 1, 3),
-(11, NULL, 1, 4),
-(12, NULL, 1, 5),
-(13, NULL, 1, 6),
-(14, NULL, 1, 7),
-(15, NULL, 1, 8),
-(16, NULL, 1, 9);
+(17, NULL, 1, 1),
+(18, NULL, 1, 2),
+(19, NULL, 1, 3),
+(20, NULL, 1, 4),
+(21, NULL, 1, 5),
+(22, NULL, 1, 6),
+(23, NULL, 1, 7),
+(24, NULL, 1, 8),
+(25, NULL, 1, 9),
+(26, NULL, 2, 10),
+(27, NULL, 2, 11),
+(28, NULL, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -832,14 +840,15 @@ CREATE TABLE IF NOT EXISTS `tipo_solicitud` (
   `nombre` varchar(45) NOT NULL,
   `observacion` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `tipo_solicitud`
 --
 
 INSERT INTO `tipo_solicitud` (`id`, `nombre`, `observacion`) VALUES
-(1, 'ESTETICA HUMANA', 'SOLICITUD DE CONFORMIDAD SANITARIA PARA ESTABLECIMIENTOS DE SALUD DE ESTÉTICA HUMANA');
+(1, 'ESTETICA HUMANA', 'SOLICITUD DE CONFORMIDAD SANITARIA PARA ESTABLECIMIENTOS DE SALUD DE ESTÉTICA HUMANA'),
+(2, 'PERMISO DE EMPOTRAMIENTO', 'Solicitud para efectuar trabajos de empotramiento al colector cloacal público');
 
 -- --------------------------------------------------------
 
