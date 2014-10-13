@@ -39,7 +39,7 @@ class TipoSolicitudController extends AdminController {
 
     public function index($pagina = 1) {
         try {
-            $tipo_solicitudes = new Tipo_solicitud();
+            $tipo_solicitudes = new TipoSolicitud();
             $this->tipo_solicitudes = $tipo_solicitudes->paginate("page: $pagina");
         } catch (KumbiaException $e) {
             View::excepcion($e);
@@ -51,7 +51,7 @@ class TipoSolicitudController extends AdminController {
             $this->titulo = 'Crear Tipo_solicitud';
 
             if (Input::hasPost('tipo_solicitud')) {
-                $tipo_solicitud = new Tipo_solicitud(Input::post('tipo_solicitud'));
+                $tipo_solicitud = new TipoSolicitud(Input::post('tipo_solicitud'));
                 if ($tipo_solicitud->save()) {
                     Flash::valid('El Tipo_solicitud Ha Sido Agregado Exitosamente...!!!');
                     if (!Input::isAjax()) {
@@ -73,7 +73,7 @@ class TipoSolicitudController extends AdminController {
 
             View::select('crear');
 
-            $tipo_solicitud = new Tipo_solicitud();
+            $tipo_solicitud = new TipoSolicitud();
             $this->tipo_solicitud = $tipo_solicitud->find_first($id);
 
             if ($this->tipo_solicitud) {//validamos la existencia del recurso.
@@ -101,7 +101,7 @@ class TipoSolicitudController extends AdminController {
 
     public function eliminar($id = NULL) {
         try {
-            $rec = new Tipo_solicitud();
+            $rec = new TipoSolicitud();
 
             if (is_int($id)) {
 
@@ -130,7 +130,7 @@ class TipoSolicitudController extends AdminController {
 
   public function asignar($id){
             $id = (int) $id;
-            $tipo_solicitud = new Tipo_solicitud();
+            $tipo_solicitud = new TipoSolicitud();
             $tipo_solicitud->getInformacionTiposolicitud($id);
             /*if (Input::hasPost('detalle_denuncia')) {
                 $denuncia_dt = new DetalleDenuncia();

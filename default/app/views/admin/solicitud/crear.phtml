@@ -14,19 +14,13 @@
         echo Form::hidden('solicitud.persona_id', '', $persona_id);?>        
         <?php echo Form::hidden('solicitud.id') ?>
                 <div class="control-group">
-            <label class="control-label" for="solicitud_parroquia_id">Parroquia : </label>
+            <label class="control-label" for="solicitud_tiposolicitud_id">Tipo de Solicitud : </label>
             <div class="controls">
-                <?php echo Form::dbSelect('solicitud.parroquia_id', 'nombre', array('parroquia', 'find'), 'Ninguno') ?>
+                <?php echo Form::dbSelect('solicitud.tiposolicitud_id', 'nombre', array('tipo_solicitud', 'find'), 'Ninguno') ?>
             </div>
         </div>
-                <div class="row control-group">        
-                    <div class="span2">
-                        <?php echo Form::dbSelect('solicitud.tipo_solicitud_id', 'nombre', array('tipo_solicitud', 'find'), 'Ninguno') ?>
-                    </div>
-                    <div class="span2">
-                        <p> </p>
-                    </div>
-                </div>        
+        <div id='div_estado'> </div>
+
         <div class="row control-group">
             <label class="control-label" for="solicitud_nombre">Nombre * : </label>
             <?php echo Form::text('solicitud.nombre', 'class="span4"') ?>
@@ -42,3 +36,16 @@
         <?php echo Form::close() ?>
     </div>
 </div>
+<script type='text/javascript'>
+$("#solicitud_tiposolicitud_id").click(function(){
+    var tiposolicitud_id     =   $('#solicitud_tiposolicitud_id').val();
+        $.ajax({
+          type: "POST",
+          url: "<?php echo PUBLIC_PATH . 'admin/solicitud/getTiposolicitudCaracteristicas/'; ?>",
+          data: "tiposolicitud_id=" + tiposolicitud_id,
+          success: function(html){
+            $("#div_estado").html(html);
+          }
+        });
+});
+</script>

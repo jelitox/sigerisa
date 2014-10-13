@@ -39,14 +39,30 @@ class TiposolicitudCaracteristica extends ActiveRecord {
      * 
      * @return array 
      */
-    public function obtener_tiposolicitud_caracteristicas() {
+    public function obtener_tiposolicitud_caracteristicas($tiposolicitud_id) {
+        $columns = 'tiposolicitud_caracteristica.*, caracteristica.tipo_valor,caracteristica.nombre ';       
+        $join= 'INNER JOIN caracteristica  ON  tiposolicitud_caracteristica.caracteristica_id = caracteristica.id ';   
+         $condicion = "tipo_solicitud_id = $tiposolicitud_id"; 
+        $tiposolicitud_caracteristicas = array();
+        foreach ($this->find("columns: $columns", "join: $join", "conditions: $condicion") as $e) {
+            $tiposolicitud_caracteristicas["{$e->caracteristica_id}-{$e->tipo_solicitud_id}-{$e->tipo_valor}-{$e->nombre}"] = $e->id;
+        }
+        return $tiposolicitud_caracteristicas;
+    }
+
+    public function buscar($tiposolicitud_id){
+        return $this->find("tipo_solicitud_id = $tiposolicitud_id", 'order: id');
+    }    
+    public function getListadoTipoolicitudCaracteristica() {
+        return $this->find();
+    } 
+    public function obtener_tiposolicitudcaracteristicas() {
         $tiposolicitud_caracteristicas = array();
         foreach ($this->find() as $e) {
             $tiposolicitud_caracteristicas["{$e->caracteristica_id}-{$e->tipo_solicitud_id}"] = $e->id;
         }
         return $tiposolicitud_caracteristicas;
     }
-
     /**
      * Elimina todos los registros de la tabla.
      * 

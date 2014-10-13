@@ -22,7 +22,9 @@
  * @license http://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE version 3.
  * @author Manuel José Aguirre Garcia <programador.manuel@gmail.com>
  */
-Load::models('solicitud');
+Load::models('solicitud','tipo_solicitud','tiposolicitud_caracteristica');
+    
+
 
 class SolicitudController extends AdminController {
 
@@ -48,7 +50,9 @@ class SolicitudController extends AdminController {
     public function crear() {
         try {
             $this->titulo = 'Crear Solicitud';
-
+            $tiposolicitud = new TipoSolicitud(); 
+            $this->tiposolicitudes = $tiposolicitud->getListadoTipoSolicitud();
+            
             if (Input::hasPost('solicitud')) {
                 $solicitud = new Solicitud(Input::post('solicitud'));
                 if ($solicitud->save()) {
@@ -63,6 +67,17 @@ class SolicitudController extends AdminController {
         } catch (KumbiaException $e) {
             View::excepcion($e);
         }
+    }
+  public function getTiposolicitudCaracteristicas(){
+       View::response('view'); 
+       $tiposolicitud_id=Input::post('tiposolicitud_id');
+       $tiposolicitud_caracteristica = new TiposolicitudCaracteristica(); 
+       $this->tiposolicitud_caracteristicas = $tiposolicitud_caracteristica->obtener_tiposolicitud_caracteristicas($tiposolicitud_id);
+       //var_dump($this->tiposolicitud_caracteristicas);
+       foreach($this->tiposolicitud_caracteristicas as $this->dis) {
+                 //echo Form::radio('solicitud.caracteristica', $dis->tipo_valor); 
+                //echo $this->dis{0}; 
+        }      
     }
 
     public function editar($id) {

@@ -32,6 +32,16 @@ class TipoSolicitud extends ActiveRecord {
         //$this->validates_presence_of('observacion', 'message: Debe escribir una <b>Descripción del Cargo</b>');
         //$this->validates_uniqueness_of('nombre', 'message: Este Cargo <b>ya existe</b> en el sistema');
     }
+    public function getListadoTipoSolicitud() {
+        return $this->find('order: nombre ASC');
+    }    
+    public function obtener_tiposolicitud($id) {
+        $columnas = 'tipo_solicitud.*';
+        $join = '';
+        $condicion ="tipo_solicitud.id = '$id'";
+        return $this->find_first("columns: $columnas", "join: $join", "conditions: $condicion");
+    }
+        
     public function getInformacionTiposolicitud($id){
         $cols = "P.*, denuncia.* ";
         $joins = ' INNER JOIN persona as P ON P.id = denuncia.persona_id ';
