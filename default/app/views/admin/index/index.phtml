@@ -1,3 +1,6 @@
+<?php  echo var_dump($_SESSION); ?> 
+    <?php if(Session::get('id')==3) { ?>
+
 <div class="main">
 
     <div class="container">
@@ -200,3 +203,6 @@
     </div>
     
 </div>
+    <?php } else { ?>
+        <?php } ?>
+

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-10-2014 a las 09:55:42
+-- Tiempo de generación: 14-10-2014 a las 16:23:36
 -- Versión del servidor: 5.5.37
 -- Versión de PHP: 5.3.10-1ubuntu3.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `auditorias` (
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`,`fecha_at`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=167 ;
 
 --
 -- Volcado de datos para la tabla `auditorias`
@@ -197,7 +197,17 @@ INSERT INTO `auditorias` (`id`, `usuarios_id`, `fecha_at`, `accion_realizada`, `
 (153, 3, '2014-10-04 18:31:15', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''4'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
 (154, 3, '2014-10-04 18:31:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''5'',''6'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
 (155, 3, '2014-10-04 18:35:25', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''7'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
-(156, 3, '2014-10-12 22:42:26', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''8'',''9'',''10'',''11'',''12'',''13'',''14'',''15'',''16'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1');
+(156, 3, '2014-10-12 22:42:26', 'DELETE FROM tiposolicitud_caracteristica WHERE id IN (''8'',''9'',''10'',''11'',''12'',''13'',''14'',''15'',''16'')', 'TIPOSOLICITUD_CARACTERISTICA', '127.0.0.1'),
+(157, 3, '2014-10-13 16:16:45', 'DELETE FROM roles_recursos WHERE id IN (''1849'',''1850'',''1851'',''1852'',''1853'',''1854'',''1855'',''1856'',''1857'',''1858'',''1859'',''1860'',''1861'',''1862'',''1863'',''1864'',''1865'',''1866'',''1867'',''1868'',''1869'',''1870'',''1871'',''1872'',''1873'',''1874'',''1875'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(158, 3, '2014-10-13 16:17:05', 'UPDATE menus SET menus_id = ''35'',recursos_id = ''66'',nombre = ''Estetica Humana'',url = ''admin/solicitud/estetica_humana'',posicion = ''1'',clases = NULL,visible_en = ''2'',activo = ''1'' WHERE  id = ''45''', 'MENUS', '127.0.0.1'),
+(159, 3, '2014-10-13 16:18:52', 'DELETE FROM roles_recursos WHERE id IN (''2074'',''2075'',''2076'',''2077'',''2078'',''2079'',''2080'',''2081'',''2082'',''2083'',''2084'',''2085'',''2086'',''2087'',''2088'',''2089'',''2090'',''2091'',''2092'',''2093'',''2094'',''2095'',''2096'',''2097'',''2098'',''2099'',''2100'',''2101'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(160, 3, '2014-10-13 16:20:45', 'DELETE FROM roles_recursos WHERE id IN (''2102'',''2103'',''2104'',''2105'',''2106'',''2107'',''2108'',''2109'',''2110'',''2111'',''2112'',''2113'',''2114'',''2115'',''2116'',''2117'',''2118'',''2119'',''2120'',''2121'',''2122'',''2123'',''2124'',''2125'',''2126'',''2127'',''2128'',''2129'',''2130'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(161, 3, '2014-10-13 16:23:56', 'DELETE FROM roles_recursos WHERE id IN (''2131'',''2132'',''2133'',''2134'',''2135'',''2136'',''2137'',''2138'',''2139'',''2140'',''2141'',''2142'',''2143'',''2144'',''2145'',''2146'',''2147'',''2148'',''2149'',''2150'',''2151'',''2152'',''2153'',''2154'',''2155'',''2156'',''2157'',''2158'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(162, 3, '2014-10-13 16:26:51', 'DELETE FROM roles_recursos WHERE id IN (''2161'',''2162'',''2163'',''2164'',''2165'',''2166'',''2167'',''2168'',''2169'',''2170'',''2171'',''2172'',''2173'',''2174'',''2175'',''2176'',''2177'',''2178'',''2179'',''2180'',''2181'',''2182'',''2183'',''2184'',''2185'',''2186'',''2187'',''2188'',''2189'',''2190'')', 'ROLES_RECURSOS', '127.0.0.1'),
+(163, 3, '2014-10-14 15:53:08', 'UPDATE roles SET rol = ''Jefe de Servicio'',plantilla = NULL,activo = ''1'' WHERE  id = ''5''', 'ROLES', '127.0.0.1'),
+(164, 3, '2014-10-14 15:53:41', 'UPDATE roles SET rol = ''Funcionario'',plantilla = NULL,activo = ''1'' WHERE  id = ''5''', 'ROLES', '127.0.0.1'),
+(165, 3, '2014-10-14 15:54:14', 'UPDATE roles SET rol = ''Jefe de Servicio'',plantilla = NULL,activo = ''1'' WHERE  id = ''2''', 'ROLES', '127.0.0.1'),
+(166, 3, '2014-10-14 16:19:55', 'DELETE FROM roles_recursos WHERE id IN (''2024'',''2025'',''2026'',''2027'',''2028'',''2029'',''2030'',''2031'',''2032'',''2033'',''2034'',''2035'',''2036'',''2037'',''2038'',''2039'',''2040'',''2041'',''2042'',''2043'',''2044'',''2045'',''2046'',''2047'',''2048'',''2049'',''2050'',''2051'',''2052'',''2053'',''2054'',''2055'',''2056'',''2057'',''2058'',''2059'',''2060'',''2061'',''2062'',''2063'',''2064'',''2065'',''2066'',''2067'',''2068'',''2069'',''2070'',''2071'',''2072'',''2073'')', 'ROLES_RECURSOS', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -388,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`),
   KEY `menus_id` (`menus_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -422,7 +432,13 @@ INSERT INTO `menus` (`id`, `menus_id`, `recursos_id`, `nombre`, `url`, `posicion
 (41, 36, 55, 'Inspecciones', 'admin/denuncia/asignadas', 100, NULL, 2, 1),
 (42, 23, 61, 'Caracteristica', 'admin/caracteristica/index', 20, NULL, 2, 1),
 (43, 23, 57, 'Tipo de Solicitudes', 'admin/tipo_solicitud/index', 21, NULL, 2, 1),
-(44, 23, 65, 'Config. Tipo Solicitud', 'admin/tiposolicitud_caracteristica', 300, NULL, 2, 1);
+(44, 23, 65, 'Config. Tipo Solicitud', 'admin/tiposolicitud_caracteristica', 300, NULL, 2, 1),
+(45, 35, 66, 'Estetica Humana', 'admin/solicitud/estetica_humana', 1, NULL, 2, 1),
+(46, 35, 67, 'Dotación de Agua', 'admin/solicitud/dotacion_agua', 2, NULL, 2, 1),
+(47, 35, 68, 'Revisión Urbanismos', 'admin/solicitud/revision_urbanismo', 3, NULL, 2, 1),
+(48, 35, 69, 'Perforación de Pozos Pofundos', 'admin/solicitud/perforacion_pozos', 4, NULL, 2, 1),
+(49, 35, 70, 'Legalización de Pozos Pofundos', 'admin/solicitud/legalizacion_pozos', 5, NULL, 2, 1),
+(50, 35, 71, 'Inspección de Inmuebles', 'admin/solicitud/inspeccion_inmueble', 6, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -554,7 +570,7 @@ CREATE TABLE IF NOT EXISTS `recursos` (
   `descripcion` text,
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
 -- Volcado de datos para la tabla `recursos`
@@ -617,7 +633,13 @@ INSERT INTO `recursos` (`id`, `modulo`, `controlador`, `accion`, `recurso`, `des
 (62, 'admin', 'caracteristica', 'crear', 'admin/caracteristica/crear', 'formulario de registro de formulario ', 1),
 (63, 'admin', 'caracteristica', 'eliminar', 'admin/caracteristica/eliminar', 'vista para eliminar caracteristicas', 1),
 (64, 'admin', 'denuncia', 'inspeccionar', 'admin/denuncia/inspeccionar', 'vista para procesar inspeccion de la denuncia', 1),
-(65, 'admin', 'tiposolicitud_caracteristica', NULL, 'admin/tiposolicitud_caracteristica/*', 'modulo para asignacion de caracteristicas a los tipos de solicitudes', 1);
+(65, 'admin', 'tiposolicitud_caracteristica', NULL, 'admin/tiposolicitud_caracteristica/*', 'modulo para asignacion de caracteristicas a los tipos de solicitudes', 1),
+(66, 'admin', 'solicitud', 'estetica_humana', 'admin/solicitud/estetica_humana', 'solicitud de estetica humana', 1),
+(67, 'admin', 'solicitud', 'dotacion_agua', 'admin/solicitud/dotacion_agua', 'formulario para el registro de solicitudes de dotaciones de agua', 1),
+(68, 'admin', 'solicitud', 'revision_urbanismo', 'admin/solicitud/revision_urbanismo', 'formulario revision urbanismo', 1),
+(69, 'admin', 'solicitud', 'perforacion_pozos', 'admin/solicitud/perforacion_pozos', 'formulario perforacion pozos', 1),
+(70, 'admin', 'solicitud', 'legalizacion_pozos', 'admin/solicitud/legalizacion_pozos', 'formulario legalizacion pozos', 1),
+(71, 'admin', 'solicitud', 'inspeccion_inmueble', 'admin/solicitud/inspeccion_inmueble', 'formulario inspeccion inmueble', 1);
 
 -- --------------------------------------------------------
 
@@ -632,7 +654,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `activo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `rol` (`rol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -640,8 +662,10 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `rol`, `plantilla`, `activo`) VALUES
 (1, 'usuario comun', NULL, 1),
-(2, 'usuario administrador', NULL, 1),
-(4, 'administrador del sistema', NULL, 1);
+(2, 'Jefe de Servicio', NULL, 1),
+(4, 'administrador del sistema', NULL, 1),
+(5, 'Funcionario', NULL, 1),
+(6, 'Asistente Administrativo', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -656,90 +680,95 @@ CREATE TABLE IF NOT EXISTS `roles_recursos` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `recursos_id` (`recursos_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2074 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2271 ;
 
 --
 -- Volcado de datos para la tabla `roles_recursos`
 --
 
 INSERT INTO `roles_recursos` (`id`, `roles_id`, `recursos_id`) VALUES
-(1849, 2, 5),
-(1850, 4, 5),
-(1851, 2, 3),
-(1852, 4, 3),
-(1853, 2, 2),
-(1854, 4, 2),
-(1855, 4, 49),
-(1856, 4, 50),
-(1857, 4, 51),
-(1858, 2, 45),
-(1859, 4, 45),
-(1860, 4, 65),
-(1861, 4, 56),
-(1862, 4, 58),
-(1863, 4, 59),
-(1864, 4, 57),
-(1865, 2, 1),
-(1866, 4, 1),
-(1867, 2, 17),
-(1868, 4, 17),
-(1869, 2, 14),
-(1870, 4, 14),
-(1871, 4, 29),
-(1872, 2, 11),
-(1873, 4, 11),
-(1874, 2, 23),
-(1875, 4, 23),
-(2024, 2, 18),
-(2025, 4, 18),
-(2026, 4, 60),
-(2027, 4, 62),
-(2028, 4, 63),
-(2029, 4, 61),
-(2030, 2, 32),
-(2031, 4, 32),
-(2032, 2, 35),
-(2033, 4, 35),
-(2034, 2, 36),
-(2035, 4, 36),
-(2036, 2, 34),
-(2037, 4, 34),
-(2038, 4, 55),
-(2039, 4, 53),
-(2040, 1, 48),
-(2041, 4, 48),
-(2042, 1, 46),
-(2043, 2, 46),
-(2044, 4, 46),
-(2045, 4, 64),
-(2046, 4, 52),
-(2047, 4, 54),
-(2048, 2, 31),
-(2049, 4, 31),
-(2050, 1, 15),
-(2051, 2, 15),
-(2052, 4, 15),
-(2053, 2, 4),
-(2054, 4, 4),
-(2055, 2, 41),
-(2056, 4, 41),
-(2057, 4, 20),
-(2058, 2, 40),
-(2059, 4, 40),
-(2060, 4, 33),
-(2061, 2, 38),
-(2062, 4, 38),
-(2063, 4, 39),
-(2064, 2, 37),
-(2065, 4, 37),
-(2066, 2, 43),
-(2067, 4, 43),
-(2068, 2, 44),
-(2069, 4, 44),
-(2070, 2, 42),
-(2071, 4, 42),
-(2072, 2, 47),
-(2073, 4, 47);
+(2159, 2, 23),
+(2160, 4, 23),
+(2191, 2, 5),
+(2192, 4, 5),
+(2193, 2, 3),
+(2194, 4, 3),
+(2195, 2, 2),
+(2196, 4, 2),
+(2197, 4, 49),
+(2198, 4, 50),
+(2199, 4, 67),
+(2200, 4, 51),
+(2201, 4, 66),
+(2202, 2, 45),
+(2203, 4, 45),
+(2204, 4, 71),
+(2205, 4, 70),
+(2206, 4, 69),
+(2207, 4, 68),
+(2208, 4, 65),
+(2209, 4, 56),
+(2210, 4, 58),
+(2211, 4, 59),
+(2212, 4, 57),
+(2213, 2, 1),
+(2214, 4, 1),
+(2215, 2, 17),
+(2216, 4, 17),
+(2217, 2, 14),
+(2218, 4, 14),
+(2219, 4, 29),
+(2220, 2, 11),
+(2221, 4, 11),
+(2222, 2, 18),
+(2223, 4, 18),
+(2224, 4, 60),
+(2225, 4, 62),
+(2226, 4, 63),
+(2227, 4, 61),
+(2228, 2, 32),
+(2229, 4, 32),
+(2230, 2, 35),
+(2231, 4, 35),
+(2232, 2, 36),
+(2233, 4, 36),
+(2234, 2, 34),
+(2235, 4, 34),
+(2236, 4, 55),
+(2237, 4, 53),
+(2238, 1, 48),
+(2239, 4, 48),
+(2240, 1, 46),
+(2241, 2, 46),
+(2242, 4, 46),
+(2243, 4, 64),
+(2244, 4, 52),
+(2245, 4, 54),
+(2246, 2, 31),
+(2247, 4, 31),
+(2248, 2, 15),
+(2249, 4, 15),
+(2250, 2, 4),
+(2251, 4, 4),
+(2252, 2, 41),
+(2253, 4, 41),
+(2254, 4, 20),
+(2255, 2, 40),
+(2256, 4, 40),
+(2257, 4, 33),
+(2258, 2, 38),
+(2259, 4, 38),
+(2260, 4, 39),
+(2261, 2, 37),
+(2262, 4, 37),
+(2263, 2, 43),
+(2264, 4, 43),
+(2265, 2, 44),
+(2266, 4, 44),
+(2267, 2, 42),
+(2268, 4, 42),
+(2269, 2, 47),
+(2270, 4, 47);
 
 -- --------------------------------------------------------
 
@@ -754,7 +783,7 @@ CREATE TABLE IF NOT EXISTS `roles_usuarios` (
   PRIMARY KEY (`id`),
   KEY `roles_id` (`roles_id`),
   KEY `usuarios_id` (`usuarios_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `roles_usuarios`
@@ -764,7 +793,8 @@ INSERT INTO `roles_usuarios` (`id`, `roles_id`, `usuarios_id`) VALUES
 (1, 1, 2),
 (2, 2, 3),
 (3, 4, 3),
-(4, 1, 4);
+(4, 1, 4),
+(5, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -862,13 +892,13 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `clave` varchar(40) NOT NULL,
   `email` varchar(100) NOT NULL,
   `activo` int(11) NOT NULL DEFAULT '1',
-  `persona_id` int(11) NOT NULL,
+  `persona_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`),
-  UNIQUE KEY `persona_id_UNIQUE` (`persona_id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `persona_id_UNIQUE` (`persona_id`),
   KEY `fk_usuarios_persona1` (`persona_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -877,7 +907,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`id`, `login`, `clave`, `email`, `activo`, `persona_id`) VALUES
 (2, 'usuario', 'baxuN8I44GotM', 'correo@correo.com', 1, 2),
 (3, 'admin', 'baxuN8I44GotM', 'correo1@correo.com', 1, 1),
-(4, 'MAI', 'baPeZ2ZnhwtCs', 'MAIRELISTORRES11@GMAIL.COM', 1, 7);
+(4, 'MAI', 'baPeZ2ZnhwtCs', 'MAIRELISTORRES11@GMAIL.COM', 1, 7),
+(5, 'edgar', 'baxuN8I44GotM', 'akashj@ajfkl.com', 1, NULL);
 
 --
 -- Restricciones para tablas volcadas
